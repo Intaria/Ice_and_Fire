@@ -581,28 +581,6 @@ public class GuiBestiary extends Screen {
                     drawItemStack(ms, new ItemStack(IafItemRegistry.ROTTEN_EGG.get()), 109, 18, 2.5F);
                 }
                 break;
-            case STYMPHALIANBIRD:
-                if (bookPages == 0) {
-                    ms.pushPose();
-                    ms.scale(1.5F, 1.5F, 1F);
-                    drawImage(ms, DRAWINGS_1, 34, 46, 114, 72, 59, 37, 512F);
-                    drawImage(ms, DRAWINGS_1, 155, 35, 114, 109, 67, 35, 512F);
-                    ms.popPose();
-                    drawItemStack(ms, new ItemStack(IafItemRegistry.STYMPHALIAN_BIRD_FEATHER.get()), 109, 60, 2.5F);
-                }
-                if (bookPages == 1) {
-                    ms.pushPose();
-                    ms.scale(1.5F, 1.5F, 1F);
-                    drawImage(ms, DRAWINGS_0, 18, 10, 389, 1, 50, 50, 512F);
-                    ms.popPose();
-
-                    drawItemStack(ms, new ItemStack(Items.FLINT), 40, 13, 1.35F);
-                    drawItemStack(ms, new ItemStack(Items.STICK), 40, 30, 1.35F);
-                    drawItemStack(ms, new ItemStack(IafItemRegistry.STYMPHALIAN_BIRD_FEATHER.get()), 40, 49, 1.35F);
-                    drawItemStack(ms, new ItemStack(IafItemRegistry.STYMPHALIAN_ARROW.get()), 60, 18, 2F);
-
-                }
-                break;
             case TROLL:
                 if (bookPages == 0) {
                     ms.pushPose();

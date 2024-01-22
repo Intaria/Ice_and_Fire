@@ -154,14 +154,6 @@ public final class IafSoundRegistry {
 
     public static final SoundEvent COCKATRICE_CRY = createSoundEvent("cockatrice_cry");
 
-    public static final SoundEvent STYMPHALIAN_BIRD_DIE = createSoundEvent("stymphalian_bird_die");
-
-    public static final SoundEvent STYMPHALIAN_BIRD_IDLE = createSoundEvent("stymphalian_bird_idle");
-
-    public static final SoundEvent STYMPHALIAN_BIRD_HURT = createSoundEvent("stymphalian_bird_hurt");
-
-    public static final SoundEvent STYMPHALIAN_BIRD_ATTACK = createSoundEvent("stymphalian_bird_attack");
-
     public static final SoundEvent MYRMEX_WALK = createSoundEvent("myrmex_walk");
 
     public static final SoundEvent AMPHITHERE_DIE = createSoundEvent("amphithere_die");

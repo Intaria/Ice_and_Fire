@@ -47,7 +47,6 @@ public class IafItemRegistry {
     public static CustomToolMaterial LIGHTNING_DRAGONBONE_TOOL_MATERIAL = new CustomToolMaterial("LightningDragonbone", 4, 2000, 5.5F, 10F, 22);
     public static CustomToolMaterial TROLL_WEAPON_TOOL_MATERIAL = new CustomToolMaterial("trollWeapon", 2, 300, 1F, 10F, 1);
     public static CustomToolMaterial HIPPOGRYPH_SWORD_TOOL_MATERIAL = new CustomToolMaterial("HippogryphSword", 2, 500, 2.5F, 10F, 10);
-    public static CustomToolMaterial STYMHALIAN_SWORD_TOOL_MATERIAL = new CustomToolMaterial("StymphalianSword", 2, 500, 2, 10.0F, 10);
     public static CustomToolMaterial AMPHITHERE_SWORD_TOOL_MATERIAL = new CustomToolMaterial("AmphithereSword", 2, 500, 1F, 10F, 10);
     public static CustomToolMaterial HIPPOCAMPUS_SWORD_TOOL_MATERIAL = new CustomToolMaterial("HippocampusSword", 0, 500, -2F, 0F, 50);
     public static CustomToolMaterial DREAD_SWORD_TOOL_MATERIAL = new CustomToolMaterial("DreadSword", 0, 100, 1F, 10F, 0);
@@ -204,10 +203,6 @@ public class IafItemRegistry {
     public static final RegistryObject<Item> ROTTEN_EGG = registerItem("rotten_egg", () -> new ItemRottenEgg());
     public static final RegistryObject<Item> COCKATRICE_EYE = registerItem("cockatrice_eye", () -> new ItemGeneric(1));
     public static final RegistryObject<Item> ITEM_COCKATRICE_SCEPTER = registerItem("cockatrice_scepter", () -> new ItemCockatriceScepter());
-    public static final RegistryObject<Item> STYMPHALIAN_BIRD_FEATHER = registerItem("stymphalian_bird_feather", ItemGeneric::new);
-    public static final RegistryObject<Item> STYMPHALIAN_ARROW = registerItem("stymphalian_arrow", () -> new ItemStymphalianArrow());
-    public static final RegistryObject<Item> STYMPHALIAN_FEATHER_BUNDLE = registerItem("stymphalian_feather_bundle", () -> new ItemStymphalianFeatherBundle());
-    public static final RegistryObject<Item> STYMPHALIAN_DAGGER = registerItem("stymphalian_bird_dagger", () -> new ItemStymphalianDagger());
     public static final RegistryObject<Item> TROLL_TUSK = registerItem("troll_tusk", ItemGeneric::new);
     public static final RegistryObject<Item> AMPHITHERE_FEATHER = registerItem("amphithere_feather", ItemGeneric::new);
     public static final RegistryObject<Item> AMPHITHERE_ARROW = registerItem("amphithere_arrow", () -> new ItemAmphithereArrow());
@@ -311,7 +306,6 @@ public class IafItemRegistry {
         registerItem("spawn_egg_siren", () -> new ForgeSpawnEggItem(IafEntityRegistry.SIREN, 0X8EE6CA, 0XF2DFC8, new Item.Properties().tab(IceAndFire.TAB_ITEMS)));
         registerItem("spawn_egg_hippocampus", () -> new ForgeSpawnEggItem(IafEntityRegistry.HIPPOCAMPUS, 0X4491C7, 0X4FC56B, new Item.Properties().tab(IceAndFire.TAB_ITEMS)));
         registerItem("spawn_egg_cockatrice", () -> new ForgeSpawnEggItem(IafEntityRegistry.COCKATRICE, 0X8F5005, 0X4F5A23, new Item.Properties().tab(IceAndFire.TAB_ITEMS)));
-        registerItem("spawn_egg_stymphalian_bird", () -> new ForgeSpawnEggItem(IafEntityRegistry.STYMPHALIAN_BIRD, 0X744F37, 0X9E6C4B, new Item.Properties().tab(IceAndFire.TAB_ITEMS)));
         registerItem("spawn_egg_troll", () -> new ForgeSpawnEggItem(IafEntityRegistry.TROLL, 0X3D413D, 0X58433A, new Item.Properties().tab(IceAndFire.TAB_ITEMS)));
         registerItem("spawn_egg_amphithere", () -> new ForgeSpawnEggItem(IafEntityRegistry.AMPHITHERE, 0X597535, 0X00AA98, new Item.Properties().tab(IceAndFire.TAB_ITEMS)));
         registerItem("spawn_egg_dread_thrall", () -> new ForgeSpawnEggItem(IafEntityRegistry.DREAD_THRALL, 0XE0E6E6, 0X00FFFF, new Item.Properties().tab(IceAndFire.TAB_ITEMS)));
@@ -366,7 +360,6 @@ public class IafItemRegistry {
         IafItemRegistry.HIPPOGRYPH_SWORD_TOOL_MATERIAL.setRepairMaterial(Ingredient.of(IafItemRegistry.HIPPOGRYPH_TALON.get()));
         IafItemRegistry.HIPPOCAMPUS_SWORD_TOOL_MATERIAL.setRepairMaterial(Ingredient.of(IafItemRegistry.SHINY_SCALES.get()));
         IafItemRegistry.AMPHITHERE_SWORD_TOOL_MATERIAL.setRepairMaterial(Ingredient.of(IafItemRegistry.AMPHITHERE_FEATHER.get()));
-        IafItemRegistry.STYMHALIAN_SWORD_TOOL_MATERIAL.setRepairMaterial(Ingredient.of(IafItemRegistry.STYMPHALIAN_BIRD_FEATHER.get()));
         IafItemRegistry.DREAD_SWORD_TOOL_MATERIAL.setRepairMaterial(Ingredient.of(IafItemRegistry.DREAD_SHARD.get()));
         IafItemRegistry.DREAD_KNIGHT_TOOL_MATERIAL.setRepairMaterial(Ingredient.of(IafItemRegistry.DREAD_SHARD.get()));
     }

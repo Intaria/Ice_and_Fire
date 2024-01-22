@@ -35,7 +35,6 @@ public class BiomeConfig {
     public static Pair<String, SpawnBiomeData> forestTrollBiomes = Pair.of("iceandfire:forest_troll_biomes", DefaultBiomes.WOODLAND);
     public static Pair<String, SpawnBiomeData> mountainTrollBiomes = Pair.of("iceandfire:mountain_troll_biomes", DefaultBiomes.VERY_HILLY);
 
-    public static Pair<String, SpawnBiomeData> stymphalianBiomes = Pair.of("iceandfire:stymphalian_bird_biomes", DefaultBiomes.SWAMPS);
     public static Pair<String, SpawnBiomeData> hydraBiomes = Pair.of("iceandfire:hydra_cave_biomes", DefaultBiomes.SWAMPS);
 
     public static Pair<String, SpawnBiomeData> mausoleumBiomes = Pair.of("iceandfire:mausoleum_biomes", DefaultBiomes.MAUSOLEUM);

@@ -11,7 +11,6 @@ public enum EnumSkullType {
     HIPPOGRYPH,
     CYCLOPS,
     COCKATRICE,
-    STYMPHALIAN,
     TROLL,
     AMPHITHERE,
     HYDRA;

@@ -27,7 +27,6 @@ public class RenderMobSkull extends EntityRenderer<EntityMobSkull> {
     private final ModelHippogryph hippogryphModel;
     private final ModelCyclops cyclopsModel;
     private final ModelCockatrice cockatriceModel;
-    private final ModelStymphalianBird stymphalianBirdModel;
     private final ModelTroll trollModel;
     private final ModelAmphithere amphithereModel;
     private final ModelHydraHead hydraModel;
@@ -37,7 +36,6 @@ public class RenderMobSkull extends EntityRenderer<EntityMobSkull> {
         this.hippogryphModel = new ModelHippogryph();
         this.cyclopsModel = new ModelCyclops();
         this.cockatriceModel = new ModelCockatrice();
-        this.stymphalianBirdModel = new ModelStymphalianBird();
         this.trollModel = new ModelTroll();
         this.amphithereModel = new ModelAmphithere();
         this.hydraModel = new ModelHydraHead(0);
@@ -88,15 +86,6 @@ public class RenderMobSkull extends EntityRenderer<EntityMobSkull> {
                 cockatriceModel.resetToDefaultPose();
                 setRotationAngles(cockatriceModel.head, onWall ? (float) Math.toRadians(50F) : 0F, 0, 0);
                 cockatriceModel.head.render(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-
-                break;
-            case STYMPHALIAN:
-                if (!onWall) {
-                    matrixStackIn.translate(0, 0F, -0.35F);
-                }
-                stymphalianBirdModel.resetToDefaultPose();
-                setRotationAngles(stymphalianBirdModel.HeadBase, onWall ? (float) Math.toRadians(50F) : 0F, 0, 0);
-                stymphalianBirdModel.HeadBase.render(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
 
                 break;
             case TROLL:
