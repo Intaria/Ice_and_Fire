@@ -558,52 +558,6 @@
     ],
     "subtitle": "iceandfire.sound.subtitle.amphithere_bite"
   },
-  "myrmex_bite": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/myrmex/bite_0",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:mobs/myrmex/bite_1",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.myrmex_bite"
-  },
-  "myrmex_sting": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/myrmex/sting_0",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:mobs/myrmex/sting_1",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.myrmex_sting"
-  },
-  "myrmex_idle": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/myrmex/idle_0",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:mobs/myrmex/idle_1",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:mobs/myrmex/idle_2",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.myrmex_idle"
-  },
   "myrmex_walk": {
     "category": "hostile",
     "sounds": [
@@ -613,30 +567,6 @@
       }
     ],
     "subtitle": "iceandfire.sound.subtitle.myrmex_walk"
-  },
-  "myrmex_hurt": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/myrmex/hurt_0",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:mobs/myrmex/hurt_1",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.myrmex_hurt"
-  },
-  "myrmex_die": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/myrmex/die",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.myrmex_die"
   },
   "stymphalian_bird_idle": {
     "category": "hostile",
@@ -897,110 +827,6 @@
       }
     ],
     "subtitle": "iceandfire.sound.subtitle.siren_song"
-  },
-  "deathworm_giant_idle": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/deathworm/giant/idle_0",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:mobs/deathworm/giant/idle_1",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.deathworm_idle"
-  },
-  "deathworm_giant_attack": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/deathworm/giant/attack_0",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:mobs/deathworm/giant/attack_1",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.deathworm_attack"
-  },
-  "deathworm_giant_hurt": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/deathworm/giant/hurt_0",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:mobs/deathworm/giant/hurt_1",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.deathworm_hurt"
-  },
-  "deathworm_giant_die": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/deathworm/giant/die",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.deathworm_die"
-  },
-  "deathworm_idle": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/deathworm/idle_0",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:mobs/deathworm/idle_1",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.deathworm_idle"
-  },
-  "deathworm_attack": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/deathworm/attack_0",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:mobs/deathworm/attack_1",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.deathworm_attack"
-  },
-  "deathworm_hurt": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/deathworm/hurt_0",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:mobs/deathworm/hurt_1",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.deathworm_hurt"
-  },
-  "deathworm_die": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/deathworm/die",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.deathworm_die"
   },
   "hippocampus_idle": {
     "category": "neutral",

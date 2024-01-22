@@ -1,6 +1,5 @@
 package com.github.alexthe666.iceandfire.entity.ai;
 
-import com.github.alexthe666.iceandfire.entity.EntityDeathWorm;
 import com.github.alexthe666.iceandfire.entity.util.IGroundMount;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.Goal;
@@ -37,9 +36,6 @@ public class EntityGroundAIRide<T extends Mob & IGroundMount> extends Goal {
         dragon.setTarget(null);
         double x = dragon.getX();
         double y = dragon.getY();
-        if (dragon instanceof EntityDeathWorm) {
-            y = ((EntityDeathWorm) dragon).processRiderY(y);
-        }
         double z = dragon.getZ();
         double speed = 1.8F * dragon.getRideSpeedModifier();
         if (player.xxa != 0 || player.zza != 0) {

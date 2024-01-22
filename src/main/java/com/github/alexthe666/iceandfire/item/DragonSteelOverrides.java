@@ -1,7 +1,6 @@
 package com.github.alexthe666.iceandfire.item;
 
 import com.github.alexthe666.iceandfire.IafConfig;
-import com.github.alexthe666.iceandfire.entity.EntityDeathWorm;
 import com.github.alexthe666.iceandfire.entity.props.FrozenProperties;
 import com.github.alexthe666.iceandfire.event.ServerEvents;
 import com.google.common.collect.Multimap;
@@ -68,14 +67,6 @@ public interface DragonSteelOverrides<T extends TieredItem> {
             }
         }
 
-        if (item.getTier() == IafItemRegistry.MYRMEX_CHITIN_TOOL_MATERIAL) {
-            if (target.getMobType() != MobType.ARTHROPOD) {
-                target.hurt(DamageSource.GENERIC, getAttackDamage(item) + 5.0F);
-            }
-            if (target instanceof EntityDeathWorm) {
-                target.hurt(DamageSource.GENERIC, getAttackDamage(item) + 5.0F);
-            }
-        }
         if (isDragonsteelFire(item.getTier()) && IafConfig.dragonWeaponFireAbility) {
             target.setSecondsOnFire(15);
             target.knockback(1F, attacker.getX() - target.getX(), attacker.getZ() - target.getZ());
@@ -109,9 +100,6 @@ public interface DragonSteelOverrides<T extends TieredItem> {
     default void appendHoverText(Tier tier, ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if (tier == IafItemRegistry.SILVER_TOOL_MATERIAL) {
             tooltip.add(Component.translatable("silvertools.hurt").withStyle(ChatFormatting.GREEN));
-        }
-        if (tier == IafItemRegistry.MYRMEX_CHITIN_TOOL_MATERIAL) {
-            tooltip.add(Component.translatable("myrmextools.hurt").withStyle(ChatFormatting.GREEN));
         }
         if (isDragonsteelFire(tier) && IafConfig.dragonWeaponFireAbility) {
             tooltip.add(Component.translatable("dragon_sword_fire.hurt2").withStyle(ChatFormatting.DARK_RED));

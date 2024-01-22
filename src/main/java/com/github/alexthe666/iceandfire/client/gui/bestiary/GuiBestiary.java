@@ -560,42 +560,6 @@ public class GuiBestiary extends Screen {
                     drawItemStack(ms, new ItemStack(IafItemRegistry.SHINY_SCALES.get()), 35, 75, 2.25F);
                 }
                 break;
-            case DEATHWORM:
-                if (bookPages == 0) {
-                    ms.pushPose();
-                    drawImage(ms, DRAWINGS_1, 230, 25, 0, 217, 133, 16, 512F);
-                    drawImage(ms, DRAWINGS_1, 230, 50, 0, 233, 133, 16, 512F);
-                    drawImage(ms, DRAWINGS_1, 230, 75, 0, 249, 133, 16, 512F);
-                    ms.popPose();
-                }
-                if (bookPages == 1) {
-                    ms.pushPose();
-                    drawImage(ms, DRAWINGS_1, 25, 95, 0, 265, 148, 44, 512F);
-                    drawImage(ms, DRAWINGS_1, 250, 5, 0, 309, 81, 162, 512F);
-                    ms.popPose();
-                }
-                if (bookPages == 2) {
-                    int drawType = Minecraft.getInstance().player.tickCount % 60 > 40 ? 2 : Minecraft.getInstance().player.tickCount % 60 > 20 ? 1 : 0;
-                    Item chitin = IafItemRegistry.DEATH_WORM_CHITIN_YELLOW.get();
-                    if (drawType == 2) {
-                        chitin = IafItemRegistry.DEATH_WORM_CHITIN_RED.get();
-                    }
-                    if (drawType == 1) {
-                        chitin = IafItemRegistry.DEATH_WORM_CHITIN_WHITE.get();
-                    }
-                    drawItemStack(ms, new ItemStack(chitin, 1), 17, 30, 3.75F);
-                    drawItemStack(ms, new ItemStack(drawType == 2 ? IafItemRegistry.DEATHWORM_RED_HELMET.get() : drawType == 1 ? IafItemRegistry.DEATHWORM_WHITE_HELMET.get() : IafItemRegistry.DEATHWORM_YELLOW_HELMET.get()), 92, 8, 2.25F);
-                    drawItemStack(ms, new ItemStack(drawType == 2 ? IafItemRegistry.DEATHWORM_RED_CHESTPLATE.get() : drawType == 1 ? IafItemRegistry.DEATHWORM_WHITE_CHESTPLATE.get() : IafItemRegistry.DEATHWORM_YELLOW_CHESTPLATE.get()), 112, 8, 2.25F);
-                    drawItemStack(ms, new ItemStack(drawType == 2 ? IafItemRegistry.DEATHWORM_RED_LEGGINGS.get() : drawType == 1 ? IafItemRegistry.DEATHWORM_WHITE_LEGGINGS.get() : IafItemRegistry.DEATHWORM_YELLOW_LEGGINGS.get()), 132, 8, 2.25F);
-                    drawItemStack(ms, new ItemStack(drawType == 2 ? IafItemRegistry.DEATHWORM_RED_BOOTS.get() : drawType == 1 ? IafItemRegistry.DEATHWORM_WHITE_BOOTS.get() : IafItemRegistry.DEATHWORM_YELLOW_BOOTS.get()), 152, 8, 2.25F);
-                    drawItemStack(ms, new ItemStack(IafItemRegistry.DEATHWORM_EGG.get()), 125, 42, 2.25F);
-                }
-                if (bookPages == 3) {
-                    drawItemStack(ms, new ItemStack(IafItemRegistry.DEATHWORM_EGG_GIGANTIC.get(), 1), 125, 4, 2.25F);
-                    drawItemStack(ms, new ItemStack(Items.FISHING_ROD), 115, 55, 2.25F);
-                    drawItemStack(ms, new ItemStack(Items.FISHING_ROD), 135, 55, 2.25F);
-                }
-                break;
             case COCKATRICE:
                 if (bookPages == 0) {
                     ms.pushPose();
@@ -664,60 +628,6 @@ public class GuiBestiary extends Screen {
                     drawItemStack(ms, new ItemStack(EnumTroll.values()[j].chestplate.get()), 47, 15, 1.5F);
                     drawItemStack(ms, new ItemStack(EnumTroll.values()[j].leggings.get()), 67, 15, 1.5F);
                     drawItemStack(ms, new ItemStack(EnumTroll.values()[j].boots.get()), 87, 15, 1.5F);
-                }
-                break;
-            case MYRMEX:
-                if (bookPages == 0) {
-                    ms.pushPose();
-                    ms.scale(1.51F, 1.51F, 1F);
-                    drawImage(ms, DRAWINGS_1, 137, 10, 202, 16, 57, 21, 512F);
-                    drawImage(ms, DRAWINGS_1, 195, 10, 278, 16, 57, 21, 512F);
-                    ms.popPose();
-                }
-                if (bookPages == 1) {
-                    ms.pushPose();
-                    ms.scale(1.51F, 1.51F, 1F);
-                    drawImage(ms, DRAWINGS_1, 7, 17, 202, 37, 59, 21, 512F);
-                    drawImage(ms, DRAWINGS_1, 65, 17, 278, 37, 59, 21, 512F);
-                    drawImage(ms, DRAWINGS_1, 7, 77, 202, 58, 59, 21, 512F);
-                    drawImage(ms, DRAWINGS_1, 65, 77, 278, 58, 59, 21, 512F);
-                    drawImage(ms, DRAWINGS_1, 145, 20, 278, 103, 43, 45, 512F);
-                    drawImage(ms, DRAWINGS_1, 195, 20, 321, 103, 43, 45, 512F);
-                    ms.popPose();
-                }
-                if (bookPages == 2) {
-                    ms.pushPose();
-                    ms.scale(1.51F, 1.51F, 1F);
-                    drawImage(ms, DRAWINGS_1, 25, 13, 202, 79, 76, 24, 512F);
-                    drawImage(ms, DRAWINGS_1, 25, 40, 278, 79, 76, 24, 512F);
-                    ms.popPose();
-                    drawItemStack(ms, new ItemStack(IafItemRegistry.MYRMEX_DESERT_CHITIN.get()), 125, 43, 2F);
-                    drawItemStack(ms, new ItemStack(IafItemRegistry.MYRMEX_JUNGLE_CHITIN.get()), 155, 43, 2F);
-                    int i = 133;
-                    boolean jungle = Minecraft.getInstance().player.tickCount % 60 > 30;
-                    drawItemStack(ms, new ItemStack(jungle ? IafItemRegistry.MYRMEX_JUNGLE_SHOVEL.get() : IafItemRegistry.MYRMEX_DESERT_SHOVEL.get()), i += 16, 100, 1.51F);
-                    drawItemStack(ms, new ItemStack(jungle ? IafItemRegistry.MYRMEX_JUNGLE_PICKAXE.get() : IafItemRegistry.MYRMEX_DESERT_PICKAXE.get()), i += 16, 100, 1.5F);
-                    drawItemStack(ms, new ItemStack(jungle ? IafItemRegistry.MYRMEX_JUNGLE_AXE.get() : IafItemRegistry.MYRMEX_DESERT_AXE.get()), i += 16, 100, 1.5F);
-                    drawItemStack(ms, new ItemStack(jungle ? IafItemRegistry.MYRMEX_JUNGLE_SWORD.get() : IafItemRegistry.MYRMEX_DESERT_SWORD.get()), i += 16, 100, 1.5F);
-                    drawItemStack(ms, new ItemStack(jungle ? IafItemRegistry.MYRMEX_JUNGLE_SWORD_VENOM.get() : IafItemRegistry.MYRMEX_DESERT_SWORD_VENOM.get()), i += 16, 100, 1.5F);
-                    drawItemStack(ms, new ItemStack(jungle ? IafItemRegistry.MYRMEX_JUNGLE_HOE.get() : IafItemRegistry.MYRMEX_DESERT_HOE.get()), i += 16, 100, 1.5F);
-                    int j = 148;
-                    drawItemStack(ms, new ItemStack(jungle ? IafItemRegistry.MYRMEX_JUNGLE_HELMET.get() : IafItemRegistry.MYRMEX_DESERT_HELMET.get()), j += 16, 115, 1.5F);
-                    drawItemStack(ms, new ItemStack(jungle ? IafItemRegistry.MYRMEX_JUNGLE_CHESTPLATE.get() : IafItemRegistry.MYRMEX_DESERT_CHESTPLATE.get()), j += 16, 115, 1.5F);
-                    drawItemStack(ms, new ItemStack(jungle ? IafItemRegistry.MYRMEX_JUNGLE_LEGGINGS.get() : IafItemRegistry.MYRMEX_DESERT_LEGGINGS.get()), j += 16, 115, 1.5F);
-                    drawItemStack(ms, new ItemStack(jungle ? IafItemRegistry.MYRMEX_JUNGLE_BOOTS.get() : IafItemRegistry.MYRMEX_DESERT_BOOTS.get()), j += 16, 115, 1.5F);
-                }
-                if (bookPages == 3) {
-                    drawItemStack(ms, new ItemStack(IafItemRegistry.MYRMEX_STINGER.get()), 35, 22, 2.5F);
-                    drawItemStack(ms, new ItemStack(IafItemRegistry.MYRMEX_DESERT_RESIN.get()), 25, 64, 2F);
-                    drawItemStack(ms, new ItemStack(IafItemRegistry.MYRMEX_JUNGLE_RESIN.get()), 55, 64, 2F);
-                }
-                if (bookPages == 4) {
-                    drawItemStack(ms, new ItemStack(IafItemRegistry.MYRMEX_DESERT_STAFF.get()), 25, 73, 2F);
-                    drawItemStack(ms, new ItemStack(IafItemRegistry.MYRMEX_JUNGLE_STAFF.get()), 55, 73, 2F);
-
-                    drawItemStack(ms, new ItemStack(IafItemRegistry.MYRMEX_DESERT_EGG.get()), 125, 90, 2F);
-                    drawItemStack(ms, new ItemStack(IafItemRegistry.MYRMEX_JUNGLE_EGG.get()), 155, 90, 2F);
                 }
                 break;
             case AMPHITHERE:

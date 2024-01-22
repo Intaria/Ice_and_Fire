@@ -89,10 +89,6 @@ public class MessageDragonControl {
                                 hippo.setControlState(message.controlState);
                             }
 //                            hippo.setPos(message.getPosX(), message.getPosY(), message.getPosZ());
-                        } else if (entity instanceof EntityDeathWorm) {
-                            EntityDeathWorm deathworm = (EntityDeathWorm) entity;
-                            deathworm.setControlState(message.controlState);
-                            deathworm.setPos(message.getPosX(), message.getPosY(), message.getPosZ());
                         } else if (entity instanceof EntityAmphithere) {
                             EntityAmphithere amphi = (EntityAmphithere) entity;
                             if (amphi.isOwnedBy(player)) {

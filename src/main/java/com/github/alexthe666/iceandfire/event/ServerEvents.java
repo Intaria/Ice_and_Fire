@@ -438,7 +438,7 @@ public class ServerEvents {
 
     @SubscribeEvent
     public void onEntityStopUsingItem(LivingEntityUseItemEvent.Tick event) {
-        if (event.getItem().getItem() instanceof ItemDeathwormGauntlet || event.getItem().getItem() instanceof ItemCockatriceScepter) {
+        if (event.getItem().getItem() instanceof ItemCockatriceScepter) {
             event.setDuration(20);
         }
     }

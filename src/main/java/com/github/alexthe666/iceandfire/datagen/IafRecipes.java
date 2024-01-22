@@ -114,54 +114,6 @@ public class IafRecipes extends RecipeProvider {
                 IafItemRegistry.COPPER_HOE.get()
         );
 
-        CustomShaped.shaped(IafItemRegistry.DEATHWORM_GAUNTLET_RED.get())
-                .pattern(" T ")
-                .pattern("CHC")
-                .pattern("CCC")
-                .define('C', IafItemRegistry.DEATH_WORM_CHITIN_RED.get())
-                .define('H', IafItemRegistry.CHAIN.get())
-                .define('T', IafItemRegistry.DEATHWORM_TOUNGE.get())
-                .save(consumer);
-
-        CustomShaped.shaped(IafItemRegistry.DEATHWORM_GAUNTLET_WHITE.get())
-                .pattern(" T ")
-                .pattern("CHC")
-                .pattern("CCC")
-                .define('C', IafItemRegistry.DEATH_WORM_CHITIN_WHITE.get())
-                .define('H', IafItemRegistry.CHAIN.get())
-                .define('T', IafItemRegistry.DEATHWORM_TOUNGE.get())
-                .save(consumer);
-
-        CustomShaped.shaped(IafItemRegistry.DEATHWORM_GAUNTLET_YELLOW.get())
-                .pattern(" T ")
-                .pattern("CHC")
-                .pattern("CCC")
-                .define('C', IafItemRegistry.DEATH_WORM_CHITIN_YELLOW.get())
-                .define('H', IafItemRegistry.CHAIN.get())
-                .define('T', IafItemRegistry.DEATHWORM_TOUNGE.get())
-                .save(consumer);
-
-        armorSet(consumer, IafItemRegistry.DEATH_WORM_CHITIN_RED.get(),
-                IafItemRegistry.DEATHWORM_RED_HELMET.get(),
-                IafItemRegistry.DEATHWORM_RED_CHESTPLATE.get(),
-                IafItemRegistry.DEATHWORM_RED_LEGGINGS.get(),
-                IafItemRegistry.DEATHWORM_RED_BOOTS.get()
-        );
-
-        armorSet(consumer, IafItemRegistry.DEATH_WORM_CHITIN_WHITE.get(),
-                IafItemRegistry.DEATHWORM_WHITE_HELMET.get(),
-                IafItemRegistry.DEATHWORM_WHITE_CHESTPLATE.get(),
-                IafItemRegistry.DEATHWORM_WHITE_LEGGINGS.get(),
-                IafItemRegistry.DEATHWORM_WHITE_BOOTS.get()
-        );
-
-        armorSet(consumer, IafItemRegistry.DEATH_WORM_CHITIN_YELLOW.get(),
-                IafItemRegistry.DEATHWORM_YELLOW_HELMET.get(),
-                IafItemRegistry.DEATHWORM_YELLOW_CHESTPLATE.get(),
-                IafItemRegistry.DEATHWORM_YELLOW_LEGGINGS.get(),
-                IafItemRegistry.DEATHWORM_YELLOW_BOOTS.get()
-        );
-
         dragonArmorSet(consumer, Tags.Items.STORAGE_BLOCKS_COPPER,
                 IafItemRegistry.DRAGONARMOR_COPPER_0.get(),
                 IafItemRegistry.DRAGONARMOR_COPPER_1.get(),
@@ -496,48 +448,6 @@ public class IafRecipes extends RecipeProvider {
                 .define('C', Items.COARSE_DIRT)
                 .define('E', IafItemRegistry.ECTOPLASM.get())
                 .save(consumer);
-
-        CustomShaped.shaped(IafBlockRegistry.MYRMEX_DESERT_RESIN.get())
-                .pattern("RR")
-                .pattern("RR")
-                .define('R', IafItemRegistry.MYRMEX_DESERT_RESIN.get())
-                .save(consumer);
-
-        CustomShaped.shaped(IafBlockRegistry.MYRMEX_JUNGLE_RESIN.get())
-                .pattern("RR")
-                .pattern("RR")
-                .define('R', IafItemRegistry.MYRMEX_JUNGLE_RESIN.get())
-                .save(consumer);
-
-        armorSet(consumer, IafItemRegistry.MYRMEX_DESERT_CHITIN.get(),
-                IafItemRegistry.MYRMEX_DESERT_HELMET.get(),
-                IafItemRegistry.MYRMEX_DESERT_CHESTPLATE.get(),
-                IafItemRegistry.MYRMEX_DESERT_LEGGINGS.get(),
-                IafItemRegistry.MYRMEX_DESERT_BOOTS.get()
-        );
-
-        toolSet(consumer, IafItemRegistry.MYRMEX_DESERT_CHITIN.get(), IafItemTags.BONES_WITHER,
-                IafItemRegistry.MYRMEX_DESERT_SWORD.get(),
-                IafItemRegistry.MYRMEX_DESERT_PICKAXE.get(),
-                IafItemRegistry.MYRMEX_DESERT_AXE.get(),
-                IafItemRegistry.MYRMEX_DESERT_SHOVEL.get(),
-                IafItemRegistry.MYRMEX_DESERT_HOE.get()
-        );
-
-        armorSet(consumer, IafItemRegistry.MYRMEX_JUNGLE_CHITIN.get(),
-                IafItemRegistry.MYRMEX_JUNGLE_HELMET.get(),
-                IafItemRegistry.MYRMEX_JUNGLE_CHESTPLATE.get(),
-                IafItemRegistry.MYRMEX_JUNGLE_LEGGINGS.get(),
-                IafItemRegistry.MYRMEX_JUNGLE_BOOTS.get()
-        );
-
-        toolSet(consumer, IafItemRegistry.MYRMEX_JUNGLE_CHITIN.get(), IafItemTags.BONES_WITHER,
-                IafItemRegistry.MYRMEX_JUNGLE_SWORD.get(),
-                IafItemRegistry.MYRMEX_JUNGLE_PICKAXE.get(),
-                IafItemRegistry.MYRMEX_JUNGLE_AXE.get(),
-                IafItemRegistry.MYRMEX_JUNGLE_SHOVEL.get(),
-                IafItemRegistry.MYRMEX_JUNGLE_HOE.get()
-        );
 
         compact(consumer, IafItemRegistry.SILVER_INGOT.get(), IafBlockRegistry.SILVER_BLOCK.get());
         compact(consumer, IafItemRegistry.SILVER_NUGGET.get(), IafItemRegistry.SILVER_INGOT.get());
