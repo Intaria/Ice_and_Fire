@@ -9,9 +9,7 @@ import java.util.Locale;
 
 public enum EnumSkullType {
     HIPPOGRYPH,
-    CYCLOPS,
     COCKATRICE,
-    TROLL,
     AMPHITHERE,
     HYDRA;
 

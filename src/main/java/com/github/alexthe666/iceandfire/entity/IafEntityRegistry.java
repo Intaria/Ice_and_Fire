@@ -31,7 +31,6 @@ public class IafEntityRegistry {
     public static final RegistryObject<EntityType<EntityDragonPart>> DRAGON_MULTIPART = registerEntity(EntityType.Builder.<EntityDragonPart>of(EntityDragonPart::new, MobCategory.MISC).sized(0.5F, 0.5F).fireImmune().setCustomClientFactory(EntityDragonPart::new), "dragon_multipart");
     public static final RegistryObject<EntityType<EntitySlowPart>> SLOW_MULTIPART = registerEntity(EntityType.Builder.<EntitySlowPart>of(EntitySlowPart::new, MobCategory.MISC).sized(0.5F, 0.5F).fireImmune().setCustomClientFactory(EntitySlowPart::new), "multipart");
     public static final RegistryObject<EntityType<EntityHydraHead>> HYDRA_MULTIPART = registerEntity(EntityType.Builder.<EntityHydraHead>of(EntityHydraHead::new, MobCategory.MISC).sized(0.5F, 0.5F).fireImmune().setCustomClientFactory(EntityHydraHead::new), "hydra_multipart");
-    public static final RegistryObject<EntityType<EntityCyclopsEye>> CYCLOPS_MULTIPART = registerEntity(EntityType.Builder.<EntityCyclopsEye>of(EntityCyclopsEye::new, MobCategory.MISC).sized(0.5F, 0.5F).fireImmune().setCustomClientFactory(EntityCyclopsEye::new), "cylcops_multipart");
     public static final RegistryObject<EntityType<EntityDragonEgg>> DRAGON_EGG = registerEntity(EntityType.Builder.of(EntityDragonEgg::new, MobCategory.MISC).sized(0.45F, 0.55F).fireImmune(), "dragon_egg");
     public static final RegistryObject<EntityType<EntityDragonArrow>> DRAGON_ARROW = registerEntity(EntityType.Builder.<EntityDragonArrow>of(EntityDragonArrow::new, MobCategory.MISC).sized(0.5F, 0.5F).setCustomClientFactory(EntityDragonArrow::new), "dragon_arrow");
     public static final RegistryObject<EntityType<EntityDragonSkull>> DRAGON_SKULL = registerEntity(EntityType.Builder.of(EntityDragonSkull::new, MobCategory.MISC).sized(0.9F, 0.65F), "dragon_skull");
@@ -46,12 +45,10 @@ public class IafEntityRegistry {
     public static final RegistryObject<EntityType<EntityStoneStatue>> STONE_STATUE = registerEntity(EntityType.Builder.of(EntityStoneStatue::new, MobCategory.CREATURE).sized(0.5F, 0.5F), "stone_statue");
     public static final RegistryObject<EntityType<EntityGorgon>> GORGON = registerEntity(EntityType.Builder.of(EntityGorgon::new, MobCategory.CREATURE).sized(0.8F, 1.99F), "gorgon");
     public static final RegistryObject<EntityType<EntityPixie>> PIXIE = registerEntity(EntityType.Builder.of(EntityPixie::new, MobCategory.CREATURE).sized(0.4F, 0.8F), "pixie");
-    public static final RegistryObject<EntityType<EntityCyclops>> CYCLOPS = registerEntity(EntityType.Builder.of(EntityCyclops::new, MobCategory.CREATURE).sized(1.95F, 7.4F).clientTrackingRange(8), "cyclops");
     public static final RegistryObject<EntityType<EntitySiren>> SIREN = registerEntity(EntityType.Builder.of(EntitySiren::new, MobCategory.CREATURE).sized(1.6F, 0.9F), "siren");
     public static final RegistryObject<EntityType<EntityHippocampus>> HIPPOCAMPUS = registerEntity(EntityType.Builder.of(EntityHippocampus::new, MobCategory.CREATURE).sized(1.95F, 0.95F), "hippocampus");
     public static final RegistryObject<EntityType<EntityCockatrice>> COCKATRICE = registerEntity(EntityType.Builder.of(EntityCockatrice::new, MobCategory.CREATURE).sized(1.1F, 1F), "cockatrice");
     public static final RegistryObject<EntityType<EntityCockatriceEgg>> COCKATRICE_EGG = registerEntity(EntityType.Builder.<EntityCockatriceEgg>of(EntityCockatriceEgg::new, MobCategory.MISC).sized(0.5F, 0.5F), "cockatrice_egg");
-    public static final RegistryObject<EntityType<EntityTroll>> TROLL = registerEntity(EntityType.Builder.of(EntityTroll::new, MobCategory.MONSTER).sized(1.2F, 3.5F), "troll");
     public static final RegistryObject<EntityType<EntityAmphithere>> AMPHITHERE = registerEntity(EntityType.Builder.of(EntityAmphithere::new, MobCategory.CREATURE).sized(2.5F, 1.25F).setTrackingRange(128).clientTrackingRange(8), "amphithere");
     public static final RegistryObject<EntityType<EntityAmphithereArrow>> AMPHITHERE_ARROW = registerEntity(EntityType.Builder.<EntityAmphithereArrow>of(EntityAmphithereArrow::new, MobCategory.MISC).sized(0.5F, 0.5F).setCustomClientFactory(EntityAmphithereArrow::new), "amphithere_arrow");
     public static final RegistryObject<EntityType<EntityChainTie>> CHAIN_TIE = registerEntity(EntityType.Builder.<EntityChainTie>of(EntityChainTie::new, MobCategory.MISC).sized(0.8F, 0.9F), "chain_tie");
@@ -86,11 +83,9 @@ public class IafEntityRegistry {
         creationEvent.put(GORGON.get(), EntityGorgon.bakeAttributes().build());
         creationEvent.put(STONE_STATUE.get(), EntityStoneStatue.bakeAttributes().build());
         creationEvent.put(PIXIE.get(), EntityPixie.bakeAttributes().build());
-        creationEvent.put(CYCLOPS.get(), EntityCyclops.bakeAttributes().build());
         creationEvent.put(SIREN.get(), EntitySiren.bakeAttributes().build());
         creationEvent.put(HIPPOCAMPUS.get(), EntityHippocampus.bakeAttributes().build());
         creationEvent.put(COCKATRICE.get(), EntityCockatrice.bakeAttributes().build());
-        creationEvent.put(TROLL.get(), EntityTroll.bakeAttributes().build());
         creationEvent.put(AMPHITHERE.get(), EntityAmphithere.bakeAttributes().build());
         creationEvent.put(MOB_SKULL.get(), EntityMobSkull.bakeAttributes().build());
         creationEvent.put(DREAD_THRALL.get(), EntityDreadThrall.bakeAttributes().build());
@@ -107,7 +102,6 @@ public class IafEntityRegistry {
     @SubscribeEvent
     public static void commonSetup(final FMLCommonSetupEvent event) {
         SpawnPlacements.register(HIPPOGRYPH.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntityHippogryph::checkMobSpawnRules);
-        SpawnPlacements.register(TROLL.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntityTroll::canTrollSpawnOn);
         SpawnPlacements.register(DREAD_LICH.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntityDreadLich::canLichSpawnOn);
         SpawnPlacements.register(COCKATRICE.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, EntityCockatrice::checkMobSpawnRules);
         SpawnPlacements.register(AMPHITHERE.get(), SpawnPlacements.Type.NO_RESTRICTIONS, Heightmap.Types.MOTION_BLOCKING, EntityAmphithere::canAmphithereSpawnOn);
@@ -120,9 +114,6 @@ public class IafEntityRegistry {
     	LOADED_ENTITIES.put("DREAD_LICH", false);
     	LOADED_ENTITIES.put("COCKATRICE", false);
     	LOADED_ENTITIES.put("AMPHITHERE", false);
-    	LOADED_ENTITIES.put("TROLL_F", false);
-    	LOADED_ENTITIES.put("TROLL_S", false);
-    	LOADED_ENTITIES.put("TROLL_M", false);
     }
     public static void addSpawners(Holder<Biome> biome, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
         if (IafConfig.spawnHippogryphs && BiomeConfig.test(BiomeConfig.hippogryphBiomes, biome)) {
@@ -140,16 +131,6 @@ public class IafEntityRegistry {
         if (IafConfig.spawnAmphitheres && BiomeConfig.test(BiomeConfig.amphithereBiomes, biome)) {
             builder.getMobSpawnSettings().getSpawner(MobCategory.CREATURE).add(new MobSpawnSettings.SpawnerData(IafEntityRegistry.AMPHITHERE.get(), IafConfig.amphithereSpawnRate, 1, 3));
             LOADED_ENTITIES.put("AMPHITHERE", true);
-        }
-        if (IafConfig.spawnTrolls && (
-    		BiomeConfig.test(BiomeConfig.forestTrollBiomes, biome) ||
-    		BiomeConfig.test(BiomeConfig.snowyTrollBiomes, biome) ||
-    		BiomeConfig.test(BiomeConfig.mountainTrollBiomes, biome)
-		)) {
-            builder.getMobSpawnSettings().getSpawner(MobCategory.MONSTER).add(new MobSpawnSettings.SpawnerData(IafEntityRegistry.TROLL.get(), IafConfig.trollSpawnRate, 1, 3));
-    		if (BiomeConfig.test(BiomeConfig.forestTrollBiomes, biome)) LOADED_ENTITIES.put("TROLL_F", true);
-    		if (BiomeConfig.test(BiomeConfig.snowyTrollBiomes, biome)) LOADED_ENTITIES.put("TROLL_S", true);
-    		if (BiomeConfig.test(BiomeConfig.mountainTrollBiomes, biome)) LOADED_ENTITIES.put("TROLL_M", true);
         }
 
     }

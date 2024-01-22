@@ -25,16 +25,12 @@ public class BiomeConfig {
     public static Pair<String, SpawnBiomeData> lightningDragonBiomes = Pair.of("iceandfire:lightning_dragon_biomes", DefaultBiomes.LIGHTNING_ROOST);
     public static Pair<String, SpawnBiomeData> lightningDragonCaveBiomes = Pair.of("iceandfire:lightning_dragon_cave_biomes", DefaultBiomes.LIGHTNING_CAVE);
 
-    public static Pair<String, SpawnBiomeData> cyclopsCaveBiomes = Pair.of("iceandfire:cyclops_cave_biomes", DefaultBiomes.BEACHES);
     public static Pair<String, SpawnBiomeData> hippogryphBiomes = Pair.of("iceandfire:hippogryph_biomes", DefaultBiomes.HILLS);
     public static Pair<String, SpawnBiomeData> pixieBiomes = Pair.of("iceandfire:pixie_village_biomes", DefaultBiomes.PIXIES);
     public static Pair<String, SpawnBiomeData> hippocampusBiomes = Pair.of("iceandfire:hippocampus_biomes", DefaultBiomes.OCEANS);
     public static Pair<String, SpawnBiomeData> sirenBiomes = Pair.of("iceandfire:siren_biomes", DefaultBiomes.OCEANS);
     public static Pair<String, SpawnBiomeData> amphithereBiomes = Pair.of("iceandfire:amphithere_biomes", DefaultBiomes.JUNGLE);
-    public static Pair<String, SpawnBiomeData> snowyTrollBiomes = Pair.of("iceandfire:snowy_troll_biomes", DefaultBiomes.SNOWY);
-    public static Pair<String, SpawnBiomeData> forestTrollBiomes = Pair.of("iceandfire:forest_troll_biomes", DefaultBiomes.WOODLAND);
-    public static Pair<String, SpawnBiomeData> mountainTrollBiomes = Pair.of("iceandfire:mountain_troll_biomes", DefaultBiomes.VERY_HILLY);
-
+    
     public static Pair<String, SpawnBiomeData> hydraBiomes = Pair.of("iceandfire:hydra_cave_biomes", DefaultBiomes.SWAMPS);
 
     public static Pair<String, SpawnBiomeData> mausoleumBiomes = Pair.of("iceandfire:mausoleum_biomes", DefaultBiomes.MAUSOLEUM);
@@ -42,7 +38,6 @@ public class BiomeConfig {
     public static Pair<String, SpawnBiomeData> gorgonTempleBiomes = Pair.of("iceandfire:gorgon_temple_biomes", DefaultBiomes.BEACHES);
 
     public static Pair<String, SpawnBiomeData> cockatriceBiomes = Pair.of("iceandfire:cockatrice_biomes", DefaultBiomes.SAVANNAS);
-    public static Pair<String, SpawnBiomeData> wanderingCyclopsBiomes = Pair.of("iceandfire:wandering_cyclops_biomes", DefaultBiomes.PLAINS);
     public static Pair<String, SpawnBiomeData> lightningDragonSkeletonBiomes = Pair.of("iceandfire:lightning_dragon_skeleton_biomes", DefaultBiomes.SAVANNAS);
     public static Pair<String, SpawnBiomeData> fireDragonSkeletonBiomes = Pair.of("iceandfire:fire_dragon_skeleton_biomes", DefaultBiomes.DESERT);
     public static Pair<String, SpawnBiomeData> iceDragonSkeletonBiomes = Pair.of("iceandfire:ice_dragon_skeleton_biomes", DefaultBiomes.VERY_SNOWY);

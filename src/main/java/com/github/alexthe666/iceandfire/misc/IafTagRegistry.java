@@ -13,7 +13,6 @@ public class IafTagRegistry { // FIXME :: Clean up
     public static final ResourceLocation FIRE_DRAGON_TARGETS = new ResourceLocation("iceandfire", "fire_dragon_targets");
     public static final ResourceLocation LIGHTNING_DRAGON_TARGETS = new ResourceLocation("iceandfire", "lightning_dragon_targets");
     public static final ResourceLocation COCKATRICE_TARGETS = new ResourceLocation("iceandfire", "cockatrice_targets");
-    public static final ResourceLocation CYCLOPS_UNLIFTABLES = new ResourceLocation("iceandfire", "cyclops_unliftables");
     public static final ResourceLocation BLINDED = new ResourceLocation("iceandfire", "blinded");
 
 }

@@ -42,7 +42,6 @@ public class IafWorldRegistry {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> FIRE_DRAGON_CAVE = register("fire_dragon_cave", () -> new WorldGenFireDragonCave(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> ICE_DRAGON_CAVE = register("ice_dragon_cave", () -> new WorldGenIceDragonCave(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> LIGHTNING_DRAGON_CAVE = register("lightning_dragon_cave", () -> new WorldGenLightningDragonCave(NoneFeatureConfiguration.CODEC));
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> CYCLOPS_CAVE = register("cyclops_cave", () -> new WorldGenCyclopsCave(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> PIXIE_VILLAGE = register("pixie_village", () -> new WorldGenPixieVillage(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SIREN_ISLAND = register("siren_island", () -> new WorldGenSirenIsland(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> HYDRA_CAVE = register("hydra_cave", () -> new WorldGenHydraCave(NoneFeatureConfiguration.CODEC));
@@ -50,8 +49,7 @@ public class IafWorldRegistry {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SPAWN_DRAGON_SKELETON_F = register("spawn_dragon_skeleton_fire", () -> new SpawnDragonSkeleton(castToBase(IafEntityRegistry.FIRE_DRAGON), NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SPAWN_DRAGON_SKELETON_I = register("spawn_dragon_skeleton_ice", () -> new SpawnDragonSkeleton(castToBase(IafEntityRegistry.ICE_DRAGON), NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SPAWN_HIPPOCAMPUS = register("spawn_hippocampus", () -> new SpawnHippocampus(NoneFeatureConfiguration.CODEC));
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> SPAWN_WANDERING_CYCLOPS = register("spawn_wandering_cyclops", () -> new SpawnWanderingCyclops(NoneFeatureConfiguration.CODEC));
-
+    
     @SuppressWarnings({"rawtypes", "unchecked"})
     public static <T extends RegistryObject<EntityType<? extends EntityDragonBase>>> T castToBase(final RegistryObject entityType) {
         return (T) entityType;
@@ -91,7 +89,6 @@ public class IafWorldRegistry {
         LOADED_FEATURES.put("iceandfire:fire_dragon_cave", false);
         LOADED_FEATURES.put("iceandfire:ice_dragon_cave", false);
         LOADED_FEATURES.put("iceandfire:lightning_dragon_cave", false);
-        LOADED_FEATURES.put("iceandfire:cyclops_cave", false);
         LOADED_FEATURES.put("iceandfire:pixie_village", false);
         LOADED_FEATURES.put("iceandfire:siren_island", false);
         LOADED_FEATURES.put("iceandfire:hydra_cave", false);
@@ -99,7 +96,6 @@ public class IafWorldRegistry {
         LOADED_FEATURES.put("iceandfire:spawn_dragon_skeleton_fire", false);
         LOADED_FEATURES.put("iceandfire:spawn_dragon_skeleton_ice", false);
         LOADED_FEATURES.put("iceandfire:spawn_hippocampus", false);
-        LOADED_FEATURES.put("iceandfire:spawn_wandering_cyclops", false);
     }
 
     // Only a global variable because it's too bothersome to add it to the method call (alternative: method returns identifier or null)
@@ -147,9 +143,6 @@ public class IafWorldRegistry {
         }
 
 
-        if (safelyTestBiome(BiomeConfig.cyclopsCaveBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_CYCLOPS_CAVE, features, builder);
-        }
         if (safelyTestBiome(BiomeConfig.pixieBiomes, biome)) {
             addFeatureToBiome(IafPlacedFeatures.PLACED_PIXIE_VILLAGE, features, builder);
         }
@@ -158,9 +151,6 @@ public class IafWorldRegistry {
         }
         if (safelyTestBiome(BiomeConfig.sirenBiomes, biome)) {
             addFeatureToBiome(IafPlacedFeatures.PLACED_SIREN_ISLAND, features, builder);
-        }
-        if (safelyTestBiome(BiomeConfig.wanderingCyclopsBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_SPAWN_WANDERING_CYCLOPS, features, builder);
         }
 
         if (safelyTestBiome(BiomeConfig.lightningDragonSkeletonBiomes, biome)) {

@@ -33,7 +33,6 @@ public final class IafConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> FIRE_DRAGON_CAVE = registerKey("fire_dragon_cave");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ICE_DRAGON_CAVE = registerKey("ice_dragon_cave");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LIGHTNING_DRAGON_CAVE = registerKey("lightning_dragon_cave");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> CYCLOPS_CAVE = registerKey("cyclops_cave");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PIXIE_VILLAGE = registerKey("pixie_village");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SIREN_ISLAND = registerKey("siren_island");
     public static final ResourceKey<ConfiguredFeature<?, ?>> HYDRA_CAVE = registerKey("hydra_cave");
@@ -41,7 +40,6 @@ public final class IafConfiguredFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPAWN_DRAGON_SKELETON_F = registerKey("spawn_dragon_skeleton_fire");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPAWN_DRAGON_SKELETON_I = registerKey("spawn_dragon_skeleton_ice");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPAWN_HIPPOCAMPUS = registerKey("spawn_hippocampus");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> SPAWN_WANDERING_CYCLOPS = registerKey("spawn_wandering_cyclops");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SILVER_ORE = registerKey("silver_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SAPPHIRE_ORE = registerKey("sapphire_ore");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FIRE_LILY = registerKey("fire_lily");
@@ -63,7 +61,6 @@ public final class IafConfiguredFeatures {
         entries.put(FIRE_DRAGON_CAVE.location(), new ConfiguredFeature<>(IafWorldRegistry.FIRE_DRAGON_CAVE.get(), FeatureConfiguration.NONE));
         entries.put(ICE_DRAGON_CAVE.location(), new ConfiguredFeature<>(IafWorldRegistry.ICE_DRAGON_CAVE.get(), FeatureConfiguration.NONE));
         entries.put(LIGHTNING_DRAGON_CAVE.location(), new ConfiguredFeature<>(IafWorldRegistry.LIGHTNING_DRAGON_CAVE.get(), FeatureConfiguration.NONE));
-        entries.put(CYCLOPS_CAVE.location(), new ConfiguredFeature<>(IafWorldRegistry.CYCLOPS_CAVE.get(), FeatureConfiguration.NONE));
         entries.put(PIXIE_VILLAGE.location(), new ConfiguredFeature<>(IafWorldRegistry.PIXIE_VILLAGE.get(), FeatureConfiguration.NONE));
         entries.put(SIREN_ISLAND.location(), new ConfiguredFeature<>(IafWorldRegistry.SIREN_ISLAND.get(), FeatureConfiguration.NONE));
         entries.put(HYDRA_CAVE.location(), new ConfiguredFeature<>(IafWorldRegistry.HYDRA_CAVE.get(), FeatureConfiguration.NONE));
@@ -71,7 +68,6 @@ public final class IafConfiguredFeatures {
         entries.put(SPAWN_DRAGON_SKELETON_F.location(), new ConfiguredFeature<>(IafWorldRegistry.SPAWN_DRAGON_SKELETON_F.get(), FeatureConfiguration.NONE));
         entries.put(SPAWN_DRAGON_SKELETON_I.location(), new ConfiguredFeature<>(IafWorldRegistry.SPAWN_DRAGON_SKELETON_I.get(), FeatureConfiguration.NONE));
         entries.put(SPAWN_HIPPOCAMPUS.location(), new ConfiguredFeature<>(IafWorldRegistry.SPAWN_HIPPOCAMPUS.get(), FeatureConfiguration.NONE));
-        entries.put(SPAWN_WANDERING_CYCLOPS.location(), new ConfiguredFeature<>(IafWorldRegistry.SPAWN_WANDERING_CYCLOPS.get(), FeatureConfiguration.NONE));
         entries.put(SILVER_ORE.location(), createSilverOre());
         entries.put(SAPPHIRE_ORE.location(), new ConfiguredFeature<>(Feature.ORE, new OreConfiguration(new TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES), IafBlockRegistry.SAPPHIRE_ORE.get().defaultBlockState(), 4, 0.5f)));
         entries.put(FIRE_LILY.location(), new ConfiguredFeature<>(Feature.FLOWER, FLOWER_CONFIGURATION.apply(IafBlockRegistry.FIRE_LILY.get())));

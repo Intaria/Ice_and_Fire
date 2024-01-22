@@ -106,16 +106,6 @@ public final class IafSoundRegistry {
 
     public static final SoundEvent DRAGON_FLIGHT = createSoundEvent("dragon_flight");
 
-    public static final SoundEvent CYCLOPS_IDLE = createSoundEvent("cyclops_idle");
-
-    public static final SoundEvent CYCLOPS_HURT = createSoundEvent("cyclops_hurt");
-
-    public static final SoundEvent CYCLOPS_DIE = createSoundEvent("cyclops_die");
-
-    public static final SoundEvent CYCLOPS_BITE = createSoundEvent("cyclops_bite");
-
-    public static final SoundEvent CYCLOPS_BLINDED = createSoundEvent("cyclops_blinded");
-
     public static final SoundEvent HIPPOCAMPUS_IDLE = createSoundEvent("hippocampus_idle");
 
     public static final SoundEvent HIPPOCAMPUS_HURT = createSoundEvent("hippocampus_hurt");
@@ -137,14 +127,6 @@ public final class IafSoundRegistry {
     public static final SoundEvent MERMAID_DIE = createSoundEvent("mermaid_die");
 
     public static final SoundEvent SIREN_SONG = createSoundEvent("siren_song");
-
-    public static final SoundEvent TROLL_DIE = createSoundEvent("troll_die");
-
-    public static final SoundEvent TROLL_IDLE = createSoundEvent("troll_idle");
-
-    public static final SoundEvent TROLL_HURT = createSoundEvent("troll_hurt");
-
-    public static final SoundEvent TROLL_ROAR = createSoundEvent("troll_roar");
 
     public static final SoundEvent COCKATRICE_DIE = createSoundEvent("cockatrice_die");
 

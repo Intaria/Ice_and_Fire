@@ -74,18 +74,6 @@
     "iceandfire:armor_black_helmet",
     "iceandfire:armor_black_chestplate",
     "iceandfire:armor_black_leggings",
-    "iceandfire:armor_black_boots",
-    "iceandfire:forest_troll_leather_helmet",
-    "iceandfire:forest_troll_leather_chestplate",
-    "iceandfire:forest_troll_leather_leggings",
-    "iceandfire:forest_troll_leather_boots",
-    "iceandfire:frost_troll_leather_helmet",
-    "iceandfire:frost_troll_leather_chestplate",
-    "iceandfire:frost_troll_leather_leggings",
-    "iceandfire:frost_troll_leather_boots",
-    "iceandfire:mountain_troll_leather_helmet",
-    "iceandfire:mountain_troll_leather_chestplate",
-    "iceandfire:mountain_troll_leather_leggings",
-    "iceandfire:mountain_troll_leather_boots"
+    "iceandfire:armor_black_boots"
   ]
 }

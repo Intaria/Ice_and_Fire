@@ -6,7 +6,6 @@ import com.github.alexthe666.iceandfire.block.IafBlockRegistry;
 import com.github.alexthe666.iceandfire.datagen.tags.IafItemTags;
 import com.github.alexthe666.iceandfire.entity.*;
 import com.github.alexthe666.iceandfire.entity.ai.AiDebug;
-import com.github.alexthe666.iceandfire.entity.ai.EntitySheepAIFollowCyclops;
 import com.github.alexthe666.iceandfire.entity.ai.VillagerAIFearUntamed;
 import com.github.alexthe666.iceandfire.entity.props.*;
 import com.github.alexthe666.iceandfire.entity.util.DragonUtils;
@@ -238,22 +237,6 @@ public class ServerEvents {
 
     @SubscribeEvent
     public void onEntityDamage(LivingHurtEvent event) {
-        if (event.getSource().isProjectile()) {
-            float multi = 1;
-            if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof ItemTrollArmor) {
-                multi -= 0.1f;
-            }
-            if (event.getEntity().getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof ItemTrollArmor) {
-                multi -= 0.3f;
-            }
-            if (event.getEntity().getItemBySlot(EquipmentSlot.LEGS).getItem() instanceof ItemTrollArmor) {
-                multi -= 0.2f;
-            }
-            if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() instanceof ItemTrollArmor) {
-                multi -= 0.1f;
-            }
-            event.setAmount(event.getAmount() * multi);
-        }
         String damageType = event.getSource().getMsgId();
         if (IafDamageRegistry.DRAGON_FIRE_TYPE.equals(damageType) || IafDamageRegistry.DRAGON_ICE_TYPE.equals(damageType) ||
             IafDamageRegistry.DRAGON_LIGHTNING_TYPE.equals(damageType)) {
@@ -342,21 +325,6 @@ public class ServerEvents {
 
     @SubscribeEvent
     public void onPlayerAttack(final AttackEntityEvent event) {
-        if (event.getTarget() != null && isSheep(event.getTarget())) {
-            float dist = IafConfig.cyclopesSheepSearchLength;
-            final List<Entity> list = event.getTarget().level.getEntities(event.getEntity(), event.getEntity().getBoundingBox().expandTowards(dist, dist, dist));
-
-            if (!list.isEmpty()) {
-                for (final Entity entity : list) {
-                    if (entity instanceof EntityCyclops cyclops) {
-                        if (!cyclops.isBlinded() && !event.getEntity().isCreative()) {
-                            cyclops.setTarget(event.getEntity());
-                        }
-                    }
-                }
-            }
-        }
-
         if (event.getTarget() instanceof EntityStoneStatue statue) {
             statue.setHealth(statue.getMaxHealth());
 
@@ -643,9 +611,6 @@ public class ServerEvents {
         // Note: Avoid world (chunk) interaction with not-fully-loaded chunks
         if (event.getEntity() instanceof Mob mob) {
             try {
-                if (event.getEntity() != null && isSheep(event.getEntity()) && event.getEntity() instanceof Animal animal) {
-                    animal.goalSelector.addGoal(8, new EntitySheepAIFollowCyclops(animal, 1.2D));
-                }
                 if (event.getEntity() != null && isVillager(event.getEntity()) && event.getEntity() != null && IafConfig.villagersFearDragons) {
                     mob.goalSelector.addGoal(1, new VillagerAIFearUntamed((PathfinderMob) mob, LivingEntity.class, 8.0F, 0.8D, 0.8D, VILLAGER_FEAR));
                 }

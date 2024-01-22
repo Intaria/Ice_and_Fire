@@ -25,18 +25,14 @@ public class RenderMobSkull extends EntityRenderer<EntityMobSkull> {
 
     private static final Map<String, ResourceLocation> SKULL_TEXTURE_CACHE = Maps.newHashMap();
     private final ModelHippogryph hippogryphModel;
-    private final ModelCyclops cyclopsModel;
     private final ModelCockatrice cockatriceModel;
-    private final ModelTroll trollModel;
     private final ModelAmphithere amphithereModel;
     private final ModelHydraHead hydraModel;
 
     public RenderMobSkull(EntityRendererProvider.Context context) {
         super(context);
         this.hippogryphModel = new ModelHippogryph();
-        this.cyclopsModel = new ModelCyclops();
         this.cockatriceModel = new ModelCockatrice();
-        this.trollModel = new ModelTroll();
         this.amphithereModel = new ModelAmphithere();
         this.hydraModel = new ModelHydraHead(0);
     }
@@ -71,14 +67,6 @@ public class RenderMobSkull extends EntityRenderer<EntityMobSkull> {
                 setRotationAngles(hippogryphModel.Head, onWall ? (float) Math.toRadians(50F) : (float) Math.toRadians(-5), 0, 0);
                 hippogryphModel.Head.render(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
                 break;
-            case CYCLOPS:
-                matrixStackIn.translate(0, 1.8F, -0.5F);
-                matrixStackIn.scale(2.25F, 2.25F, 2.25F);
-                cyclopsModel.resetToDefaultPose();
-                setRotationAngles(cyclopsModel.Head, onWall ? (float) Math.toRadians(50F) : 0F, 0, 0);
-                cyclopsModel.Head.render(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-
-                break;
             case COCKATRICE:
                 if (onWall) {
                     matrixStackIn.translate(0, 0F, 0.35F);
@@ -86,16 +74,6 @@ public class RenderMobSkull extends EntityRenderer<EntityMobSkull> {
                 cockatriceModel.resetToDefaultPose();
                 setRotationAngles(cockatriceModel.head, onWall ? (float) Math.toRadians(50F) : 0F, 0, 0);
                 cockatriceModel.head.render(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-
-                break;
-            case TROLL:
-                matrixStackIn.translate(0, 1F, -0.35F);
-                if (onWall) {
-                    matrixStackIn.translate(0, 0F, 0.35F);
-                }
-                trollModel.resetToDefaultPose();
-                setRotationAngles(trollModel.head, onWall ? (float) Math.toRadians(50F) : (float) Math.toRadians(-20), 0, 0);
-                trollModel.head.render(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
 
                 break;
             case AMPHITHERE:

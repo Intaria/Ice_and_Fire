@@ -65,12 +65,10 @@ public class IafClientSetup {
         EntityRenderers.register(IafEntityRegistry.STONE_STATUE.get(), RenderStoneStatue::new);
         EntityRenderers.register(IafEntityRegistry.GORGON.get(), RenderGorgon::new);
         EntityRenderers.register(IafEntityRegistry.PIXIE.get(), RenderPixie::new);
-        EntityRenderers.register(IafEntityRegistry.CYCLOPS.get(), RenderCyclops::new);
         EntityRenderers.register(IafEntityRegistry.SIREN.get(), RenderSiren::new);
         EntityRenderers.register(IafEntityRegistry.HIPPOCAMPUS.get(), RenderHippocampus::new);
         EntityRenderers.register(IafEntityRegistry.COCKATRICE.get(), RenderCockatrice::new);
         EntityRenderers.register(IafEntityRegistry.COCKATRICE_EGG.get(), ThrownItemRenderer::new);
-        EntityRenderers.register(IafEntityRegistry.TROLL.get(), RenderTroll::new);
         EntityRenderers.register(IafEntityRegistry.AMPHITHERE.get(), RenderAmphithere::new);
         EntityRenderers.register(IafEntityRegistry.AMPHITHERE_ARROW.get(), RenderAmphithereArrow::new);
         EntityRenderers.register(IafEntityRegistry.CHAIN_TIE.get(), RenderChainTie::new);
@@ -89,7 +87,6 @@ public class IafClientSetup {
         EntityRenderers.register(IafEntityRegistry.HYDRA_ARROW.get(), RenderHydraArrow::new);
         EntityRenderers.register(IafEntityRegistry.SLOW_MULTIPART.get(), RenderNothing::new);
         EntityRenderers.register(IafEntityRegistry.DRAGON_MULTIPART.get(), RenderNothing::new);
-        EntityRenderers.register(IafEntityRegistry.CYCLOPS_MULTIPART.get(), RenderNothing::new);
         EntityRenderers.register(IafEntityRegistry.HYDRA_MULTIPART.get(), RenderNothing::new);
         EntityRenderers.register(IafEntityRegistry.GHOST.get(), RenderGhost::new);
         EntityRenderers.register(IafEntityRegistry.GHOST_SWORD.get(), RenderGhostSword::new);

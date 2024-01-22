@@ -4,7 +4,6 @@ import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.block.IafBlockRegistry;
 import com.github.alexthe666.iceandfire.datagen.tags.IafItemTags;
 import com.github.alexthe666.iceandfire.enums.EnumDragonArmor;
-import com.github.alexthe666.iceandfire.enums.EnumTroll;
 import com.github.alexthe666.iceandfire.item.IafItemRegistry;
 import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
 import com.google.common.collect.Sets;
@@ -398,21 +397,6 @@ public class IafRecipes extends RecipeProvider {
                 .pattern("B B")
                 .define('B', ItemTags.PLANKS)
                 .save(consumer);
-
-        for (EnumTroll type : EnumTroll.values()) {
-            armorSet(consumer, type.leather.get(),
-                    type.chestplate.get(),
-                    type.leggings.get(),
-                    type.boots.get()
-            );
-
-            CustomShaped.shaped(type.helmet.get())
-                    .pattern("TTT")
-                    .pattern("U U")
-                    .define('T', type.leather.get())
-                    .define('U', IafItemRegistry.TROLL_TUSK.get())
-                    .save(consumer);
-        }
 
         CustomShaped.shaped(IafBlockRegistry.GHOST_CHEST.get())
                 .pattern(" E ")

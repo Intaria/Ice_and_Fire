@@ -543,54 +543,6 @@
     ],
     "subtitle": "iceandfire.sound.subtitle.cockatrice_die"
   },
-  "troll_idle": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/troll/idle_0",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:mobs/troll/idle_1",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.troll_idle"
-  },
-  "troll_roar": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/troll/roar",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.troll_roar"
-  },
-  "troll_hurt": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/troll/hurt_0",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:mobs/troll/hurt_1",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.troll_hurt"
-  },
-  "troll_die": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/troll/die",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.troll_die"
-  },
   "naga_attack": {
     "category": "hostile",
     "sounds": [
@@ -744,64 +696,6 @@
       }
     ],
     "subtitle": "iceandfire.sound.subtitle.hippocampus_die"
-  },
-  "cyclops_idle": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/cyclops/idle",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.cyclops_idle"
-  },
-  "cyclops_hurt": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/cyclops/hurt_0",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:mobs/cyclops/hurt_1",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.cyclops_hurt"
-  },
-  "cyclops_die": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/cyclops/hurt_0",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:mobs/cyclops/hurt_1",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.cyclops_die"
-  },
-  "cyclops_bite": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/cyclops/bite",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.cyclops_bite"
-  },
-  "cyclops_blinded": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/cyclops/blinded",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.cyclops_blinded"
   },
   "dragon_flight": {
     "category": "hostile",
