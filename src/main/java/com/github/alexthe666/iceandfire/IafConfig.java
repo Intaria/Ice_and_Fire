@@ -7,9 +7,6 @@ import net.minecraftforge.fml.config.ModConfig;
 import java.util.List;
 
 public class IafConfig {
-    public static boolean customMainMenu = true;
-    public static boolean useVanillaFont = false;
-
     //public static boolean logCascadingWorldGen = false;
     public static boolean generateDragonSkeletons = true;
     public static int generateDragonSkeletonChance = 300;
@@ -110,8 +107,6 @@ public class IafConfig {
 
     public static void bakeClient(final ModConfig config) {
         try {
-            customMainMenu = ConfigHolder.CLIENT.customMainMenu.get();
-            useVanillaFont = ConfigHolder.CLIENT.useVanillaFont.get();
          dragonAuto3rdPerson = ConfigHolder.CLIENT.dragonAuto3rdPerson.get();
         } catch (Exception e) {
             IceAndFire.LOGGER.warn("An exception was caused trying to load the client config for Ice and Fire.");

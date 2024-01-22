@@ -92,7 +92,6 @@ public class IafClientSetup {
         EntityRenderers.register(IafEntityRegistry.GHOST_SWORD.get(), RenderGhostSword::new);
 
         BlockEntityRenderers.register(IafTileEntityRegistry.PODIUM.get(), RenderPodium::new);
-        BlockEntityRenderers.register(IafTileEntityRegistry.IAF_LECTERN.get(), RenderLectern::new);
         BlockEntityRenderers.register(IafTileEntityRegistry.EGG_IN_ICE.get(), RenderEggInIce::new);
         BlockEntityRenderers.register(IafTileEntityRegistry.PIXIE_HOUSE.get(), RenderPixieHouse::new);
         BlockEntityRenderers.register(IafTileEntityRegistry.PIXIE_JAR.get(), RenderJar::new);
@@ -130,7 +129,6 @@ public class IafClientSetup {
 
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.GOLD_PILE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.SILVER_PILE.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.LECTERN.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.PODIUM_OAK.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.PODIUM_BIRCH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.PODIUM_SPRUCE.get(), RenderType.cutout());

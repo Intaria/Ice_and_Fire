@@ -4,7 +4,6 @@ import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.world.gen.processor.DreadRuinProcessor;
 import com.github.alexthe666.iceandfire.world.gen.processor.GorgonTempleProcessor;
 import com.github.alexthe666.iceandfire.world.gen.processor.GraveyardProcessor;
-import com.github.alexthe666.iceandfire.world.gen.processor.VillageHouseProcessor;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
@@ -29,11 +28,7 @@ public class IafProcessorLists {
         return Map.of(
                 GRAVEYARD_PROCESSORS.location(), new StructureProcessorList(List.of(GraveyardProcessor.INSTANCE)),
                 MAUSOLEUM_PROCESSORS.location(), new StructureProcessorList(List.of(DreadRuinProcessor.INSTANCE)),
-                GORGON_TEMPLE_PROCESSORS.location(), new StructureProcessorList(List.of(GorgonTempleProcessor.INSTANCE)),
-                HOUSE_PROCESSOR.location(), new StructureProcessorList(List.of(
-                        new RuleProcessor(ImmutableList.of(new ProcessorRule(new RandomBlockMatchTest(Blocks.COBBLESTONE, 0.1F), AlwaysTrueTest.INSTANCE, Blocks.MOSSY_COBBLESTONE.defaultBlockState()))),
-                        VillageHouseProcessor.INSTANCE
-                ))
+                GORGON_TEMPLE_PROCESSORS.location(), new StructureProcessorList(List.of(GorgonTempleProcessor.INSTANCE))
         );
     }
 }

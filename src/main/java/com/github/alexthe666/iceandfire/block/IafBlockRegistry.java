@@ -26,7 +26,6 @@ public class IafBlockRegistry {
 
     public static final SoundType SOUND_TYPE_GOLD = new SoundType(1.0F, 1.0F, IafSoundRegistry.GOLD_PILE_BREAK, IafSoundRegistry.GOLD_PILE_STEP, IafSoundRegistry.GOLD_PILE_BREAK, IafSoundRegistry.GOLD_PILE_STEP, IafSoundRegistry.GOLD_PILE_STEP);
 
-    public static final RegistryObject<Block> LECTERN = register("lectern", BlockLectern::new);
     public static final RegistryObject<Block> PODIUM_OAK = register("podium_oak", BlockPodium::new);
     public static final RegistryObject<Block> PODIUM_BIRCH = register("podium_birch", BlockPodium::new);
     public static final RegistryObject<Block> PODIUM_SPRUCE = register("podium_spruce", BlockPodium::new);

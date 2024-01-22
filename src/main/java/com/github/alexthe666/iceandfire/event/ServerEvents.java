@@ -188,19 +188,6 @@ public class ServerEvents {
         }
     }
 
-    private static final String[] VILLAGE_TYPES = new String[]{"plains", "desert", "snowy", "savanna", "taiga"};
-    @SubscribeEvent
-    public static void addNewVillageBuilding(final ServerAboutToStartEvent event) {
-        if (IafConfig.villagerHouseWeight > 0) {
-            Registry<StructureTemplatePool> templatePoolRegistry = event.getServer().registryAccess().registry(Registry.TEMPLATE_POOL_REGISTRY).orElseThrow();
-            Registry<StructureProcessorList> processorListRegistry = event.getServer().registryAccess().registry(Registry.PROCESSOR_LIST_REGISTRY).orElseThrow();
-            for (String type : VILLAGE_TYPES) {
-                IafVillagerRegistry.addBuildingToPool(templatePoolRegistry, processorListRegistry, new ResourceLocation("village/" + type + "/houses"), "iceandfire:village/" + type + "_scriber_1", IafConfig.villagerHouseWeight);
-            }
-        }
-
-    }
-
     @SubscribeEvent
     public void onPlayerAttackMob(AttackEntityEvent event) {
         if (event.getTarget() instanceof EntityMutlipartPart && event.getEntity() instanceof Player) {
@@ -620,13 +607,6 @@ public class ServerEvents {
             } catch (Exception e) {
                 IceAndFire.LOGGER.warn("Tried to add unique behaviors to vanilla mobs and encountered an error");
             }
-        }
-    }
-
-    @SubscribeEvent
-    public void onVillagerTrades(VillagerTradesEvent event) {
-        if (event.getType() == IafVillagerRegistry.SCRIBE.get()) {
-            IafVillagerRegistry.addScribeTrades(event.getTrades());
         }
     }
 

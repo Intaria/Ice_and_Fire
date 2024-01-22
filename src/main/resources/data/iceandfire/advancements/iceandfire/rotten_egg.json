@@ -10,7 +10,7 @@
       "translate": "advancements.iceandfire.rotten_egg.description"
     }
   },
-  "parent": "iceandfire:iceandfire/bestiary",
+  "parent": "iceandfire:iceandfire/root",
   "criteria": {
     "bestiary": {
       "trigger": "minecraft:inventory_changed",

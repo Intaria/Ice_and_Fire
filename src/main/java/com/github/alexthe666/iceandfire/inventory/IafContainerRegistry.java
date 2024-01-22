@@ -14,8 +14,6 @@ public class IafContainerRegistry {
     public static final DeferredRegister<MenuType<?>> CONTAINERS = DeferredRegister
         .create(ForgeRegistries.MENU_TYPES, IceAndFire.MODID);
 
-    public static final RegistryObject<MenuType<ContainerLectern>> IAF_LECTERN_CONTAINER = register(
-        () -> new MenuType<>(ContainerLectern::new), "iaf_lectern");
     public static final RegistryObject<MenuType<ContainerPodium>> PODIUM_CONTAINER = register(
         () -> new MenuType<>(ContainerPodium::new), "podium");
     public static final RegistryObject<MenuType<ContainerDragon>> DRAGON_CONTAINER = register(

@@ -16,8 +16,6 @@ import static com.github.alexthe666.iceandfire.IceAndFire.MODID;
 @Mod.EventBusSubscriber(modid = IceAndFire.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class IafSoundRegistry {
 
-    public static final SoundEvent BESTIARY_PAGE = createSoundEvent("bestiary_page");
-
     public static final SoundEvent EGG_HATCH = createSoundEvent("egg_hatch");
 
     public static final SoundEvent FIREDRAGON_BREATH = createSoundEvent("firedragon_breath");

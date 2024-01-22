@@ -368,20 +368,6 @@
     ],
     "subtitle": "iceandfire.sound.subtitle.hydra_die"
   },
-  "bestiary_page": {
-    "category": "player",
-    "sounds": [
-      {
-        "name": "iceandfire:items/bestiary_page_0",
-        "volume": 0.4
-      },
-      {
-        "name": "iceandfire:items/bestiary_page_1",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.bestiary_page"
-  },
   "pixie_wand": {
     "category": "player",
     "sounds": [

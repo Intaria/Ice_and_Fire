@@ -52,7 +52,6 @@ public class IafItemRegistry {
     public static DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, IceAndFire.MODID);
 
 
-    public static final RegistryObject<Item> BESTIARY = registerItem("bestiary", ItemBestiary::new);
     public static final RegistryObject<Item> MANUSCRIPT = registerItem("manuscript", ItemGeneric::new);
     public static final RegistryObject<Item> SAPPHIRE_GEM = registerItem("sapphire_gem", ItemGeneric::new);
     public static final RegistryObject<Item> SILVER_INGOT = registerItem("silver_ingot", ItemGeneric::new);

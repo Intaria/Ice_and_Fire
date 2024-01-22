@@ -282,7 +282,6 @@ public class EntityGhost extends Monster implements IAnimatedEntity, IVillagerFe
         ItemStack itemstack = player.getItemInHand(hand);
         if (itemstack != null && itemstack.getItem() == IafItemRegistry.MANUSCRIPT.get() && !this.isHauntedShoppingList()) {
             this.setColor(-1);
-            this.playSound(IafSoundRegistry.BESTIARY_PAGE, 1, 1);
             if (!player.isCreative()) {
                 itemstack.shrink(1);
             }

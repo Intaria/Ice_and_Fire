@@ -10,7 +10,7 @@
       "translate": "advancements.iceandfire.kill_ghost.description"
     }
   },
-  "parent": "iceandfire:iceandfire/bestiary",
+  "parent": "iceandfire:iceandfire/root",
   "criteria": {
     "killed_fire_dragon": {
       "trigger": "minecraft:player_killed_entity",

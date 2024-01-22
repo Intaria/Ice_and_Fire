@@ -16,7 +16,6 @@ public class IafTileEntityRegistry {
         .create(ForgeRegistries.BLOCK_ENTITY_TYPES, IceAndFire.MODID);
 
     //@formatter:off
-    public static final RegistryObject<BlockEntityType<TileEntityLectern>> IAF_LECTERN = registerTileEntity(() -> BlockEntityType.Builder.of(TileEntityLectern::new, IafBlockRegistry.LECTERN.get()), "lectern");
     public static final RegistryObject<BlockEntityType<TileEntityPodium>> PODIUM = registerTileEntity(() -> BlockEntityType.Builder.of(TileEntityPodium::new, IafBlockRegistry.PODIUM_OAK.get(), IafBlockRegistry.PODIUM_BIRCH.get(), IafBlockRegistry.PODIUM_SPRUCE.get(), IafBlockRegistry.PODIUM_JUNGLE.get(), IafBlockRegistry.PODIUM_DARK_OAK.get(), IafBlockRegistry.PODIUM_ACACIA.get()), "podium");
     public static final RegistryObject<BlockEntityType<TileEntityEggInIce>> EGG_IN_ICE = registerTileEntity(() -> BlockEntityType.Builder.of(TileEntityEggInIce::new, IafBlockRegistry.EGG_IN_ICE.get()), "egginice");
     public static final RegistryObject<BlockEntityType<TileEntityPixieHouse>> PIXIE_HOUSE = registerTileEntity(() -> BlockEntityType.Builder.of(TileEntityPixieHouse::new, IafBlockRegistry.PIXIE_HOUSE_MUSHROOM_RED.get(), IafBlockRegistry.PIXIE_HOUSE_MUSHROOM_BROWN.get(), IafBlockRegistry.PIXIE_HOUSE_OAK.get(), IafBlockRegistry.PIXIE_HOUSE_BIRCH.get(), IafBlockRegistry.PIXIE_HOUSE_BIRCH.get(), IafBlockRegistry.PIXIE_HOUSE_SPRUCE.get(), IafBlockRegistry.PIXIE_HOUSE_DARK_OAK.get()), "pixie_house");

@@ -456,10 +456,6 @@ public class IafRecipes extends RecipeProvider {
                 .requires(IafItemTags.CHARRED_BLOCKS, 9)
                 .save(consumer);
 
-        CustomShapeless.shapeless(IafItemRegistry.BESTIARY.get())
-                .requires(IafItemRegistry.MANUSCRIPT.get(), 3)
-                .save(consumer);
-
         CustomShapeless.shapeless(IafItemRegistry.CHAIN_STICKY.get())
                 .requires(Tags.Items.SLIMEBALLS)
                 .requires(IafItemRegistry.CHAIN.get())

@@ -55,8 +55,6 @@ public class CommonProxy {
     public void spawnParticle(EnumParticles name, double x, double y, double z, double motX, double motY, double motZ, float size) {
     }
 
-    public void openBestiaryGui(ItemStack book) {
-    }
 
     public Object getFontRenderer() {
         return null;
@@ -77,10 +75,6 @@ public class CommonProxy {
     }
 
     public void updateDragonArmorRender(String clear) {
-    }
-
-    public boolean shouldSeeBestiaryContents() {
-        return true;
     }
 
     public Entity getReferencedMob() {

@@ -2,7 +2,6 @@ package com.github.alexthe666.iceandfire.client;
 
 import com.github.alexthe666.iceandfire.CommonProxy;
 import com.github.alexthe666.iceandfire.IceAndFire;
-import com.github.alexthe666.iceandfire.client.gui.bestiary.GuiBestiary;
 import com.github.alexthe666.iceandfire.client.particle.*;
 import com.github.alexthe666.iceandfire.client.render.entity.layer.LayerDragonArmor;
 import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
@@ -121,12 +120,6 @@ public class ClientProxy extends CommonProxy {
 
     @OnlyIn(Dist.CLIENT)
     @Override
-    public void openBestiaryGui(ItemStack book) {
-        Minecraft.getInstance().setScreen(new GuiBestiary(book));
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    @Override
     public Object getFontRenderer() {
         return Minecraft.getInstance().font;
     }
@@ -154,12 +147,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void updateDragonArmorRender(String clear) {
         LayerDragonArmor.clearCache(clear);
-    }
-
-    @OnlyIn(Dist.CLIENT)
-    @Override
-    public boolean shouldSeeBestiaryContents() {
-        return InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), 340) || InputConstants.isKeyDown(Minecraft.getInstance().getWindow().getWindow(), 344);
     }
 
     @Override
