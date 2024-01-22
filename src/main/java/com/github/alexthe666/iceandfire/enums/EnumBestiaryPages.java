@@ -33,7 +33,6 @@ public enum EnumBestiaryPages {
     STYMPHALIANBIRD(1),
     TROLL(2),
     AMPHITHERE(2),
-    SEASERPENT(2),
     HYDRA(2),
     DREAD_MOBS(1),
     LIGHTNINGDRAGON(5),

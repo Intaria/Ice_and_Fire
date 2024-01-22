@@ -31,9 +31,8 @@ public class RenderMobSkull extends EntityRenderer<EntityMobSkull> {
     private final ModelTroll trollModel;
     private final ModelAmphithere amphithereModel;
     private final ModelHydraHead hydraModel;
-    private final TabulaModel seaSerpentModel;
 
-    public RenderMobSkull(EntityRendererProvider.Context context, AdvancedEntityModel seaSerpentModel) {
+    public RenderMobSkull(EntityRendererProvider.Context context) {
         super(context);
         this.hippogryphModel = new ModelHippogryph();
         this.cyclopsModel = new ModelCyclops();
@@ -41,7 +40,6 @@ public class RenderMobSkull extends EntityRenderer<EntityMobSkull> {
         this.stymphalianBirdModel = new ModelStymphalianBird();
         this.trollModel = new ModelTroll();
         this.amphithereModel = new ModelAmphithere();
-        this.seaSerpentModel = (TabulaModel) seaSerpentModel;
         this.hydraModel = new ModelHydraHead(0);
     }
 
@@ -117,14 +115,6 @@ public class RenderMobSkull extends EntityRenderer<EntityMobSkull> {
                 amphithereModel.resetToDefaultPose();
                 setRotationAngles(amphithereModel.Head, onWall ? (float) Math.toRadians(50F) : 0F, 0, 0);
                 amphithereModel.Head.render(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-
-                break;
-            case SEASERPENT:
-                matrixStackIn.translate(0, -0.35F, 0.8F);
-                matrixStackIn.scale(2.5F, 2.5F, 2.5F);
-                seaSerpentModel.resetToDefaultPose();
-                setRotationAngles(seaSerpentModel.getCube("Head"), onWall ? (float) Math.toRadians(50F) : 0F, 0, 0);
-                seaSerpentModel.getCube("Head").render(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
 
                 break;
             case HYDRA:

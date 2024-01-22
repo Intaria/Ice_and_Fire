@@ -1,6 +1,5 @@
 package com.github.alexthe666.iceandfire.entity.ai;
 
-import com.github.alexthe666.iceandfire.entity.EntitySeaSerpent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
@@ -32,9 +31,6 @@ public class FlyingAITarget<T extends LivingEntity> extends NearestAttackableTar
 
     @Override
     public boolean canUse() {
-        if (mob instanceof EntitySeaSerpent && (((EntitySeaSerpent) mob).isJumpingOutOfWater() || !mob.isInWater())) {
-            return false;
-        }
         return super.canUse();
     }
 

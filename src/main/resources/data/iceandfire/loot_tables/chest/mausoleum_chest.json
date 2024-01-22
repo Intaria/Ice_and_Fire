@@ -345,20 +345,6 @@
         },
         {
           "type": "item",
-          "name": "iceandfire:sea_serpent_fang",
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 2
-              }
-            }
-          ],
-          "weight": 3
-        },
-        {
-          "type": "item",
           "name": "iceandfire:dragonarmor_iron_head",
           "functions": [
             {

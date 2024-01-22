@@ -10,7 +10,6 @@ public enum EnumParticles {
     Siren_Appearance,
     Ghost_Appearance,
     Siren_Music,
-    Serpent_Bubble,
     Snowflake,
     Hydra
 }

@@ -14,7 +14,6 @@ public enum EnumSkullType {
     STYMPHALIAN,
     TROLL,
     AMPHITHERE,
-    SEASERPENT,
     HYDRA;
 
     public String itemResourceName;

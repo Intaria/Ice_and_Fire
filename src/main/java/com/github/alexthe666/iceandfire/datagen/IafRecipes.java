@@ -4,7 +4,6 @@ import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.block.IafBlockRegistry;
 import com.github.alexthe666.iceandfire.datagen.tags.IafItemTags;
 import com.github.alexthe666.iceandfire.enums.EnumDragonArmor;
-import com.github.alexthe666.iceandfire.enums.EnumSeaSerpent;
 import com.github.alexthe666.iceandfire.enums.EnumTroll;
 import com.github.alexthe666.iceandfire.item.IafItemRegistry;
 import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
@@ -269,17 +268,6 @@ public class IafRecipes extends RecipeProvider {
             );
         }
 
-        for (EnumSeaSerpent type : EnumSeaSerpent.values()) {
-            armorSet(consumer, type.scale.get(),
-                    type.helmet.get(),
-                    type.chestplate.get(),
-                    type.leggings.get(),
-                    type.boots.get()
-            );
-
-            compact(consumer, type.scale.get(), type.scaleBlock.get());
-        }
-
         compact(consumer, IafItemRegistry.DRAGONSTEEL_FIRE_INGOT.get(), IafBlockRegistry.DRAGONSTEEL_FIRE_BLOCK.get());
 
         toolSet(consumer, IafItemRegistry.DRAGONSTEEL_FIRE_INGOT.get(), IafItemTags.BONES_WITHER,
@@ -468,16 +456,6 @@ public class IafRecipes extends RecipeProvider {
         );
 
         compact(consumer, IafItemRegistry.SAPPHIRE_GEM.get(), IafBlockRegistry.SAPPHIRE_BLOCK.get());
-
-        CustomShaped.shaped(IafItemRegistry.TIDE_TRIDENT.get())
-                .pattern("TTT")
-                .pattern("SDS")
-                .pattern(" B ")
-                .define('D', Tags.Items.GEMS_DIAMOND)
-                .define('S', IafItemTags.SCALES_SEA_SERPENT)
-                .define('T', IafItemRegistry.SERPENT_FANG.get())
-                .define('B', IafItemRegistry.DRAGON_BONE.get())
-                .save(consumer);
     }
 
     private void createShapeless(@NotNull final Consumer<FinishedRecipe> consumer) {
@@ -556,15 +534,6 @@ public class IafRecipes extends RecipeProvider {
         CustomShapeless.shapeless(Items.GRAVEL)
                 .requires(IafItemTags.CRACKLED_BLOCKS, 9)
                 .save(consumer, location("crackled_to_gravel"));
-
-        CustomShaped.shaped(IafItemRegistry.SEA_SERPENT_ARROW.get(), 4)
-                .pattern("X")
-                .pattern("#")
-                .pattern("Y")
-                .define('#', Tags.Items.RODS_WOODEN)
-                .define('X', IafItemRegistry.SERPENT_FANG.get())
-                .define('Y', IafItemTags.SCALES_SEA_SERPENT)
-                .save(consumer);
     }
 
     private void smithing(@NotNull final Consumer<FinishedRecipe> consumer, final ItemLike base, final ItemLike material, final Item result) {
