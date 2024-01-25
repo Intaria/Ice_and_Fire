@@ -25,11 +25,6 @@ public class TileEntityDragonforgeBrick extends BlockEntity {
     }
 
     private ICapabilityProvider getConnectedTileEntity() {
-        for (Direction facing : Direction.values()) {
-            if (level.getBlockEntity(worldPosition.relative(facing)) instanceof TileEntityDragonforge) {
-                return level.getBlockEntity(worldPosition.relative(facing));
-            }
-        }
         return null;
     }
 

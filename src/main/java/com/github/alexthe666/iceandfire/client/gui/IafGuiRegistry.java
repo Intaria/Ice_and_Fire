@@ -10,6 +10,5 @@ public class IafGuiRegistry {
         MenuScreens.register(IafContainerRegistry.DRAGON_CONTAINER.get(), GuiDragon::new);
         MenuScreens.register(IafContainerRegistry.HIPPOGRYPH_CONTAINER.get(), GuiHippogryph::new);
         MenuScreens.register(IafContainerRegistry.HIPPOCAMPUS_CONTAINER.get(), GuiHippocampus::new);
-        MenuScreens.register(IafContainerRegistry.DRAGON_FORGE_CONTAINER.get(), GuiDragonForge::new);
     }
 }

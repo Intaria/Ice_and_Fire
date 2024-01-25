@@ -14,7 +14,6 @@ import com.github.alexthe666.iceandfire.datagen.tags.IafBlockTags;
 import com.github.alexthe666.iceandfire.datagen.tags.IafItemTags;
 import com.github.alexthe666.iceandfire.entity.ai.*;
 import com.github.alexthe666.iceandfire.entity.props.MiscProperties;
-import com.github.alexthe666.iceandfire.entity.tile.TileEntityDragonforgeInput;
 import com.github.alexthe666.iceandfire.entity.util.*;
 import com.github.alexthe666.iceandfire.enums.EnumDragonEgg;
 import com.github.alexthe666.iceandfire.inventory.ContainerDragon;
@@ -468,16 +467,11 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     protected void updateBurnTarget() {
         if (burningTarget != null && !this.isSleeping() && !this.isModelDead() && !this.isBaby()) {
             float maxDist = 115 * this.getDragonStage();
-            if (level.getBlockEntity(burningTarget) instanceof TileEntityDragonforgeInput forge && forge.isAssembled() && this.distanceToSqr(burningTarget.getX() + 0.5D, burningTarget.getY() + 0.5D, burningTarget.getZ() + 0.5D) < maxDist && canPositionBeSeen(burningTarget.getX() + 0.5D, burningTarget.getY() + 0.5D, burningTarget.getZ() + 0.5D)) {
-                this.getLookControl().setLookAt(burningTarget.getX() + 0.5D, burningTarget.getY() + 0.5D, burningTarget.getZ() + 0.5D, 180F, 180F);
-                this.breathFireAtPos(burningTarget);
-                this.setBreathingFire(true);
-            } else {
+
                 if (!level.isClientSide) {
                     IceAndFire.sendMSGToAll(new MessageDragonSetBurnBlock(this.getId(), true, burningTarget));
                 }
                 burningTarget = null;
-            }
         }
     }
 
@@ -1111,7 +1105,7 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     }
 
     public boolean isFuelingForge() {
-        return burningTarget != null && level.getBlockEntity(burningTarget) instanceof TileEntityDragonforgeInput;
+        return false;
     }
 
     @Override

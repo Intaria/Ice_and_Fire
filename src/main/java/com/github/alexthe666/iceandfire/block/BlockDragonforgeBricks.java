@@ -2,7 +2,6 @@ package com.github.alexthe666.iceandfire.block;
 
 import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.entity.DragonType;
-import com.github.alexthe666.iceandfire.entity.tile.TileEntityDragonforge;
 import com.github.alexthe666.iceandfire.entity.tile.TileEntityDragonforgeBrick;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -55,33 +54,7 @@ public class BlockDragonforgeBricks extends BaseEntityBlock implements IDragonPr
 
     @Override
     public @NotNull InteractionResult use(@NotNull BlockState state, @NotNull Level worldIn, @NotNull BlockPos pos, @NotNull Player player, @NotNull InteractionHand handIn, BlockHitResult resultIn) {
-        if (this.getConnectedTileEntity(worldIn, resultIn.getBlockPos()) != null) {
-            TileEntityDragonforge forge = this.getConnectedTileEntity(worldIn, resultIn.getBlockPos());
-            if (forge != null && forge.fireType == isFire) {
-                if (worldIn.isClientSide) {
-                    IceAndFire.PROXY.setRefrencedTE(worldIn.getBlockEntity(forge.getBlockPos()));
-                } else {
-                    MenuProvider inamedcontainerprovider = this.getMenuProvider(forge.getBlockState(), worldIn, forge.getBlockPos());
-                    if (inamedcontainerprovider != null) {
-                        player.openMenu(inamedcontainerprovider);
-                    }
-                }
-                return InteractionResult.SUCCESS;
-            }
-        }
         return InteractionResult.FAIL;
-    }
-
-    private TileEntityDragonforge getConnectedTileEntity(Level worldIn, BlockPos pos) {
-        for (Direction facing : Direction.values()) {
-            if (worldIn.getBlockEntity(pos.relative(facing)) != null && worldIn.getBlockEntity(pos.relative(facing)) instanceof TileEntityDragonforge) {
-                TileEntityDragonforge forge = (TileEntityDragonforge) worldIn.getBlockEntity(pos.relative(facing));
-                if (forge != null && forge.assembled()) {
-                    return forge;
-                }
-            }
-        }
-        return null;
     }
 
     @Override

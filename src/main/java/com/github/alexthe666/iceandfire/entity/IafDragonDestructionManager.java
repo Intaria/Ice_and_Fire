@@ -4,7 +4,6 @@ import com.github.alexthe666.iceandfire.IafConfig;
 import com.github.alexthe666.iceandfire.api.event.DragonFireDamageWorldEvent;
 import com.github.alexthe666.iceandfire.block.*;
 import com.github.alexthe666.iceandfire.entity.props.FrozenProperties;
-import com.github.alexthe666.iceandfire.entity.tile.TileEntityDragonforgeInput;
 import com.github.alexthe666.iceandfire.entity.util.BlockLaunchExplosion;
 import com.github.alexthe666.iceandfire.entity.util.DragonUtils;
 import com.github.alexthe666.iceandfire.misc.IafDamageRegistry;
@@ -51,11 +50,6 @@ public class IafDragonDestructionManager {
 
         if (dragon.getDragonStage() <= 3) {
             BlockPos.betweenClosedStream(center.offset(-1, -1, -1), center.offset(1, 1, 1)).forEach(position -> {
-                if (level.getBlockEntity(position) instanceof TileEntityDragonforgeInput forge) {
-                    forge.onHitWithFlame();
-                    return;
-                }
-
                 if (canBreakBlocks && DragonUtils.canGrief(dragon) && dragon.getRandom().nextBoolean()) {
                     attackBlock(level, dragon, position);
                 }
@@ -71,11 +65,6 @@ public class IafDragonDestructionManager {
             damageRadius = 2.5F + f * 1.2F;
 
             BlockPos.betweenClosedStream(center.offset(-x, -y, -z), center.offset(x, y, z)).forEach(position -> {
-                if (level.getBlockEntity(position) instanceof TileEntityDragonforgeInput forge) {
-                    forge.onHitWithFlame();
-                    return;
-                }
-
                 if (canBreakBlocks && center.distSqr(position) <= ff) {
                     if (DragonUtils.canGrief(dragon) && level.random.nextFloat() > (float) center.distSqr(position) / ff) {
                         attackBlock(level, dragon, position);

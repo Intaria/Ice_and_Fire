@@ -86,15 +86,6 @@ public class IafBlockRegistry {
     public static final RegistryObject<Block> DRAGONFORGE_FIRE_BRICK = register(BlockDragonforgeBricks.name(0), () -> new BlockDragonforgeBricks(0));
     public static final RegistryObject<Block> DRAGONFORGE_ICE_BRICK = register(BlockDragonforgeBricks.name(1), () -> new BlockDragonforgeBricks(1));
     public static final RegistryObject<Block> DRAGONFORGE_LIGHTNING_BRICK = register(BlockDragonforgeBricks.name(2), () -> new BlockDragonforgeBricks(2));
-    public static final RegistryObject<Block> DRAGONFORGE_FIRE_INPUT = register(BlockDragonforgeInput.name(0), () -> new BlockDragonforgeInput(0));
-    public static final RegistryObject<Block> DRAGONFORGE_ICE_INPUT = register(BlockDragonforgeInput.name(1), () -> new BlockDragonforgeInput(1));
-    public static final RegistryObject<Block> DRAGONFORGE_LIGHTNING_INPUT = register(BlockDragonforgeInput.name(2), () -> new BlockDragonforgeInput(2));
-    public static final RegistryObject<Block> DRAGONFORGE_FIRE_CORE = register(BlockDragonforgeCore.name(0, true), () -> new BlockDragonforgeCore(0, true));
-    public static final RegistryObject<Block> DRAGONFORGE_ICE_CORE = register(BlockDragonforgeCore.name(1, true), () -> new BlockDragonforgeCore(1, true));
-    public static final RegistryObject<Block> DRAGONFORGE_LIGHTNING_CORE = register(BlockDragonforgeCore.name(2, true), () -> new BlockDragonforgeCore(2, true));
-    public static final RegistryObject<Block> DRAGONFORGE_FIRE_CORE_DISABLED = register(BlockDragonforgeCore.name(0, false), () -> new BlockDragonforgeCore(0, false));
-    public static final RegistryObject<Block> DRAGONFORGE_ICE_CORE_DISABLED = register(BlockDragonforgeCore.name(1, false), () -> new BlockDragonforgeCore(1, false));
-    public static final RegistryObject<Block> DRAGONFORGE_LIGHTNING_CORE_DISABLED = register(BlockDragonforgeCore.name(2, false), () -> new BlockDragonforgeCore(2, false));
     public static final RegistryObject<Block> EGG_IN_ICE = register("egginice", BlockEggInIce::new);
     public static final RegistryObject<Block> PIXIE_HOUSE_MUSHROOM_RED = registerWithRender(BlockPixieHouse.name("mushroom_red"), BlockPixieHouse::new);
     public static final RegistryObject<Block> PIXIE_HOUSE_MUSHROOM_BROWN = registerWithRender(BlockPixieHouse.name("mushroom_brown"), BlockPixieHouse::new);

@@ -22,8 +22,6 @@ public class IafContainerRegistry {
         () -> new MenuType<>(ContainerHippogryph::new), "hippogryph");
     public static final RegistryObject<MenuType<HippocampusContainerMenu>> HIPPOCAMPUS_CONTAINER = register(
         () -> new MenuType<>(HippocampusContainerMenu::new), "hippocampus");
-    public static final RegistryObject<MenuType<ContainerDragonForge>> DRAGON_FORGE_CONTAINER = register(
-        () -> new MenuType<>(ContainerDragonForge::new), "dragon_forge");
 
     public static <C extends AbstractContainerMenu> RegistryObject<MenuType<C>> register(Supplier<MenuType<C>> type,
                                                                                          String name) {

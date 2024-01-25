@@ -29,8 +29,7 @@ import org.jetbrains.annotations.NotNull;
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
 public class IafRecipeRegistry {
     public static final DeferredRegister<RecipeType<?>> RECIPE_TYPE = DeferredRegister.create(Registry.RECIPE_TYPE_REGISTRY, IceAndFire.MODID);
-    public static final RegistryObject<RecipeType<DragonForgeRecipe>> DRAGON_FORGE_TYPE = RECIPE_TYPE.register("dragonforge", () -> RecipeType.simple(new ResourceLocation(IceAndFire.MODID, "dragonforge")));
-
+    
     @SubscribeEvent
     public static void preInit(FMLCommonSetupEvent event) {
         event.enqueueWork(() -> {
