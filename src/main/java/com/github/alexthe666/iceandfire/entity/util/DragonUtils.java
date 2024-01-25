@@ -197,20 +197,6 @@ public class DragonUtils {
         return target.blockPosition();
     }
 
-
-    public static BlockPos getBlockInTargetsViewGhost(EntityGhost ghost, LivingEntity target) {
-        float radius = 4 + ghost.getRandom().nextInt(5);
-        float angle = (0.01745329251F * (target.yHeadRot + 90F + ghost.getRandom().nextInt(180)));
-        double extraX = radius * Mth.sin((float) (Math.PI + angle));
-        double extraZ = radius * Mth.cos(angle);
-        BlockPos radialPos = WorldUtil.containing(target.getX() + extraX, target.getY(), target.getZ() + extraZ);
-        BlockPos ground = radialPos;
-        if (ghost.distanceToSqr(Vec3.atCenterOf(ground)) > 30) {
-            return ground;
-        }
-        return ghost.blockPosition();
-    }
-
     public static BlockPos getBlockInTargetsViewGorgon(EntityGorgon cockatrice, LivingEntity target) {
         float radius = 6;
         float angle = (0.01745329251F * target.yHeadRot);

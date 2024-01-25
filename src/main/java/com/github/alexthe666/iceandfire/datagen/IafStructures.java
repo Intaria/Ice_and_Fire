@@ -2,7 +2,6 @@ package com.github.alexthe666.iceandfire.datagen;
 
 import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.world.structure.GorgonTempleStructure;
-import com.github.alexthe666.iceandfire.world.structure.GraveyardStructure;
 import com.github.alexthe666.iceandfire.world.structure.MausoleumStructure;
 import com.google.gson.JsonElement;
 import net.minecraft.core.Registry;
@@ -14,7 +13,6 @@ import net.minecraft.world.level.levelgen.structure.Structure;
 import java.util.Map;
 
 public class IafStructures {
-    public static final ResourceKey<Structure> GRAVEYARD = registerKey("graveyard");
     public static final ResourceKey<Structure> MAUSOLEUM = registerKey("mausoleum");
     public static final ResourceKey<Structure> GORGON_TEMPLE = registerKey("gorgon_temple");
 
@@ -24,7 +22,6 @@ public class IafStructures {
 
     public static Map<ResourceLocation, Structure> gather(RegistryOps<JsonElement> registryOps) {
         return Map.of(
-                GRAVEYARD.location(), GraveyardStructure.buildStructureConfig(registryOps),
                 MAUSOLEUM.location(), MausoleumStructure.buildStructureConfig(registryOps),
                 GORGON_TEMPLE.location(), GorgonTempleStructure.buildStructureConfig(registryOps)
         );

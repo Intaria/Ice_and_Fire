@@ -129,9 +129,7 @@ public class IafBlockRegistry {
     public static final RegistryObject<Block> DREAD_SPAWNER = register("dread_spawner", BlockDreadSpawner::new);
     public static final RegistryObject<TorchBlock> BURNT_TORCH = registerWallBlock("burnt_torch", BlockBurntTorch::new);
     public static final RegistryObject<BlockBurntTorchWall> BURNT_TORCH_WALL = registerWallTorch("burnt_torch_wall", BlockBurntTorchWall::new);
-    public static final RegistryObject<Block> GHOST_CHEST = registerWithRender("ghost_chest", BlockGhostChest::new);
-    public static final RegistryObject<Block> GRAVEYARD_SOIL = register("graveyard_soil", BlockGraveyardSoil::new);
-
+    
     public static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block) {
         RegistryObject<T> ret = BLOCKS.register(name, block);
         IafItemRegistry.registerItem(name, () -> new BlockItem(ret.get(), new Item.Properties().tab(IceAndFire.TAB_BLOCKS)), false);

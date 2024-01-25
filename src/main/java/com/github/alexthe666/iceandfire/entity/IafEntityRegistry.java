@@ -65,9 +65,7 @@ public class IafEntityRegistry {
     public static final RegistryObject<EntityType<EntityHydra>> HYDRA = registerEntity(EntityType.Builder.of(EntityHydra::new, MobCategory.CREATURE).sized(2.8F, 1.39F), "hydra");
     public static final RegistryObject<EntityType<EntityHydraBreath>> HYDRA_BREATH = registerEntity(EntityType.Builder.<EntityHydraBreath>of(EntityHydraBreath::new, MobCategory.MISC).sized(0.9F, 0.9F).setCustomClientFactory(EntityHydraBreath::new), "hydra_breath");
     public static final RegistryObject<EntityType<EntityHydraArrow>> HYDRA_ARROW = registerEntity(EntityType.Builder.<EntityHydraArrow>of(EntityHydraArrow::new, MobCategory.MISC).sized(0.5F, 0.5F).setCustomClientFactory(EntityHydraArrow::new), "hydra_arrow");
-    public static final RegistryObject<EntityType<EntityGhost>> GHOST = registerEntity(EntityType.Builder.of(EntityGhost::new, MobCategory.MONSTER).sized(0.8F, 1.9F).fireImmune(), "ghost");
-    public static final RegistryObject<EntityType<EntityGhostSword>> GHOST_SWORD = registerEntity(EntityType.Builder.<EntityGhostSword>of(EntityGhostSword::new, MobCategory.MISC).sized(0.5F, 0.5F).setCustomClientFactory(EntityGhostSword::new), "ghost_sword");
-
+    
     private static <T extends Entity> RegistryObject<EntityType<T>> registerEntity(EntityType.Builder<T> builder, String entityName) {
         return ENTITIES.register(entityName, () -> builder.build(entityName));
     }
@@ -96,7 +94,6 @@ public class IafEntityRegistry {
         creationEvent.put(DREAD_KNIGHT.get(), EntityDreadKnight.bakeAttributes().build());
         creationEvent.put(DREAD_SCUTTLER.get(), EntityDreadScuttler.bakeAttributes().build());
         creationEvent.put(HYDRA.get(), EntityHydra.bakeAttributes().build());
-        creationEvent.put(GHOST.get(), EntityGhost.bakeAttributes().build());
     }
 
     @SubscribeEvent

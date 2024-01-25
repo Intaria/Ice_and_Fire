@@ -289,20 +289,6 @@
         },
         {
           "type": "item",
-          "name": "iceandfire:manuscript",
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 10
-              }
-            }
-          ],
-          "weight": 40
-        },
-        {
-          "type": "item",
           "name": "minecraft:packed_ice",
           "functions": [
             {

@@ -44,7 +44,6 @@ public class IafRecipes extends RecipeProvider {
         smithing(consumer, IafItemRegistry.DRAGONBONE_SWORD.get(), IafItemRegistry.FIRE_DRAGON_BLOOD.get(), IafItemRegistry.DRAGONBONE_SWORD_FIRE.get());
         smithing(consumer, IafItemRegistry.DRAGONBONE_SWORD.get(), IafItemRegistry.ICE_DRAGON_BLOOD.get(), IafItemRegistry.DRAGONBONE_SWORD_ICE.get());
         smithing(consumer, IafItemRegistry.DRAGONBONE_SWORD.get(), IafItemRegistry.LIGHTNING_DRAGON_BLOOD.get(), IafItemRegistry.DRAGONBONE_SWORD_LIGHTNING.get());
-        smithing(consumer, IafItemRegistry.DRAGONBONE_SWORD.get(), IafItemRegistry.GHOST_INGOT.get(), IafItemRegistry.GHOST_SWORD.get());
     }
 
     private void createShaped(@NotNull final Consumer<FinishedRecipe> consumer) {
@@ -398,28 +397,12 @@ public class IafRecipes extends RecipeProvider {
                 .define('B', ItemTags.PLANKS)
                 .save(consumer);
 
-        CustomShaped.shaped(IafBlockRegistry.GHOST_CHEST.get())
-                .pattern(" E ")
-                .pattern("ECE")
-                .pattern(" E ")
-                .define('C', Tags.Items.RODS_WOODEN)
-                .define('E', IafItemRegistry.ECTOPLASM.get())
-                .save(consumer);
-
         dragonArmorSet(consumer, Tags.Items.STORAGE_BLOCKS_GOLD,
                 IafItemRegistry.DRAGONARMOR_GOLD_0.get(),
                 IafItemRegistry.DRAGONARMOR_GOLD_1.get(),
                 IafItemRegistry.DRAGONARMOR_GOLD_2.get(),
                 IafItemRegistry.DRAGONARMOR_GOLD_3.get()
         );
-
-        CustomShaped.shaped(IafBlockRegistry.GRAVEYARD_SOIL.get())
-                .pattern(" E ")
-                .pattern("ECE")
-                .pattern(" E ")
-                .define('C', Items.COARSE_DIRT)
-                .define('E', IafItemRegistry.ECTOPLASM.get())
-                .save(consumer);
 
         compact(consumer, IafItemRegistry.SILVER_INGOT.get(), IafBlockRegistry.SILVER_BLOCK.get());
         compact(consumer, IafItemRegistry.SILVER_NUGGET.get(), IafItemRegistry.SILVER_INGOT.get());

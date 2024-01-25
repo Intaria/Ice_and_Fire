@@ -89,10 +89,6 @@ public class ServerConfig {
     public final ForgeConfigSpec.DoubleValue dragonFlightSpeedMod;
     public final ForgeConfigSpec.DoubleValue hippogryphFlightSpeedMod;
     public final ForgeConfigSpec.DoubleValue hippocampusSwimSpeedMod;
-    public final ForgeConfigSpec.DoubleValue ghostMaxHealth;
-    public final ForgeConfigSpec.DoubleValue ghostAttackStrength;
-    public final ForgeConfigSpec.BooleanValue generateGraveyards;
-    public final ForgeConfigSpec.BooleanValue ghostSpawnFromPlayerDeaths;
     public ForgeConfigSpec.IntValue dragonPathfindingThreads;
     public ForgeConfigSpec.IntValue maxDragonPathingNodes;
     public ForgeConfigSpec.BooleanValue pathfindingDebug;
@@ -119,8 +115,6 @@ public class ServerConfig {
         this.glacierSpawnChance = buildInt(builder, "Glacier Spawn Weight", "all", 4, 1, 10000, "Glacier Spawn Weight. Higher number = more common");
 
         this.generateMausoleums = buildBoolean(builder, "Generate Mausoleums", "all", true, "True if mausoleums are allowed to generate");
-
-        this.generateGraveyards = buildBoolean(builder, "Generate Graveyards", "all", true, "Whether to generate graveyards or not");
 
         this.generateGorgonTemple = buildBoolean(builder, "Generate Gorgon Temple", "all", true, "True if gorgon temples are allowed to spawn");
 
@@ -215,10 +209,6 @@ public class ServerConfig {
         this.hydraMaxHealth = buildDouble(builder, "Hydra Max Health", "all", 250, 1, 10000, "Maximum hydra health");
         this.generateHydraChance = buildInt(builder, "Hydra Caves Gen Chance", "all", 60, 1, 10000, "One out of this number chance per chunk to generate a hydra cave.");
 
-        this.ghostMaxHealth = buildDouble(builder, "Ghost Max Health", "all", 30F, 1.0F, 10000.0F, "Maximum ghost health.");
-        this.ghostAttackStrength = buildDouble(builder, "Ghost Attack Strength", "all", 3F, 0.0F, 10000.0F, "Maximum ghost attack strength.");
-        this.ghostSpawnFromPlayerDeaths = buildBoolean(builder, "Ghost Spawn from PvP deaths", "all", true, "True if ghosts can rarely spawn from brutal PvP deaths.");
-        
         this.allowAttributeOverriding = buildBoolean(builder, "Allow Attribute Overriding", "all", true, "Allows attributes for mobs to be overridden via the config file. One might want to disable this if other mods are enabled that change mob attributes e.g armor, health etc...");
         builder.pop();
         builder.pop();

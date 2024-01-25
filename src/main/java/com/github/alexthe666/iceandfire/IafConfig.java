@@ -88,10 +88,6 @@ public class IafConfig {
     public static double dragonFlightSpeedMod = 1F;
     public static double hippogryphFlightSpeedMod = 1F;
     public static double hippocampusSwimSpeedMod = 1F;
-    public static boolean generateGraveyards = true;
-    public static double ghostMaxHealth = 30;
-    public static double ghostAttackStrength = 3;
-    public static boolean ghostsFromPlayerDeaths = true;
 
     public static int dragonPathfindingThreads = 3;
     public static int maxDragonPathingNodes = 5000;
@@ -193,10 +189,6 @@ public class IafConfig {
             dragonFlightSpeedMod = ConfigHolder.SERVER.dragonFlightSpeedMod.get();
             hippogryphFlightSpeedMod = ConfigHolder.SERVER.hippogryphFlightSpeedMod.get();
             hippocampusSwimSpeedMod = ConfigHolder.SERVER.hippocampusSwimSpeedMod.get();
-            generateGraveyards = ConfigHolder.SERVER.generateGraveyards.get();
-            ghostMaxHealth = ConfigHolder.SERVER.ghostMaxHealth.get();
-            ghostAttackStrength = ConfigHolder.SERVER.ghostAttackStrength.get();
-            ghostsFromPlayerDeaths = ConfigHolder.SERVER.ghostSpawnFromPlayerDeaths.get();
             dragonPathfindingThreads = ConfigHolder.SERVER.dragonPathfindingThreads.get();
             maxDragonPathingNodes = ConfigHolder.SERVER.maxDragonPathingNodes.get();
             dragonWeaponFireAbility = ConfigHolder.SERVER.dragonWeaponFireAbility.get();

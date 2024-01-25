@@ -170,9 +170,7 @@ public class ServerEvents {
         if (event.getRayTraceResult() instanceof EntityHitResult result) {
             Entity shotEntity = result.getEntity();
 
-            if (shotEntity instanceof EntityGhost) {
-                event.setCanceled(true);
-            } else if (event.getEntity() instanceof AbstractArrow arrow && arrow.getOwner() != null) {
+            if (event.getEntity() instanceof AbstractArrow arrow && arrow.getOwner() != null) {
                 Entity shootingEntity = arrow.getOwner();
 
                 if (shootingEntity instanceof LivingEntity && isRidingOrBeingRiddenBy(shootingEntity, shotEntity)) {
@@ -364,27 +362,6 @@ public class ServerEvents {
         if (event.getEntity().getUUID().equals(ServerEvents.ALEX_UUID)) {
             event.getEntity().spawnAtLocation(new ItemStack(IafItemRegistry.WEEZER_BLUE_ALBUM.get()), 1);
         }
-        if (event.getEntity() instanceof Player && IafConfig.ghostsFromPlayerDeaths) {
-            Entity attacker = event.getEntity().getLastHurtByMob();
-            if (attacker instanceof Player && event.getEntity().getRandom().nextInt(3) == 0) {
-                CombatTracker combat = event.getEntity().getCombatTracker();
-                CombatEntry entry = combat.getMostSignificantFall();
-                boolean flag = entry != null && (entry.getSource() == DamageSource.FALL || entry.getSource() == DamageSource.DROWN || entry.getSource() == DamageSource.LAVA);
-                if (event.getEntity().hasEffect(MobEffects.POISON)) {
-                    flag = true;
-                }
-                if (flag) {
-                    Level world = event.getEntity().level;
-                    EntityGhost ghost = IafEntityRegistry.GHOST.get().create(world);
-                    ghost.copyPosition(event.getEntity());
-                    if (!world.isClientSide) {
-                        ghost.finalizeSpawn((ServerLevelAccessor) world, world.getCurrentDifficultyAt(event.getEntity().blockPosition()), MobSpawnType.SPAWNER, null, null);
-                        world.addFreshEntity(ghost);
-                    }
-                    ghost.setDaytimeMode(true);
-                }
-            }
-        }
     }
 
     @SubscribeEvent
@@ -479,10 +456,8 @@ public class ServerEvents {
         }
     }
 
+    
     public static void onLeftClick(final Player playerEntity, final ItemStack stack) {
-        if (stack.getItem() == IafItemRegistry.GHOST_SWORD.get()) {
-            ItemGhostSword.spawnGhostSwordEntity(stack, playerEntity);
-        }
     }
 
     @SubscribeEvent
@@ -536,11 +511,6 @@ public class ServerEvents {
             || eventName.equals(BuiltInLootTables.STRONGHOLD_CORRIDOR)
             || eventName.equals(BuiltInLootTables.STRONGHOLD_CROSSING);
 
-        if (condition1 || eventName.equals(BuiltInLootTables.VILLAGE_CARTOGRAPHER)) {
-            LootPoolEntryContainer.Builder item = LootItem.lootTableItem(IafItemRegistry.MANUSCRIPT.get()).setQuality(20).setWeight(5);
-            LootPool.Builder builder = new LootPool.Builder().name("iaf_manuscript").add(item).when(LootItemRandomChanceCondition.randomChance(0.35f)).setRolls(UniformGenerator.between(1, 4)).setBonusRolls(UniformGenerator.between(0, 3));
-            event.getTable().addPool(builder.build());
-        }
         if (condition1
             || eventName.equals(BuiltInLootTables.IGLOO_CHEST)
             || eventName.equals(BuiltInLootTables.WOODLAND_MANSION)

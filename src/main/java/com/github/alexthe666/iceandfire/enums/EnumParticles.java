@@ -8,7 +8,6 @@ public enum EnumParticles {
     Blood,
     If_Pixie,
     Siren_Appearance,
-    Ghost_Appearance,
     Siren_Music,
     Snowflake,
     Hydra

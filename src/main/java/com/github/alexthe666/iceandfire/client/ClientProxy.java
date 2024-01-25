@@ -101,9 +101,6 @@ public class ClientProxy extends CommonProxy {
             case Siren_Appearance:
                 particle = new ParticleSirenAppearance(world, x, y, z, (int) motX);
                 break;
-            case Ghost_Appearance:
-                particle = new ParticleGhostAppearance(world, x, y, z, (int) motX);
-                break;
             case Siren_Music:
                 particle = new ParticleSirenMusic(world, x, y, z, motX, motY, motZ, 1);
                 break;

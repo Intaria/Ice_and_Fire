@@ -31,7 +31,7 @@ public class NoLakesInStructuresMixin {
         }
         Registry<Structure> configuredStructureFeatureRegistry = context.level().registryAccess().registryOrThrow(Registry.STRUCTURE_REGISTRY);
         StructureManager structureManager = (context.level()).getLevel().structureManager();
-        var availableStructures  = List.of(configuredStructureFeatureRegistry.getOptional(IafStructures.MAUSOLEUM),configuredStructureFeatureRegistry.getOptional(IafStructures.GRAVEYARD),configuredStructureFeatureRegistry.getOptional(IafStructures.GORGON_TEMPLE));
+        var availableStructures  = List.of(configuredStructureFeatureRegistry.getOptional(IafStructures.MAUSOLEUM),configuredStructureFeatureRegistry.getOptional(IafStructures.GORGON_TEMPLE));
         for (var structure : availableStructures) {
             if (structure.isPresent() && structureManager.getStructureAt(context.origin(), structure.get()).isValid()) {
                 cir.setReturnValue(false);

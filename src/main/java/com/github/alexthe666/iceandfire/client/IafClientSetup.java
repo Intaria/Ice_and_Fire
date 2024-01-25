@@ -45,11 +45,7 @@ public class IafClientSetup {
     public static TabulaModel ICE_DRAGON_BASE_MODEL;
     public static TabulaModel LIGHTNING_DRAGON_BASE_MODEL;
     private static ShaderInstance rendertypeDreadPortalShader;
-    public static final ResourceLocation GHOST_CHEST_LOCATION = new ResourceLocation(IceAndFire.MODID, "models/ghost/ghost_chest");
-    public static final ResourceLocation GHOST_CHEST_LEFT_LOCATION = new ResourceLocation(IceAndFire.MODID, "models/ghost/ghost_chest_left");
-    public static final ResourceLocation GHOST_CHEST_RIGHT_LOCATION = new ResourceLocation(IceAndFire.MODID, "models/ghost/ghost_chest_right");
-
-
+    
     public static void clientInit() {
         EntityRenderers.register(IafEntityRegistry.FIRE_DRAGON.get(), x -> new RenderDragonBase(x, FIRE_DRAGON_BASE_MODEL, 0));
         EntityRenderers.register(IafEntityRegistry.ICE_DRAGON.get(), manager -> new RenderDragonBase(manager, ICE_DRAGON_BASE_MODEL, 1));
@@ -88,16 +84,13 @@ public class IafClientSetup {
         EntityRenderers.register(IafEntityRegistry.SLOW_MULTIPART.get(), RenderNothing::new);
         EntityRenderers.register(IafEntityRegistry.DRAGON_MULTIPART.get(), RenderNothing::new);
         EntityRenderers.register(IafEntityRegistry.HYDRA_MULTIPART.get(), RenderNothing::new);
-        EntityRenderers.register(IafEntityRegistry.GHOST.get(), RenderGhost::new);
-        EntityRenderers.register(IafEntityRegistry.GHOST_SWORD.get(), RenderGhostSword::new);
-
+        
         BlockEntityRenderers.register(IafTileEntityRegistry.PODIUM.get(), RenderPodium::new);
         BlockEntityRenderers.register(IafTileEntityRegistry.EGG_IN_ICE.get(), RenderEggInIce::new);
         BlockEntityRenderers.register(IafTileEntityRegistry.PIXIE_HOUSE.get(), RenderPixieHouse::new);
         BlockEntityRenderers.register(IafTileEntityRegistry.PIXIE_JAR.get(), RenderJar::new);
         BlockEntityRenderers.register(IafTileEntityRegistry.DREAD_PORTAL.get(), RenderDreadPortal::new);
         BlockEntityRenderers.register(IafTileEntityRegistry.DREAD_SPAWNER.get(), RenderDreadSpawner::new);
-        BlockEntityRenderers.register(IafTileEntityRegistry.GHOST_CHEST.get(), RenderGhostChest::new);
 
     }
 

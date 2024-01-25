@@ -25,8 +25,7 @@ public class IafTileEntityRegistry {
     public static final RegistryObject<BlockEntityType<TileEntityDragonforgeInput>> DRAGONFORGE_INPUT = registerTileEntity(() -> BlockEntityType.Builder.of(TileEntityDragonforgeInput::new, IafBlockRegistry.DRAGONFORGE_FIRE_INPUT.get(), IafBlockRegistry.DRAGONFORGE_ICE_INPUT.get(), IafBlockRegistry.DRAGONFORGE_LIGHTNING_INPUT.get()), "dragonforge_input");
     public static final RegistryObject<BlockEntityType<TileEntityDreadPortal>> DREAD_PORTAL = registerTileEntity(() -> BlockEntityType.Builder.of(TileEntityDreadPortal::new, IafBlockRegistry.DREAD_PORTAL.get()), "dread_portal");
     public static final RegistryObject<BlockEntityType<TileEntityDreadSpawner>> DREAD_SPAWNER = registerTileEntity(() -> BlockEntityType.Builder.of(TileEntityDreadSpawner::new, IafBlockRegistry.DREAD_SPAWNER.get()), "dread_spawner");
-    public static final RegistryObject<BlockEntityType<TileEntityGhostChest>> GHOST_CHEST = registerTileEntity(() -> BlockEntityType.Builder.of(TileEntityGhostChest::new, IafBlockRegistry.GHOST_CHEST.get()), "ghost_chest");
-
+    
 
     public static <T extends BlockEntity> RegistryObject<BlockEntityType<T>> registerTileEntity(
             Supplier<BlockEntityType.Builder<T>> supplier, String entityName) {
