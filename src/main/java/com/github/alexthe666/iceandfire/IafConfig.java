@@ -1,10 +1,7 @@
 package com.github.alexthe666.iceandfire;
 
 import com.github.alexthe666.iceandfire.config.ConfigHolder;
-import com.google.common.collect.Lists;
 import net.minecraftforge.fml.config.ModConfig;
-
-import java.util.List;
 
 public class IafConfig {
     //public static boolean logCascadingWorldGen = false;
@@ -102,12 +99,11 @@ public class IafConfig {
     public static boolean dragonWeaponFireAbility = true;
     public static boolean dragonWeaponIceAbility = true;
     public static boolean dragonWeaponLightningAbility = true;
-    public static int villagerHouseWeight = 5;
     public static boolean allowAttributeOverriding = true;
 
     public static void bakeClient(final ModConfig config) {
         try {
-         dragonAuto3rdPerson = ConfigHolder.CLIENT.dragonAuto3rdPerson.get();
+            dragonAuto3rdPerson = ConfigHolder.CLIENT.dragonAuto3rdPerson.get();
         } catch (Exception e) {
             IceAndFire.LOGGER.warn("An exception was caused trying to load the client config for Ice and Fire.");
             e.printStackTrace();
@@ -206,7 +202,6 @@ public class IafConfig {
             dragonWeaponFireAbility = ConfigHolder.SERVER.dragonWeaponFireAbility.get();
             dragonWeaponIceAbility = ConfigHolder.SERVER.dragonWeaponIceAbility.get();
             dragonWeaponLightningAbility = ConfigHolder.SERVER.dragonWeaponLightningAbility.get();
-            villagerHouseWeight = ConfigHolder.SERVER.villagerHouseWeight.get();
             allowAttributeOverriding = ConfigHolder.SERVER.allowAttributeOverriding.get();
             pathfindingDebug = ConfigHolder.SERVER.pathfindingDebug.get();
         } catch (Exception e) {

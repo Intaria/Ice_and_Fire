@@ -12,7 +12,7 @@
   },
   "parent": "iceandfire:iceandfire/dragon_egg",
   "criteria": {
-    "bestiary": {
+    "forge": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [

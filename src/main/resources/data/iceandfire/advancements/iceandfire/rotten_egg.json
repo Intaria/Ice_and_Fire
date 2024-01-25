@@ -12,7 +12,7 @@
   },
   "parent": "iceandfire:iceandfire/root",
   "criteria": {
-    "bestiary": {
+    "forge": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [

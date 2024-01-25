@@ -219,6 +219,14 @@ public class ClientEvents {
         RenderChain.render(entity, event.getPartialTick(), event.getPoseStack(), event.getMultiBufferSource(), event.getPackedLight());
     }
 
+    /*
+    TODO:
+    @SubscribeEvent
+    public void onGuiOpened(ScreenEvent.Opening event) {
+        
+    }
+    */
+
     // TODO: add this to client side config
     public final boolean AUTO_ADAPT_3RD_PERSON = true;
 
