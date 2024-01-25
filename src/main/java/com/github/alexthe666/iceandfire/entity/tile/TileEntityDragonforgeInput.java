@@ -95,7 +95,7 @@ public class TileEntityDragonforgeInput extends BlockEntity {
         boolean dragonSelected = false;
 
         for (EntityDragonBase dragon : level.getEntitiesOfClass(EntityDragonBase.class, searchArea)) {
-            if (!dragonSelected && /* Dragon Checks */ getDragonType() == dragon.dragonType.getIntFromType() && (dragon.isChained() || dragon.isTame()) && canSeeInput(dragon, targetPosition)) {
+            if (!dragonSelected && /* Dragon Checks */ getDragonType() == dragon.dragonType.getIntFromType() && dragon.isTame() && canSeeInput(dragon, targetPosition)) {
                 dragon.burningTarget = this.worldPosition;
                 dragonSelected = true;
             } else if (dragon.burningTarget == this.worldPosition) {

@@ -17,7 +17,6 @@ import com.github.alexthe666.iceandfire.entity.tile.IafTileEntityRegistry;
 import com.github.alexthe666.iceandfire.item.IafItemRegistry;
 import com.github.alexthe666.iceandfire.item.ItemDragonBow;
 import com.github.alexthe666.iceandfire.item.ItemDragonHorn;
-import com.github.alexthe666.iceandfire.item.ItemSummoningCrystal;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
@@ -67,7 +66,6 @@ public class IafClientSetup {
         EntityRenderers.register(IafEntityRegistry.COCKATRICE_EGG.get(), ThrownItemRenderer::new);
         EntityRenderers.register(IafEntityRegistry.AMPHITHERE.get(), RenderAmphithere::new);
         EntityRenderers.register(IafEntityRegistry.AMPHITHERE_ARROW.get(), RenderAmphithereArrow::new);
-        EntityRenderers.register(IafEntityRegistry.CHAIN_TIE.get(), RenderChainTie::new);
         EntityRenderers.register(IafEntityRegistry.PIXIE_CHARGE.get(), RenderNothing::new);
         EntityRenderers.register(IafEntityRegistry.DREAD_SCUTTLER.get(), RenderDreadScuttler::new);
         EntityRenderers.register(IafEntityRegistry.DREAD_GHOUL.get(), RenderDreadGhoul::new);
@@ -165,15 +163,6 @@ public class IafClientSetup {
             ItemProperties.register(IafItemRegistry.DRAGON_BOW.get().asItem(), new ResourceLocation("pull"), pull);
             ItemProperties.register(IafItemRegistry.DRAGON_HORN.get(), new ResourceLocation("iceorfire"), (stack, level, entity, p) -> {
                 return ItemDragonHorn.getDragonType(stack) * 0.25F;
-            });
-            ItemProperties.register(IafItemRegistry.SUMMONING_CRYSTAL_FIRE.get(), new ResourceLocation("has_dragon"), (stack, level, entity, p) -> {
-                return ItemSummoningCrystal.hasDragon(stack) ? 1.0F : 0.0F;
-            });
-            ItemProperties.register(IafItemRegistry.SUMMONING_CRYSTAL_ICE.get(), new ResourceLocation("has_dragon"), (stack, level, entity, p) -> {
-                return ItemSummoningCrystal.hasDragon(stack) ? 1.0F : 0.0F;
-            });
-            ItemProperties.register(IafItemRegistry.SUMMONING_CRYSTAL_LIGHTNING.get(), new ResourceLocation("has_dragon"), (stack, level, entity, p) -> {
-                return ItemSummoningCrystal.hasDragon(stack) ? 1.0F : 0.0F;
             });
         });
     }

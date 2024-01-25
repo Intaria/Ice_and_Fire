@@ -690,11 +690,6 @@ public class EntityIceDragon extends EntityDragonBase {
     }
 
     @Override
-    public Item getSummoningCrystal() {
-        return IafItemRegistry.SUMMONING_CRYSTAL_ICE.get();
-    }
-
-    @Override
     public Item getBloodItem() {
         return IafItemRegistry.ICE_DRAGON_BLOOD.get();
     }

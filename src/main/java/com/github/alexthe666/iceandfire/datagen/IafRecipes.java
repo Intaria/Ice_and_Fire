@@ -72,13 +72,6 @@ public class IafRecipes extends RecipeProvider {
                 .define('S', Tags.Items.STRING)
                 .save(consumer);
 
-        CustomShaped.shaped(IafItemRegistry.CHAIN.get())
-                .pattern("S")
-                .pattern("S")
-                .pattern("S")
-                .define('S', Items.CHAIN)
-                .save(consumer);
-
         // FIXME :: Currently uses `minecraft` namespace
         armorSet(consumer, Items.CHAIN,
                 Items.CHAINMAIL_HELMET,
@@ -86,15 +79,6 @@ public class IafRecipes extends RecipeProvider {
                 Items.CHAINMAIL_LEGGINGS,
                 Items.CHAINMAIL_BOOTS
         );
-
-        CustomShaped.shaped(IafItemRegistry.ITEM_COCKATRICE_SCEPTER.get())
-                .pattern("S")
-                .pattern("E")
-                .pattern("W")
-                .define('W', IafItemTags.BONES_WITHER)
-                .define('S', IafItemRegistry.WITHER_SHARD.get())
-                .define('E', IafItemRegistry.COCKATRICE_EYE.get())
-                .save(consumer);
 
         armorSet(consumer, Tags.Items.INGOTS_COPPER,
                 IafItemRegistry.COPPER_HELMET.get(),
@@ -437,11 +421,6 @@ public class IafRecipes extends RecipeProvider {
 
         CustomShapeless.shapeless(IafBlockRegistry.ASH.get())
                 .requires(IafItemTags.CHARRED_BLOCKS, 9)
-                .save(consumer);
-
-        CustomShapeless.shapeless(IafItemRegistry.CHAIN_STICKY.get())
-                .requires(Tags.Items.SLIMEBALLS)
-                .requires(IafItemRegistry.CHAIN.get())
                 .save(consumer);
 
         CustomShapeless.shapeless(Items.COPPER_INGOT)

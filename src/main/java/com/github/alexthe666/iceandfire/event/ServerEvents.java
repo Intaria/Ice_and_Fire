@@ -349,16 +349,6 @@ public class ServerEvents {
 
     @SubscribeEvent
     public void onEntityDie(LivingDeathEvent event) {
-        if (!event.getEntity().level.isClientSide && ChainProperties.hasChainData(event.getEntity())) {
-            ItemEntity entityitem = new ItemEntity(event.getEntity().level,
-                event.getEntity().getX(),
-                event.getEntity().getY() + 1,
-                event.getEntity().getZ(),
-                new ItemStack(IafItemRegistry.CHAIN.get(), ChainProperties.getChainedTo(event.getEntity()).size()));
-            entityitem.setDefaultPickUpDelay();
-            event.getEntity().level.addFreshEntity(entityitem);
-            ChainProperties.clearChainData(event.getEntity());
-        }
         if (event.getEntity().getUUID().equals(ServerEvents.ALEX_UUID)) {
             event.getEntity().spawnAtLocation(new ItemStack(IafItemRegistry.WEEZER_BLUE_ALBUM.get()), 1);
         }
@@ -366,9 +356,6 @@ public class ServerEvents {
 
     @SubscribeEvent
     public void onEntityStopUsingItem(LivingEntityUseItemEvent.Tick event) {
-        if (event.getItem().getItem() instanceof ItemCockatriceScepter) {
-            event.setDuration(20);
-        }
     }
 
     @SubscribeEvent
@@ -384,11 +371,6 @@ public class ServerEvents {
 
     @SubscribeEvent
     public void onEntityUpdate(LivingEvent.LivingTickEvent event) {
-
-        if (ChainProperties.hasChainData(event.getEntity())) {
-            ChainProperties.tickChain(event.getEntity());
-        }
-
         if (IafConfig.chickensLayRottenEggs && !event.getEntity().level.isClientSide && isChicken(event.getEntity()) && !event.getEntity().isBaby() && event.getEntity() instanceof Animal) {
             ChickenProperties.tickChicken(event.getEntity());
         }
@@ -419,33 +401,6 @@ public class ServerEvents {
 
     @SubscribeEvent
     public void onEntityInteract(final PlayerInteractEvent.EntityInteract event) {
-        // Handle chain removal
-        if (event.getTarget() instanceof LivingEntity target) {
-            if (ChainProperties.isChainedTo(target, event.getEntity())) {
-                ChainProperties.removeChain(target, event.getEntity());
-
-                if (!event.getLevel().isClientSide) {
-                    event.getTarget().spawnAtLocation(IafItemRegistry.CHAIN.get(), 1);
-                }
-
-                event.setCanceled(true);
-                event.setCancellationResult(InteractionResult.SUCCESS);
-            }
-        }
-
-        // Handle debug path render
-        if (!event.getLevel().isClientSide() && event.getTarget() instanceof Mob && event.getItemStack().getItem() == Items.STICK) {
-            if (AiDebug.isEnabled())
-                AiDebug.addEntity((Mob) event.getTarget());
-            if (Pathfinding.isDebug()) {
-                if (AbstractPathJob.trackingMap.getOrDefault(event.getEntity(), UUID.randomUUID()).equals(event.getTarget().getUUID())) {
-                    AbstractPathJob.trackingMap.remove(event.getEntity());
-                    IceAndFire.sendMSGToPlayer(new MessageSyncPath(new HashSet<>(), new HashSet<>(), new HashSet<>()), (ServerPlayer) event.getEntity());
-                } else {
-                    AbstractPathJob.trackingMap.put(event.getEntity(), event.getTarget().getUUID());
-                }
-            }
-        }
     }
 
     @SubscribeEvent // TODO :: Can this be moved into the item itself?
@@ -476,9 +431,6 @@ public class ServerEvents {
                     }
                 }
             }
-        }
-        if (event.getLevel().getBlockState(event.getPos()).getBlock() instanceof WallBlock) {
-            ItemChain.attachToFence(event.getEntity(), event.getLevel(), event.getPos());
         }
     }
 
@@ -548,8 +500,6 @@ public class ServerEvents {
         if (event.getTarget() instanceof LivingEntity target) {
             // Make sure that when a player starts tracking an entity that has additional data
             // it gets relayed from the server to the client
-            if (ChainProperties.hasChainData(target))
-                ChainProperties.updateData(target);
             if (FrozenProperties.isFrozen(target))
                 FrozenProperties.updateData(target);
             if (MiscProperties.getLoveTicks(target) > 0)

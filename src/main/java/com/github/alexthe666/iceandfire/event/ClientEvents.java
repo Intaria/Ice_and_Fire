@@ -5,7 +5,6 @@ import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.client.ClientProxy;
 import com.github.alexthe666.iceandfire.client.IafKeybindRegistry;
 import com.github.alexthe666.iceandfire.client.particle.CockatriceBeamRender;
-import com.github.alexthe666.iceandfire.client.render.entity.RenderChain;
 import com.github.alexthe666.iceandfire.client.render.tile.RenderFrozenState;
 import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
 import com.github.alexthe666.iceandfire.entity.EntitySiren;
@@ -215,8 +214,7 @@ public class ClientEvents {
         });
         if (FrozenProperties.isFrozen(event.getEntity())) {
             RenderFrozenState.render(event.getEntity(), event.getPoseStack(), event.getMultiBufferSource(), event.getPackedLight());
-        }
-        RenderChain.render(entity, event.getPartialTick(), event.getPoseStack(), event.getMultiBufferSource(), event.getPackedLight());
+        };
     }
 
     /*

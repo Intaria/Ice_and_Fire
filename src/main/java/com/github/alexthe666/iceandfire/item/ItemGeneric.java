@@ -36,11 +36,7 @@ public class ItemGeneric extends Item {
 
     @Override
     public boolean isFoil(@NotNull ItemStack stack) {
-        if (this == IafItemRegistry.CREATIVE_DRAGON_MEAL.get()) {
-            return true;
-        } else {
-            return super.isFoil(stack);
-        }
+        return super.isFoil(stack);
     }
 
     @Override

@@ -185,11 +185,6 @@ public class EntityLightningDragon extends EntityDragonBase {
         return this.entityData.get(LIGHTNING_TARGET_Z);
     }
 
-    @Override
-    public Item getSummoningCrystal() {
-        return IafItemRegistry.SUMMONING_CRYSTAL_LIGHTNING.get();
-    }
-
 /*    @Override
     public boolean canBeControlledByRider() {
         return true;

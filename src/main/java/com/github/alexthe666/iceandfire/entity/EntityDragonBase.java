@@ -13,7 +13,6 @@ import com.github.alexthe666.iceandfire.client.model.util.LegSolverQuadruped;
 import com.github.alexthe666.iceandfire.datagen.tags.IafBlockTags;
 import com.github.alexthe666.iceandfire.datagen.tags.IafItemTags;
 import com.github.alexthe666.iceandfire.entity.ai.*;
-import com.github.alexthe666.iceandfire.entity.props.ChainProperties;
 import com.github.alexthe666.iceandfire.entity.props.MiscProperties;
 import com.github.alexthe666.iceandfire.entity.tile.TileEntityDragonforgeInput;
 import com.github.alexthe666.iceandfire.entity.util.*;
@@ -21,7 +20,6 @@ import com.github.alexthe666.iceandfire.enums.EnumDragonEgg;
 import com.github.alexthe666.iceandfire.inventory.ContainerDragon;
 import com.github.alexthe666.iceandfire.item.IafItemRegistry;
 import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
-import com.github.alexthe666.iceandfire.item.ItemSummoningCrystal;
 import com.github.alexthe666.iceandfire.message.MessageDragonSetBurnBlock;
 import com.github.alexthe666.iceandfire.message.MessageStartRidingMob;
 import com.github.alexthe666.iceandfire.misc.IafSoundRegistry;
@@ -1188,21 +1186,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
             return InteractionResult.SUCCESS;
         }
         if (!this.isModelDead()) {
-            if (stack.getItem() == IafItemRegistry.CREATIVE_DRAGON_MEAL.get()) {
-                this.setTame(true);
-                this.tame(player);
-                this.setHunger(this.getHunger() + 20);
-                this.heal(Math.min(this.getHealth(), (int) (this.getMaxHealth() / 2)));
-                this.playSound(SoundEvents.GENERIC_EAT, this.getSoundVolume(), this.getVoicePitch());
-                this.spawnItemCrackParticles(stack.getItem());
-                this.spawnItemCrackParticles(Items.BONE);
-                this.spawnItemCrackParticles(Items.BONE_MEAL);
-                this.eatFoodBonus(stack);
-                if (!player.isCreative()) {
-                    stack.shrink(1);
-                }
-                return InteractionResult.SUCCESS;
-            }
             if (this.isFood(stack) && this.shouldDropLoot()) {
                 this.setAge(0);
                 this.usePlayerItem(player, InteractionHand.MAIN_HAND, stack);
@@ -1210,19 +1193,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
                 return InteractionResult.SUCCESS;
             }
             if (this.isOwnedBy(player)) {
-                if (stack.getItem() == getSummoningCrystal() && !ItemSummoningCrystal.hasDragon(stack)) {
-                    this.setCrystalBound(true);
-                    CompoundTag compound = stack.getOrCreateTag();
-                    CompoundTag dragonTag = new CompoundTag();
-                    dragonTag.putUUID("DragonUUID", this.getUUID());
-                    if (this.getCustomName() != null) {
-                        dragonTag.putString("CustomName", this.getCustomName().getString());
-                    }
-                    compound.put("Dragon", dragonTag);
-                    this.playSound(SoundEvents.BOTTLE_FILL_DRAGONBREATH, 1, 1);
-                    player.swing(hand);
-                    return InteractionResult.SUCCESS;
-                }
                 this.tame(player);
                 if (stack.getItem() == IafItemRegistry.DRAGON_HORN.get()) {
                     return super.mobInteract(player, hand);
@@ -1424,7 +1394,7 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     }
 
     private boolean isStuck() {
-        boolean skip = isChained() || isTame();
+        boolean skip = isTame();
 
         if (skip) {
             return false;
@@ -2040,8 +2010,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
 
     public abstract Item getVariantEgg(int variant);
 
-    public abstract Item getSummoningCrystal();
-
     @Override
     public boolean isImmobile() {
         return this.getHealth() <= 0.0F || isOrderedToSit() && !this.isVehicle() || this.isModelDead() || this.isPassenger();
@@ -2593,7 +2561,7 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     }
 
     public boolean isChained() {
-        return ChainProperties.hasChainData(this);
+        return false;
     }
 
     @Override

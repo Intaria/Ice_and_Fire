@@ -16,8 +16,7 @@ import java.util.Map;
 public class IafProcessorLists {
     public static final ResourceKey<StructureProcessorList> MAUSOLEUM_PROCESSORS = createKey("mausoleum_processors");
     public static final ResourceKey<StructureProcessorList> GORGON_TEMPLE_PROCESSORS = createKey("gorgon_temple_processors");
-    public static final ResourceKey<StructureProcessorList> HOUSE_PROCESSOR = createKey("village_house_processor");
-
+    
     private static ResourceKey<StructureProcessorList> createKey(String name) {
         return ResourceKey.create(Registry.PROCESSOR_LIST_REGISTRY, new ResourceLocation(IceAndFire.MODID, name));
     }
