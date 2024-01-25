@@ -195,10 +195,6 @@ public class ServerEvents {
                 IceAndFire.LOGGER.warn("Exception thrown while interacting with entity.", e);
             }
             int extraData = 0;
-            if (event.getTarget() instanceof EntityHydraHead && parent instanceof EntityHydra) {
-                extraData = ((EntityHydraHead) event.getTarget()).headIndex;
-                ((EntityHydra) parent).triggerHeadFlags(extraData);
-            }
             if (event.getTarget().level.isClientSide && parent != null) {
                 IceAndFire.NETWORK_WRAPPER.sendToServer(new MessagePlayerHitMultipart(parent.getId(), extraData));
             }

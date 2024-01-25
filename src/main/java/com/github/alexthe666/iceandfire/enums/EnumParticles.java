@@ -8,6 +8,5 @@ public enum EnumParticles {
     If_Pixie,
     Siren_Appearance,
     Siren_Music,
-    Snowflake,
-    Hydra
+    Snowflake
 }

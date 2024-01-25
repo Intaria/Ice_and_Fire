@@ -44,7 +44,6 @@ public class IafWorldRegistry {
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> LIGHTNING_DRAGON_CAVE = register("lightning_dragon_cave", () -> new WorldGenLightningDragonCave(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> PIXIE_VILLAGE = register("pixie_village", () -> new WorldGenPixieVillage(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SIREN_ISLAND = register("siren_island", () -> new WorldGenSirenIsland(NoneFeatureConfiguration.CODEC));
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> HYDRA_CAVE = register("hydra_cave", () -> new WorldGenHydraCave(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SPAWN_DRAGON_SKELETON_L = register("spawn_dragon_skeleton_lightning", () -> new SpawnDragonSkeleton(castToBase(IafEntityRegistry.LIGHTNING_DRAGON), NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SPAWN_DRAGON_SKELETON_F = register("spawn_dragon_skeleton_fire", () -> new SpawnDragonSkeleton(castToBase(IafEntityRegistry.FIRE_DRAGON), NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SPAWN_DRAGON_SKELETON_I = register("spawn_dragon_skeleton_ice", () -> new SpawnDragonSkeleton(castToBase(IafEntityRegistry.ICE_DRAGON), NoneFeatureConfiguration.CODEC));
@@ -91,7 +90,6 @@ public class IafWorldRegistry {
         LOADED_FEATURES.put("iceandfire:lightning_dragon_cave", false);
         LOADED_FEATURES.put("iceandfire:pixie_village", false);
         LOADED_FEATURES.put("iceandfire:siren_island", false);
-        LOADED_FEATURES.put("iceandfire:hydra_cave", false);
         LOADED_FEATURES.put("iceandfire:spawn_dragon_skeleton_lightning", false);
         LOADED_FEATURES.put("iceandfire:spawn_dragon_skeleton_fire", false);
         LOADED_FEATURES.put("iceandfire:spawn_dragon_skeleton_ice", false);
@@ -145,9 +143,6 @@ public class IafWorldRegistry {
 
         if (safelyTestBiome(BiomeConfig.pixieBiomes, biome)) {
             addFeatureToBiome(IafPlacedFeatures.PLACED_PIXIE_VILLAGE, features, builder);
-        }
-        if (safelyTestBiome(BiomeConfig.hydraBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_HYDRA_CAVE, features, builder);
         }
         if (safelyTestBiome(BiomeConfig.sirenBiomes, biome)) {
             addFeatureToBiome(IafPlacedFeatures.PLACED_SIREN_ISLAND, features, builder);

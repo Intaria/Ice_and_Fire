@@ -72,8 +72,6 @@ public class IafConfig {
     public static boolean spawnLiches = true;
     public static int lichSpawnRate = 4;
     public static int lichSpawnChance = 30;
-    public static double hydraMaxHealth = 250D;
-    public static int generateHydraChance = 120;
     public static boolean explosiveDragonBreath = false;
     public static double weezerTinkersDisarmChance = 0.2F;
     public static boolean chunkLoadSummonCrystal = true;
@@ -168,8 +166,6 @@ public class IafConfig {
             spawnLiches = ConfigHolder.SERVER.spawnLiches.get();
             lichSpawnRate = ConfigHolder.SERVER.lichSpawnRate.get();
             lichSpawnChance = ConfigHolder.SERVER.lichSpawnChance.get();
-            hydraMaxHealth = ConfigHolder.SERVER.hydraMaxHealth.get();
-            generateHydraChance = ConfigHolder.SERVER.generateHydraChance.get();
             explosiveDragonBreath = ConfigHolder.SERVER.explosiveDragonBreath.get();
             weezerTinkersDisarmChance = ConfigHolder.SERVER.weezerTinkersDisarmChance.get();
             chunkLoadSummonCrystal = ConfigHolder.SERVER.chunkLoadSummonCrystal.get();

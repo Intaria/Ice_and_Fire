@@ -27,14 +27,12 @@ public class RenderMobSkull extends EntityRenderer<EntityMobSkull> {
     private final ModelHippogryph hippogryphModel;
     private final ModelCockatrice cockatriceModel;
     private final ModelAmphithere amphithereModel;
-    private final ModelHydraHead hydraModel;
 
     public RenderMobSkull(EntityRendererProvider.Context context) {
         super(context);
         this.hippogryphModel = new ModelHippogryph();
         this.cockatriceModel = new ModelCockatrice();
         this.amphithereModel = new ModelAmphithere();
-        this.hydraModel = new ModelHydraHead(0);
     }
 
     private static void setRotationAngles(BasicModelPart cube, float rotX, float rotY, float rotZ) {
@@ -82,14 +80,6 @@ public class RenderMobSkull extends EntityRenderer<EntityMobSkull> {
                 amphithereModel.resetToDefaultPose();
                 setRotationAngles(amphithereModel.Head, onWall ? (float) Math.toRadians(50F) : 0F, 0, 0);
                 amphithereModel.Head.render(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-
-                break;
-            case HYDRA:
-                matrixStackIn.translate(0, -0.2F, -0.1F);
-                matrixStackIn.scale(2.0F, 2.0F, 2.0F);
-                hydraModel.resetToDefaultPose();
-                setRotationAngles(hydraModel.Head1, onWall ? (float) Math.toRadians(50F) : 0F, 0, 0);
-                hydraModel.Head1.render(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
 
                 break;
         }

@@ -3,11 +3,8 @@ package com.github.alexthe666.iceandfire.client.render.entity;
 import com.github.alexthe666.citadel.client.model.AdvancedEntityModel;
 import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.client.model.ICustomStatueModel;
-import com.github.alexthe666.iceandfire.client.model.ModelHydraBody;
 import com.github.alexthe666.iceandfire.client.model.ModelStonePlayer;
 import com.github.alexthe666.iceandfire.client.render.IafRenderType;
-import com.github.alexthe666.iceandfire.client.render.entity.layer.LayerHydraHead;
-import com.github.alexthe666.iceandfire.entity.EntityHydra;
 import com.github.alexthe666.iceandfire.entity.EntityStoneStatue;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
@@ -110,9 +107,6 @@ public class RenderStoneStatue extends EntityRenderer<EntityStoneStatue> {
         matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(yaw));
         if (model instanceof ICustomStatueModel && fakeEntity != null) {
             ((ICustomStatueModel) model).renderStatue(matrixStackIn, ivertexbuilder, packedLightIn, fakeEntity);
-            if (model instanceof ModelHydraBody && fakeEntity instanceof EntityHydra) {
-                LayerHydraHead.renderHydraHeads((ModelHydraBody) model, true, matrixStackIn, bufferIn, packedLightIn, (EntityHydra) fakeEntity, 0, 0, partialTicks, 0, 0, 0);
-            }
         } else {
             model.renderToBuffer(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
         }

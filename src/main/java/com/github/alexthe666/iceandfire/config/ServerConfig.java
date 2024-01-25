@@ -74,8 +74,6 @@ public class ServerConfig {
     public final ForgeConfigSpec.BooleanValue spawnLiches;
     public final ForgeConfigSpec.IntValue lichSpawnRate;
     public final ForgeConfigSpec.IntValue lichSpawnChance;
-    public final ForgeConfigSpec.DoubleValue hydraMaxHealth;
-    public final ForgeConfigSpec.IntValue generateHydraChance;
     public final ForgeConfigSpec.BooleanValue explosiveDragonBreath;
     public final ForgeConfigSpec.DoubleValue weezerTinkersDisarmChance; // FIXME :: Unused
     public final ForgeConfigSpec.BooleanValue chunkLoadSummonCrystal;
@@ -200,9 +198,6 @@ public class ServerConfig {
         this.spawnLiches = buildBoolean(builder, "Spawn Liches", "all", true, "True if dread liches are allowed to spawn");
         this.lichSpawnRate = buildInt(builder, "Lich Spawn Weight", "all", 2, 1, 10000, "Dread Lich spawn weight. Lower = lower chance to spawn");
         this.lichSpawnChance = buildInt(builder, "Lich Spawn Chance", "all", 30, 1, 10000, "Dread Lich spawn chance. Lower = higher chance to spawn");
-
-        this.hydraMaxHealth = buildDouble(builder, "Hydra Max Health", "all", 250, 1, 10000, "Maximum hydra health");
-        this.generateHydraChance = buildInt(builder, "Hydra Caves Gen Chance", "all", 60, 1, 10000, "One out of this number chance per chunk to generate a hydra cave.");
 
         this.allowAttributeOverriding = buildBoolean(builder, "Allow Attribute Overriding", "all", true, "Allows attributes for mobs to be overridden via the config file. One might want to disable this if other mods are enabled that change mob attributes e.g armor, health etc...");
         builder.pop();

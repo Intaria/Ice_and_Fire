@@ -75,12 +75,8 @@ public class IafClientSetup {
         EntityRenderers.register(IafEntityRegistry.DREAD_LICH_SKULL.get(), RenderDreadLichSkull::new);
         EntityRenderers.register(IafEntityRegistry.DREAD_KNIGHT.get(), RenderDreadKnight::new);
         EntityRenderers.register(IafEntityRegistry.DREAD_HORSE.get(), RenderDreadHorse::new);
-        EntityRenderers.register(IafEntityRegistry.HYDRA.get(), RenderHydra::new);
-        EntityRenderers.register(IafEntityRegistry.HYDRA_BREATH.get(), RenderNothing::new);
-        EntityRenderers.register(IafEntityRegistry.HYDRA_ARROW.get(), RenderHydraArrow::new);
         EntityRenderers.register(IafEntityRegistry.SLOW_MULTIPART.get(), RenderNothing::new);
         EntityRenderers.register(IafEntityRegistry.DRAGON_MULTIPART.get(), RenderNothing::new);
-        EntityRenderers.register(IafEntityRegistry.HYDRA_MULTIPART.get(), RenderNothing::new);
         
         BlockEntityRenderers.register(IafTileEntityRegistry.PODIUM.get(), RenderPodium::new);
         BlockEntityRenderers.register(IafTileEntityRegistry.EGG_IN_ICE.get(), RenderEggInIce::new);

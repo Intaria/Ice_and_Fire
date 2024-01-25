@@ -146,16 +146,6 @@ public final class IafSoundRegistry {
 
     public static final SoundEvent AMPHITHERE_GUST = createSoundEvent("amphithere_gust");
 
-    public static final SoundEvent HYDRA_DIE = createSoundEvent("hydra_die");
-
-    public static final SoundEvent HYDRA_IDLE = createSoundEvent("hydra_idle");
-
-    public static final SoundEvent HYDRA_HURT = createSoundEvent("hydra_hurt");
-
-    public static final SoundEvent HYDRA_SPIT = createSoundEvent("hydra_spit");
-
-    public static final SoundEvent HYDRA_REGEN_HEAD = createSoundEvent("hydra_regen_head");
-
     public static final SoundEvent PIXIE_WAND = createSoundEvent("pixie_wand");
 
     public static final SoundEvent DREAD_LICH_SUMMON = createSoundEvent("dread_lich_summon");
