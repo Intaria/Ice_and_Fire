@@ -6,7 +6,6 @@ import com.github.alexthe666.citadel.client.model.TabulaModel;
 import com.github.alexthe666.iceandfire.client.ClientProxy;
 import com.github.alexthe666.iceandfire.entity.DragonType;
 import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
-import com.github.alexthe666.iceandfire.entity.EntityDreadQueen;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Vector3f;
 import net.minecraft.CrashReport;
@@ -43,9 +42,7 @@ public class LayerDragonRider extends RenderLayer<EntityDragonBase, AdvancedEnti
             float dragonScale = dragon.getRenderSize() / 3;
             for (Entity passenger : dragon.getPassengers()) {
                 boolean prey = dragon.getControllingPassenger() == null || dragon.getControllingPassenger().getId() != passenger.getId();
-                if (excludeDreadQueenMob && passenger instanceof EntityDreadQueen) {
-                    prey = false;
-                }
+
                 ClientProxy.currentDragonRiders.remove(passenger.getUUID());
                 float riderRot = passenger.yRotO + (passenger.getYRot() - passenger.yRotO) * partialTicks;
                 int animationTicks = 0;

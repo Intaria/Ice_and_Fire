@@ -1,7 +1,6 @@
 package com.github.alexthe666.iceandfire.client.render;
 
 import com.github.alexthe666.iceandfire.client.IafClientSetup;
-import com.github.alexthe666.iceandfire.client.render.tile.RenderDreadPortal;
 import com.mojang.blaze3d.platform.GlStateManager;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.blaze3d.vertex.DefaultVertexFormat;
@@ -13,16 +12,10 @@ import net.minecraft.resources.ResourceLocation;
 public class IafRenderType extends RenderType {
 
     private static final ResourceLocation STONE_TEXTURE = new ResourceLocation("textures/block/stone.png");
-    protected static final RenderStateShard.ShaderStateShard RENDERTYPE_DREAD_PORTAL_SHADER = new RenderStateShard.ShaderStateShard(IafClientSetup::getRendertypeDreadPortalShader);
-    private static final RenderType DREADLANDS_PORTAL = create("dreadlands_portal", DefaultVertexFormat.POSITION_COLOR, VertexFormat.Mode.QUADS, 256, false, false, RenderType.CompositeState.builder().setShaderState(RENDERTYPE_DREAD_PORTAL_SHADER).setTextureState(RenderStateShard.MultiTextureStateShard.builder().add(RenderDreadPortal.DREAD_PORTAL_BACKGROUND, false, false).add(RenderDreadPortal.DREAD_PORTAL, false, false).build()).createCompositeState(false));
-
+    
 
     public IafRenderType(String nameIn, VertexFormat formatIn, VertexFormat.Mode drawModeIn, int bufferSizeIn, boolean useDelegateIn, boolean needsSortingIn, Runnable setupTaskIn, Runnable clearTaskIn) {
         super(nameIn, formatIn, drawModeIn, bufferSizeIn, useDelegateIn, needsSortingIn, setupTaskIn, clearTaskIn);
-    }
-
-    public static RenderType getDreadlandsPortal() {
-        return DREADLANDS_PORTAL;
     }
 
     public static RenderType getStoneMobRenderType(float x, float y) {

@@ -45,19 +45,7 @@ public interface DragonSteelOverrides<T extends TieredItem> {
     }
 
     default boolean isDragonsteel(Tier tier) {
-        return tier.getTag() == DragonSteelTier.DRAGONSTEEL_TIER_TAG;
-    }
-
-    default boolean isDragonsteelFire(Tier tier) {
-        return tier == DragonSteelTier.DRAGONSTEEL_TIER_FIRE;
-    }
-
-    default boolean isDragonsteelIce(Tier tier) {
-        return tier == DragonSteelTier.DRAGONSTEEL_TIER_ICE;
-    }
-
-    default boolean isDragonsteelLightning(Tier tier) {
-        return tier == DragonSteelTier.DRAGONSTEEL_TIER_LIGHTNING;
+        return false;
     }
 
     default void hurtEnemy(T item, ItemStack stack, LivingEntity target, LivingEntity attacker) {
@@ -67,48 +55,11 @@ public interface DragonSteelOverrides<T extends TieredItem> {
             }
         }
 
-        if (isDragonsteelFire(item.getTier()) && IafConfig.dragonWeaponFireAbility) {
-            target.setSecondsOnFire(15);
-            target.knockback(1F, attacker.getX() - target.getX(), attacker.getZ() - target.getZ());
-        }
-        if (isDragonsteelIce(item.getTier()) && IafConfig.dragonWeaponIceAbility) {
-            FrozenProperties.setFrozenFor(target, 300);
-            target.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 300, 2));
-            target.knockback(1F, attacker.getX() - target.getX(), attacker.getZ() - target.getZ());
-        }
-        if (isDragonsteelLightning(item.getTier()) && IafConfig.dragonWeaponLightningAbility) {
-            boolean flag = true;
-            if (attacker instanceof Player) {
-                if (attacker.attackAnim > 0.2) {
-                    flag = false;
-                }
-            }
-            if (!attacker.level.isClientSide && flag) {
-                LightningBolt lightningboltentity = EntityType.LIGHTNING_BOLT.create(target.level);
-                lightningboltentity.getTags().add(ServerEvents.BOLT_DONT_DESTROY_LOOT);
-                lightningboltentity.getTags().add(attacker.getStringUUID());
-                lightningboltentity.moveTo(target.position());
-                if (!target.level.isClientSide) {
-                    target.level.addFreshEntity(lightningboltentity);
-                }
-            }
-            target.knockback(1F, attacker.getX() - target.getX(), attacker.getZ() - target.getZ());
-        }
-
     }
 
     default void appendHoverText(Tier tier, ItemStack stack, @Nullable Level worldIn, List<Component> tooltip, TooltipFlag flagIn) {
         if (tier == IafItemRegistry.SILVER_TOOL_MATERIAL) {
             tooltip.add(Component.translatable("silvertools.hurt").withStyle(ChatFormatting.GREEN));
-        }
-        if (isDragonsteelFire(tier) && IafConfig.dragonWeaponFireAbility) {
-            tooltip.add(Component.translatable("dragon_sword_fire.hurt2").withStyle(ChatFormatting.DARK_RED));
-        }
-        if (isDragonsteelIce(tier) && IafConfig.dragonWeaponIceAbility) {
-            tooltip.add(Component.translatable("dragon_sword_ice.hurt2").withStyle(ChatFormatting.AQUA));
-        }
-        if (isDragonsteelLightning(tier) && IafConfig.dragonWeaponLightningAbility) {
-            tooltip.add(Component.translatable("dragon_sword_lightning.hurt2").withStyle(ChatFormatting.DARK_PURPLE));
         }
     }
 }

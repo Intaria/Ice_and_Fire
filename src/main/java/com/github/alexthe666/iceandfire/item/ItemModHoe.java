@@ -28,26 +28,18 @@ public class ItemModHoe extends HoeItem implements DragonSteelOverrides<ItemModH
     @Override
     @Deprecated
     public @NotNull Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot equipmentSlot) {
-        return equipmentSlot == EquipmentSlot.MAINHAND && isDragonsteel(getTier()) ? this.bakeDragonsteel() : super.getDefaultAttributeModifiers(equipmentSlot);
+        return super.getDefaultAttributeModifiers(equipmentSlot);
     }
 
     @Override
     @Deprecated
     public Multimap<Attribute, AttributeModifier> bakeDragonsteel() {
-        if (getTier().getAttackDamageBonus() != IafConfig.dragonsteelBaseDamage || dragonsteelModifiers == null) {
-            ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
-            builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", 1F, AttributeModifier.Operation.ADDITION));
-            builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", -3F, AttributeModifier.Operation.ADDITION));
-            this.dragonsteelModifiers = builder.build();
-            return this.dragonsteelModifiers;
-        } else {
-            return dragonsteelModifiers;
-        }
+        return dragonsteelModifiers;
     }
 
     @Override
     public int getMaxDamage(ItemStack stack) {
-        return isDragonsteel(getTier()) ? IafConfig.dragonsteelBaseDurability : getTier().getUses();
+        return getTier().getUses();
     }
 
     @Override

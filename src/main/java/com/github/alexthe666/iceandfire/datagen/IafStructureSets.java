@@ -13,7 +13,6 @@ import net.minecraft.world.level.levelgen.structure.placement.RandomSpreadType;
 import java.util.Map;
 
 public class IafStructureSets {
-    public static final ResourceKey<StructureSet> MAUSOLEUM = registerKey("mausoleum");
     public static final ResourceKey<StructureSet> GORGON_TEMPLE = registerKey("gorgon_temple");
 
     private static ResourceKey<StructureSet> registerKey(String name) {
@@ -22,7 +21,6 @@ public class IafStructureSets {
 
     public static Map<ResourceLocation, StructureSet> gather(RegistryOps<JsonElement> registryOps) {
         return Map.of(
-                MAUSOLEUM.location(), new StructureSet(registryOps.registry(Registry.STRUCTURE_REGISTRY).get().getOrCreateHolderOrThrow(IafStructures.MAUSOLEUM), new RandomSpreadStructurePlacement(32, 12, RandomSpreadType.LINEAR, 14200531)),
                 GORGON_TEMPLE.location(), new StructureSet(registryOps.registry(Registry.STRUCTURE_REGISTRY).get().getOrCreateHolderOrThrow(IafStructures.GORGON_TEMPLE), new RandomSpreadStructurePlacement(32, 12, RandomSpreadType.LINEAR, 76489509))
         );
     }

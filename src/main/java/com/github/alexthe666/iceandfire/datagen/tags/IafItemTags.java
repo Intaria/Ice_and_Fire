@@ -84,12 +84,7 @@ public class IafItemTags extends ItemTagsProvider {
                 .addTag(DRAGON_SKULLS);
 
         tag(MAKE_ITEM_DROPS_FIREIMMUNE)
-                .add(IafItemRegistry.DRAGONSTEEL_LIGHTNING_SWORD.get())
-                .add(IafItemRegistry.DRAGONBONE_SWORD_LIGHTNING.get())
-                .add(IafItemRegistry.DRAGONSTEEL_LIGHTNING_PICKAXE.get())
-                .add(IafItemRegistry.DRAGONSTEEL_LIGHTNING_AXE.get())
-                .add(IafItemRegistry.DRAGONSTEEL_LIGHTNING_SHOVEL.get())
-                .add(IafItemRegistry.DRAGONSTEEL_LIGHTNING_HOE.get());
+                .add(IafItemRegistry.DRAGONBONE_SWORD_LIGHTNING.get());
 
         tag(DRAGON_BLOODS)
                 .add(IafItemRegistry.FIRE_DRAGON_BLOOD.get())
@@ -98,10 +93,7 @@ public class IafItemTags extends ItemTagsProvider {
 
         tag(Tags.Items.INGOTS)
 //                .add(IafItemRegistry.COPPER_INGOT.get())
-                .add(IafItemRegistry.SILVER_INGOT.get())
-                .add(IafItemRegistry.DRAGONSTEEL_ICE_INGOT.get())
-                .add(IafItemRegistry.DRAGONSTEEL_FIRE_INGOT.get())
-                .add(IafItemRegistry.DRAGONSTEEL_LIGHTNING_INGOT.get());
+                .add(IafItemRegistry.SILVER_INGOT.get());
 
         tag(Tags.Items.NUGGETS)
                 .add(IafItemRegistry.COPPER_NUGGET.get())
@@ -146,9 +138,6 @@ public class IafItemTags extends ItemTagsProvider {
                 .addTag(STORAGE_BLOCKS_SCALES_DRAGON_FIRE)
                 .addTag(STORAGE_BLOCKS_SCALES_DRAGON_ICE)
                 .addTag(STORAGE_BLOCKS_SCALES_DRAGON_LIGHTNING)
-                .add(IafBlockRegistry.DRAGONSTEEL_FIRE_BLOCK.get().asItem())
-                .add(IafBlockRegistry.DRAGONSTEEL_ICE_BLOCK.get().asItem())
-                .add(IafBlockRegistry.DRAGONSTEEL_LIGHTNING_BLOCK.get().asItem())
                 .add(IafBlockRegistry.SAPPHIRE_BLOCK.get().asItem())
                 .add(IafBlockRegistry.SILVER_BLOCK.get().asItem())
                 .add(IafBlockRegistry.DRAGON_BONE_BLOCK.get().asItem());

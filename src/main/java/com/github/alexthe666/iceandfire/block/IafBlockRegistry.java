@@ -108,9 +108,6 @@ public class IafBlockRegistry {
     public static final RegistryObject<Block> JAR_PIXIE_2 = register(BlockJar.name(2), () -> new BlockJar(2));
     public static final RegistryObject<Block> JAR_PIXIE_3 = register(BlockJar.name(3), () -> new BlockJar(3));
     public static final RegistryObject<Block> JAR_PIXIE_4 = register(BlockJar.name(4), () -> new BlockJar(4));
-    public static final RegistryObject<Block> DRAGONSTEEL_FIRE_BLOCK = register("dragonsteel_fire_block", () -> BlockGeneric.builder(10.0F, 1000.0F, SoundType.METAL, Material.METAL));
-    public static final RegistryObject<Block> DRAGONSTEEL_ICE_BLOCK = register("dragonsteel_ice_block", () -> BlockGeneric.builder(10.0F, 1000.0F, SoundType.METAL, Material.METAL));
-    public static final RegistryObject<Block> DRAGONSTEEL_LIGHTNING_BLOCK = register("dragonsteel_lightning_block", () -> BlockGeneric.builder(10.0F, 1000.0F, SoundType.METAL, Material.METAL));
     public static final RegistryObject<BlockDreadBase> DREAD_STONE = register("dread_stone", () -> BlockDreadBase.builder(-1.0F, 100000.0F, SoundType.STONE, Material.STONE));
     public static final RegistryObject<BlockDreadBase> DREAD_STONE_BRICKS = register("dread_stone_bricks", () -> BlockDreadBase.builder(-1.0F, 100000.0F, SoundType.STONE, Material.STONE));
     public static final RegistryObject<BlockDreadBase> DREAD_STONE_BRICKS_CHISELED = register("dread_stone_bricks_chiseled", () -> BlockDreadBase.builder(-1.0F, 100000.0F, SoundType.STONE, Material.STONE));
@@ -124,9 +121,6 @@ public class IafBlockRegistry {
     public static final RegistryObject<Block> DREAD_STONE_BRICKS_SLAB = register("dread_stone_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.STONE).strength(10F, 10000F)));
     public static final RegistryObject<Block> DREADWOOD_LOG = register("dreadwood_log", BlockDreadWoodLog::new);
     public static final RegistryObject<BlockDreadBase> DREADWOOD_PLANKS = register("dreadwood_planks", () -> BlockDreadBase.builder(-1.0F, 100000.0F, SoundType.WOOD, Material.WOOD));
-    public static final RegistryObject<Block> DREADWOOD_PLANKS_LOCK = register("dreadwood_planks_lock", BlockDreadWoodLock::new);
-    public static final RegistryObject<Block> DREAD_PORTAL = registerWithRender("dread_portal", BlockDreadPortal::new);
-    public static final RegistryObject<Block> DREAD_SPAWNER = register("dread_spawner", BlockDreadSpawner::new);
     public static final RegistryObject<TorchBlock> BURNT_TORCH = registerWallBlock("burnt_torch", BlockBurntTorch::new);
     public static final RegistryObject<BlockBurntTorchWall> BURNT_TORCH_WALL = registerWallTorch("burnt_torch_wall", BlockBurntTorchWall::new);
     

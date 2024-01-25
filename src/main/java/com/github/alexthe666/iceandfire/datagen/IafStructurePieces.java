@@ -17,7 +17,6 @@ import java.util.List;
 import java.util.Map;
 
 public class IafStructurePieces {
-    public static final ResourceKey<StructureTemplatePool> MAUSOLEUM_START = createKey("mausoleum/start_pool");
     public static final ResourceKey<StructureTemplatePool> GORGON_TEMPLE_START = createKey("gorgon_temple/start_pool");
 
     private static ResourceKey<StructureTemplatePool> createKey(String name) {
@@ -27,9 +26,6 @@ public class IafStructurePieces {
     public static Map<ResourceLocation, StructureTemplatePool> gather(RegistryOps<JsonElement> registryOps) {
         Holder<StructureTemplatePool> fallback = registryOps.registry(Registry.TEMPLATE_POOL_REGISTRY).get().getOrCreateHolderOrThrow(Pools.EMPTY);
 
-        Holder<StructureProcessorList> mausoleumProcessors = registryOps.registry(Registry.PROCESSOR_LIST_REGISTRY).get().getOrCreateHolderOrThrow(IafProcessorLists.MAUSOLEUM_PROCESSORS);
-        StructureTemplatePool mausoleumStartPool = new StructureTemplatePool(MAUSOLEUM_START.location(), fallback.value().getName(), List.of(Pair.of(StructurePoolElement.single(IceAndFire.MODID + ":" + "mausoleum/building", mausoleumProcessors), 1)), StructureTemplatePool.Projection.RIGID);
-
         Holder<StructureProcessorList> gorgonTempleProcessors = registryOps.registry(Registry.PROCESSOR_LIST_REGISTRY).get().getOrCreateHolderOrThrow(IafProcessorLists.GORGON_TEMPLE_PROCESSORS);
         StructureTemplatePool gorgonTempleStartPool = new StructureTemplatePool(GORGON_TEMPLE_START.location(), fallback.value().getName(), List.of(Pair.of(StructurePoolElement.single(IceAndFire.MODID + ":" + "gorgon_temple/building", gorgonTempleProcessors), 1)), StructureTemplatePool.Projection.RIGID);
         ResourceLocation gorgonTempleBottom = createKey("gorgon_temple/bottom_pool").location();
@@ -38,7 +34,6 @@ public class IafStructurePieces {
         StructureTemplatePool gorgonTempleGorgonPool = new StructureTemplatePool(gorgonTempleGorgon, fallback.value().getName(), List.of(Pair.of(StructurePoolElement.single(IceAndFire.MODID + ":" + "gorgon_temple/gorgon", gorgonTempleProcessors), 1)), StructureTemplatePool.Projection.RIGID);
 
         return Map.of(
-                MAUSOLEUM_START.location(), mausoleumStartPool,
                 GORGON_TEMPLE_START.location(), gorgonTempleStartPool,
                 gorgonTempleBottom, gorgonTempleBottomPool,
                 gorgonTempleGorgon, gorgonTempleGorgonPool

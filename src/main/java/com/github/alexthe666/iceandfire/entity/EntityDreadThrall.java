@@ -122,9 +122,6 @@ public class EntityDreadThrall extends EntityDreadMob implements IAnimatedEntity
         super.populateDefaultEquipmentSlots(randomSource, difficulty);
         if (random.nextFloat() < 0.75F) {
             double chance = random.nextFloat();
-            if (chance < 0.0025F) {
-                this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(IafItemRegistry.DRAGONSTEEL_ICE_SWORD.get()));
-            }
             if (chance < 0.01F) {
                 this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(Items.DIAMOND_SWORD));
             }
