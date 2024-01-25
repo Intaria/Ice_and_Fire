@@ -7,7 +7,6 @@ public class IafTagRegistry { // FIXME :: Clean up
     public static final ResourceLocation CHICKENS = new ResourceLocation("iceandfire", "chickens");
     public static final ResourceLocation FEAR_DRAGONS = new ResourceLocation("iceandfire", "fear_dragons");
     public static final ResourceLocation SCARES_COCKATRICES = new ResourceLocation("iceandfire", "scares_cockatrices");
-    public static final ResourceLocation SHEEP = new ResourceLocation("iceandfire", "sheep");
     public static final ResourceLocation VILLAGERS = new ResourceLocation("iceandfire", "villagers");
     public static final ResourceLocation ICE_DRAGON_TARGETS = new ResourceLocation("iceandfire", "ice_dragon_targets");
     public static final ResourceLocation FIRE_DRAGON_TARGETS = new ResourceLocation("iceandfire", "fire_dragon_targets");

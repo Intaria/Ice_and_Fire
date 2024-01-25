@@ -139,10 +139,6 @@ public class ServerEvents {
         return entity != null && isInEntityTag(IafTagRegistry.VILLAGERS, entity.getType());
     }
 
-    public static boolean isSheep(Entity entity) {
-        return entity != null && isInEntityTag(IafTagRegistry.SHEEP, entity.getType());
-    }
-
     public static boolean isChicken(Entity entity) {
         return entity != null && isInEntityTag(IafTagRegistry.CHICKENS, entity.getType());
     }
