@@ -626,6 +626,8 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
         return super.isNoAi();
     }
 
+    //TODO: здесь отключаем возраст дракона (проверить)
+
     @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
@@ -641,7 +643,7 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
         this.entityData.define(MODEL_DEAD, false);
         this.entityData.define(CONTROL_STATE, (byte) 0);
         this.entityData.define(TACKLE, false);
-        this.entityData.define(AGINGDISABLED, false);
+        this.entityData.define(AGINGDISABLED, true);
         this.entityData.define(COMMAND, 0);
         this.entityData.define(DRAGON_PITCH, 0F);
         this.entityData.define(CRYSTAL_BOUND, false);
@@ -1188,9 +1190,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
             }
             if (this.isOwnedBy(player)) {
                 this.tame(player);
-                if (stack.getItem() == IafItemRegistry.DRAGON_HORN.get()) {
-                    return super.mobInteract(player, hand);
-                }
                 if (stack.isEmpty() && !player.isShiftKeyDown()) {
                     if (!level.isClientSide) {
                         final int dragonStage = this.getDragonStage();
@@ -1224,6 +1223,7 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
                         }
                         return InteractionResult.SUCCESS;
                     }
+                    /*
                     final Item stackItem = stack.getItem();
                     if (stackItem == IafItemRegistry.DRAGON_MEAL.get()) {
                         this.growDragon(1);
@@ -1253,37 +1253,8 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
                             stack.shrink(1);
                         }
                         return InteractionResult.SUCCESS;
-                    } else if (stackItem == IafItemRegistry.DRAGON_STAFF.get()) {
-                        if (player.isShiftKeyDown()) {
-                            if (this.hasHomePosition) {
-                                this.hasHomePosition = false;
-                                player.displayClientMessage(Component.translatable("dragon.command.remove_home"), true);
-                                return InteractionResult.SUCCESS;
-                            } else {
-                                BlockPos pos = this.blockPosition();
-                                this.homePos = new HomePosition(pos, this.level);
-                                this.hasHomePosition = true;
-                                player.displayClientMessage(Component.translatable("dragon.command.new_home", pos.getX(), pos.getY(), pos.getZ(), homePos.getDimension()), true);
-                                return InteractionResult.SUCCESS;
-                            }
-                        } else {
-                            this.playSound(SoundEvents.ZOMBIE_INFECT, this.getSoundVolume(), this.getVoicePitch());
-                            if (!level.isClientSide) {
-                                this.setCommand(this.getCommand() + 1);
-                                if (this.getCommand() > 2) {
-                                    this.setCommand(0);
-                                }
-                            }
-                            String commandText = "stand";
-                            if (this.getCommand() == 1) {
-                                commandText = "sit";
-                            } else if (this.getCommand() == 2) {
-                                commandText = "escort";
-                            }
-                            player.displayClientMessage(Component.translatable("dragon.command." + commandText), true);
-                            return InteractionResult.SUCCESS;
-                        }
                     }
+                    */
                 }
             }
         }

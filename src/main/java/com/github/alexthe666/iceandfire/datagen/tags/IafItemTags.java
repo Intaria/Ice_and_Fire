@@ -47,8 +47,6 @@ public class IafItemTags extends ItemTagsProvider {
     public static TagKey<Item> BONES_WITHER = createForgeKey(BONES_PATH + "/wither");
 
     // Logic
-    public static TagKey<Item> MAKE_ITEM_DROPS_FIREIMMUNE = createKey("make_item_drops_fireimmune");
-
     public static TagKey<Item> DRAGON_BLOODS = createKey("dragon_bloods");
     public static TagKey<Item> DRAGON_HEARTS = createKey("dragon_hearts");
 
@@ -82,9 +80,6 @@ public class IafItemTags extends ItemTagsProvider {
 
         tag(MOB_SKULLS)
                 .addTag(DRAGON_SKULLS);
-
-        tag(MAKE_ITEM_DROPS_FIREIMMUNE)
-                .add(IafItemRegistry.DRAGONBONE_SWORD_LIGHTNING.get());
 
         tag(DRAGON_BLOODS)
                 .add(IafItemRegistry.FIRE_DRAGON_BLOOD.get())
@@ -188,8 +183,10 @@ public class IafItemTags extends ItemTagsProvider {
         tag(TAME_PIXIE)
                 .add(Items.CAKE);
 
+        /*
         tag(TEMPT_DRAGON)
                 .add(IafItemRegistry.FIRE_STEW.get());
+        */
 
         tag(TEMPT_HIPPOCAMPUS)
                 .add(Items.KELP)

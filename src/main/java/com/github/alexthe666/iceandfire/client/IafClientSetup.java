@@ -146,9 +146,6 @@ public class IafClientSetup {
 
             ItemProperties.register(IafItemRegistry.DRAGON_BOW.get().asItem(), new ResourceLocation("pulling"), pulling);
             ItemProperties.register(IafItemRegistry.DRAGON_BOW.get().asItem(), new ResourceLocation("pull"), pull);
-            ItemProperties.register(IafItemRegistry.DRAGON_HORN.get(), new ResourceLocation("iceorfire"), (stack, level, entity, p) -> {
-                return ItemDragonHorn.getDragonType(stack) * 0.25F;
-            });
         });
     }
 

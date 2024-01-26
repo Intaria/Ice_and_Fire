@@ -41,9 +41,11 @@ public class IafRecipes extends RecipeProvider {
         createShaped(consumer);
         createShapeless(consumer);
 
+        /*
         smithing(consumer, IafItemRegistry.DRAGONBONE_SWORD.get(), IafItemRegistry.FIRE_DRAGON_BLOOD.get(), IafItemRegistry.DRAGONBONE_SWORD_FIRE.get());
         smithing(consumer, IafItemRegistry.DRAGONBONE_SWORD.get(), IafItemRegistry.ICE_DRAGON_BLOOD.get(), IafItemRegistry.DRAGONBONE_SWORD_ICE.get());
         smithing(consumer, IafItemRegistry.DRAGONBONE_SWORD.get(), IafItemRegistry.LIGHTNING_DRAGON_BLOOD.get(), IafItemRegistry.DRAGONBONE_SWORD_LIGHTNING.get());
+        */
     }
 
     private void createShaped(@NotNull final Consumer<FinishedRecipe> consumer) {
@@ -95,6 +97,8 @@ public class IafRecipes extends RecipeProvider {
                 IafItemRegistry.COPPER_HOE.get()
         );
 
+        /*
+
         dragonArmorSet(consumer, Tags.Items.STORAGE_BLOCKS_COPPER,
                 IafItemRegistry.DRAGONARMOR_COPPER_0.get(),
                 IafItemRegistry.DRAGONARMOR_COPPER_1.get(),
@@ -116,12 +120,20 @@ public class IafRecipes extends RecipeProvider {
                 IafItemRegistry.DRAGONARMOR_SILVER_3.get()
         );
 
+        dragonArmorSet(consumer, Tags.Items.STORAGE_BLOCKS_GOLD,
+                IafItemRegistry.DRAGONARMOR_GOLD_0.get(),
+                IafItemRegistry.DRAGONARMOR_GOLD_1.get(),
+                IafItemRegistry.DRAGONARMOR_GOLD_2.get(),
+                IafItemRegistry.DRAGONARMOR_GOLD_3.get()
+        );
+
         dragonArmorSet(consumer, Tags.Items.STORAGE_BLOCKS_DIAMOND,
                 IafItemRegistry.DRAGONARMOR_DIAMOND_0.get(),
                 IafItemRegistry.DRAGONARMOR_DIAMOND_1.get(),
                 IafItemRegistry.DRAGONARMOR_DIAMOND_2.get(),
                 IafItemRegistry.DRAGONARMOR_DIAMOND_3.get()
         );
+        */
 
         CustomShaped.shaped(IafItemRegistry.IRON_HIPPOGRYPH_ARMOR.get())
                 .pattern("FDF")
@@ -159,14 +171,6 @@ public class IafRecipes extends RecipeProvider {
                 .define('B', IafItemRegistry.DRAGON_BONE.get())
                 .save(consumer);
 
-        CustomShaped.shaped(IafItemRegistry.DRAGON_HORN.get())
-                .pattern("  B")
-                .pattern(" BB")
-                .pattern("IB ")
-                .define('I', Tags.Items.RODS_WOODEN)
-                .define('B', IafItemRegistry.DRAGON_BONE.get())
-                .save(consumer);
-
         CustomShaped.shaped(IafBlockRegistry.DRAGON_ICE_SPIKES.get(), 4)
                 .pattern("I I")
                 .pattern("I I")
@@ -179,14 +183,6 @@ public class IafRecipes extends RecipeProvider {
                 .pattern("HHH")
                 .define('H', Blocks.HAY_BLOCK)
                 .define('B', IafItemRegistry.DRAGON_BONE.get())
-                .save(consumer);
-
-        CustomShaped.shaped(IafItemRegistry.DRAGON_STAFF.get())
-                .pattern("S")
-                .pattern("T")
-                .pattern("T")
-                .define('T', Tags.Items.RODS_WOODEN)
-                .define('S', IafItemTags.DRAGON_SKULLS)
                 .save(consumer);
 
         toolSet(consumer, IafItemRegistry.DRAGON_BONE.get(), IafItemTags.BONES_WITHER,
@@ -212,6 +208,7 @@ public class IafRecipes extends RecipeProvider {
         
         forgeBrick(consumer, Items.STONE_BRICKS, IafItemTags.STORAGE_BLOCKS_SCALES_DRAGON_LIGHTNING, IafBlockRegistry.DRAGONFORGE_LIGHTNING_BRICK.get());
         
+        /*
         CustomShaped.shaped(IafItemRegistry.DRAGON_MEAL.get())
                 .pattern("BMB")
                 .pattern("MBM")
@@ -219,6 +216,7 @@ public class IafRecipes extends RecipeProvider {
                 .define('B', Tags.Items.BONES)
                 .define('M', IafItemTags.DRAGON_FOOD_MEAT)
                 .save(consumer);
+        */
 
         compact(consumer, IafItemRegistry.DRAGONSCALES_RED.get(), IafBlockRegistry.DRAGON_SCALE_RED.get());
         compact(consumer, IafItemRegistry.DRAGONSCALES_GREEN.get(), IafBlockRegistry.DRAGON_SCALE_GREEN.get());
@@ -303,13 +301,6 @@ public class IafRecipes extends RecipeProvider {
                 .define('B', ItemTags.PLANKS)
                 .save(consumer);
 
-        dragonArmorSet(consumer, Tags.Items.STORAGE_BLOCKS_GOLD,
-                IafItemRegistry.DRAGONARMOR_GOLD_0.get(),
-                IafItemRegistry.DRAGONARMOR_GOLD_1.get(),
-                IafItemRegistry.DRAGONARMOR_GOLD_2.get(),
-                IafItemRegistry.DRAGONARMOR_GOLD_3.get()
-        );
-
         compact(consumer, IafItemRegistry.SILVER_INGOT.get(), IafBlockRegistry.SILVER_BLOCK.get());
         compact(consumer, IafItemRegistry.SILVER_NUGGET.get(), IafItemRegistry.SILVER_INGOT.get());
 
@@ -379,6 +370,7 @@ public class IafRecipes extends RecipeProvider {
                 .requires(IafBlockRegistry.DREADWOOD_LOG.get())
                 .save(consumer);
 
+        /*
         CustomShapeless.shapeless(IafItemRegistry.FIRE_STEW.get())
                 .requires(Items.BOWL)
                 .requires(Items.BLAZE_ROD)
@@ -390,6 +382,7 @@ public class IafRecipes extends RecipeProvider {
                 .requires(Items.PRISMARINE_CRYSTALS)
                 .requires(IafBlockRegistry.FROST_LILY.get())
                 .save(consumer);
+        */
 
         CustomShapeless.shapeless(IafBlockRegistry.GOLD_PILE.get())
                 .requires(Tags.Items.NUGGETS_GOLD, 2)

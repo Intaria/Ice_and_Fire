@@ -248,8 +248,6 @@ public class ServerEvents {
 
         if (event.getSource().getDirectEntity() instanceof LightningBolt bolt && bolt.getTags().contains(BOLT_DONT_DESTROY_LOOT)) {
             makeFireImmune = true;
-        } else if (event.getSource().getEntity() instanceof Player player && player.getItemInHand(player.getUsedItemHand()).is(IafItemTags.MAKE_ITEM_DROPS_FIREIMMUNE)) {
-            makeFireImmune = true;
         }
 
         if (makeFireImmune) {
