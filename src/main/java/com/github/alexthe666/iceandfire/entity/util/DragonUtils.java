@@ -184,31 +184,6 @@ public class DragonUtils {
         return null;
     }
 
-    public static BlockPos getBlockInTargetsViewCockatrice(EntityCockatrice cockatrice, LivingEntity target) {
-        float radius = 10 + cockatrice.getRandom().nextInt(10);
-        float angle = (0.01745329251F * target.yHeadRot);
-        double extraX = radius * Mth.sin((float) (Math.PI + angle));
-        double extraZ = radius * Mth.cos(angle);
-        BlockPos radialPos = WorldUtil.containing(target.getX() + extraX, 0, target.getZ() + extraZ);
-        BlockPos ground = target.level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, radialPos);
-        if (cockatrice.distanceToSqr(Vec3.atCenterOf(ground)) > 30 && !cockatrice.isTargetBlocked(Vec3.atCenterOf(ground))) {
-            return ground;
-        }
-        return target.blockPosition();
-    }
-
-    public static BlockPos getBlockInTargetsViewGorgon(EntityGorgon cockatrice, LivingEntity target) {
-        float radius = 6;
-        float angle = (0.01745329251F * target.yHeadRot);
-        double extraX = radius * Mth.sin((float) (Math.PI + angle));
-        double extraZ = radius * Mth.cos(angle);
-        BlockPos radialPos = WorldUtil.containing(target.getX() + extraX, target.getY(), target.getZ() + extraZ);
-        if (cockatrice.distanceToSqr(Vec3.atCenterOf(radialPos)) < 300 && !cockatrice.isTargetBlocked(Vec3.atCenterOf(radialPos).add(0, 0.75, 0))) {
-            return radialPos;
-        }
-        return target.blockPosition();
-    }
-
     public static boolean canTameDragonAttack(TamableAnimal dragon, Entity entity) {
         if (isVillager(entity)) {
             return false;
@@ -267,7 +242,7 @@ public class DragonUtils {
             return false;
         }
 
-        return (!(entity instanceof IDeadMob deadMob) || !deadMob.isMobDead()) && !EntityGorgon.isStoneMob(entity);
+        return (!(entity instanceof IDeadMob deadMob) || !deadMob.isMobDead());
     }
 
 
@@ -323,7 +298,7 @@ public class DragonUtils {
         Block block = state.getBlock();
         return block == IafBlockRegistry.DREAD_STONE.get() || block == IafBlockRegistry.DREAD_STONE_BRICKS.get() || block == IafBlockRegistry.DREAD_STONE_BRICKS_CHISELED.get() ||
                 block == IafBlockRegistry.DREAD_STONE_BRICKS_CRACKED.get() || block == IafBlockRegistry.DREAD_STONE_BRICKS_MOSSY.get() || block == IafBlockRegistry.DREAD_STONE_TILE.get() ||
-                block == IafBlockRegistry.DREAD_STONE_FACE.get() || block == IafBlockRegistry.DREAD_TORCH.get() || block == IafBlockRegistry.DREAD_STONE_BRICKS_STAIRS.get() ||
+                block == IafBlockRegistry.DREAD_STONE_FACE.get() || block == IafBlockRegistry.DREAD_STONE_BRICKS_STAIRS.get() ||
                 block == IafBlockRegistry.DREAD_STONE_BRICKS_SLAB.get() || block == IafBlockRegistry.DREADWOOD_LOG.get() ||
                 block == IafBlockRegistry.DREADWOOD_PLANKS.get();
     }

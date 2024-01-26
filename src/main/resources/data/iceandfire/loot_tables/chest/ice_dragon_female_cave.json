@@ -93,7 +93,7 @@
         },
         {
           "type": "item",
-          "name": "iceandfire:silver_ingot",
+          "name": "oreganized:silver_ingot",
           "functions": [
             {
               "function": "set_count",
@@ -107,7 +107,7 @@
         },
         {
           "type": "item",
-          "name": "iceandfire:silver_nugget",
+          "name": "oreganized:silver_nugget",
           "functions": [
             {
               "function": "set_count",

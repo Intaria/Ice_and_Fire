@@ -105,20 +105,6 @@
         },
         {
           "type": "item",
-          "name": "iceandfire:copper_nugget",
-          "functions": [
-            {
-              "function": "set_count",
-              "count": {
-                "min": 1,
-                "max": 16
-              }
-            }
-          ],
-          "weight": 30
-        },
-        {
-          "type": "item",
           "name": "minecraft:skeleton_skull",
           "functions": [
             {

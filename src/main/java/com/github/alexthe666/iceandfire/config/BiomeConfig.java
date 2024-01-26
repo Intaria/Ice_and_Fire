@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BiomeConfig {
-    public static Pair<String, SpawnBiomeData> oreGenBiomes = Pair.of("iceandfire:ore_gen_biomes", DefaultBiomes.OVERWORLD);
     public static Pair<String, SpawnBiomeData> sapphireBiomes = Pair.of("iceandfire:sapphire_gen_biomes", DefaultBiomes.VERY_SNOWY);
     public static Pair<String, SpawnBiomeData> fireLilyBiomes = Pair.of("iceandfire:fire_lily_biomes", DefaultBiomes.VERY_HOT);
     public static Pair<String, SpawnBiomeData> frostLilyBiomes = Pair.of("iceandfire:frost_lily_biomes", DefaultBiomes.VERY_SNOWY);
@@ -32,9 +31,7 @@ public class BiomeConfig {
     public static Pair<String, SpawnBiomeData> amphithereBiomes = Pair.of("iceandfire:amphithere_biomes", DefaultBiomes.JUNGLE);
     
     public static Pair<String, SpawnBiomeData> mausoleumBiomes = Pair.of("iceandfire:mausoleum_biomes", DefaultBiomes.MAUSOLEUM);
-    public static Pair<String, SpawnBiomeData> gorgonTempleBiomes = Pair.of("iceandfire:gorgon_temple_biomes", DefaultBiomes.BEACHES);
-
-    public static Pair<String, SpawnBiomeData> cockatriceBiomes = Pair.of("iceandfire:cockatrice_biomes", DefaultBiomes.SAVANNAS);
+    
     public static Pair<String, SpawnBiomeData> lightningDragonSkeletonBiomes = Pair.of("iceandfire:lightning_dragon_skeleton_biomes", DefaultBiomes.SAVANNAS);
     public static Pair<String, SpawnBiomeData> fireDragonSkeletonBiomes = Pair.of("iceandfire:fire_dragon_skeleton_biomes", DefaultBiomes.DESERT);
     public static Pair<String, SpawnBiomeData> iceDragonSkeletonBiomes = Pair.of("iceandfire:ice_dragon_skeleton_biomes", DefaultBiomes.VERY_SNOWY);

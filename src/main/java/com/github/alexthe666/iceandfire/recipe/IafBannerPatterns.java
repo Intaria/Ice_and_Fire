@@ -19,7 +19,6 @@ public class IafBannerPatterns {
     public static final RegistryObject<BannerPattern> PATTERN_EYE = BANNERS.register("eye", () -> new BannerPattern("iaf_eye"));
     public static final RegistryObject<BannerPattern> PATTERN_FAE = BANNERS.register("fae", () -> new BannerPattern("iaf_fae"));
     public static final RegistryObject<BannerPattern> PATTERN_FEATHER = BANNERS.register("feather", () -> new BannerPattern("iaf_feather"));
-    public static final RegistryObject<BannerPattern> PATTERN_GORGON = BANNERS.register("gorgon", () -> new BannerPattern("iaf_gorgon"));
     public static final RegistryObject<BannerPattern> PATTERN_HIPPOCAMPUS = BANNERS.register("hippocampus", () -> new BannerPattern("iaf_hippocampus"));
     public static final RegistryObject<BannerPattern> PATTERN_HIPPOGRYPH_HEAD = BANNERS.register("hippogryph_head", () -> new BannerPattern("iaf_hippogryph_head"));
     public static final RegistryObject<BannerPattern> PATTERN_MERMAID = BANNERS.register("mermaid", () -> new BannerPattern("iaf_mermaid"));

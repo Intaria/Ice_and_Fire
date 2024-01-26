@@ -86,9 +86,6 @@ public class ClientProxy extends CommonProxy {
             case DragonIce:
                 particle = new ParticleDragonFrost(world, x, y, z, motX, motY, motZ, size);
                 break;
-            case Dread_Torch:
-                particle = new ParticleDreadTorch(world, x, y, z, motX, motY, motZ, size);
-                break;
             case Blood:
                 particle = new ParticleBlood(world, x, y, z);
                 break;

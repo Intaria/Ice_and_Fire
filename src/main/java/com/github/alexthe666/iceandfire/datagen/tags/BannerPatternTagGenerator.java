@@ -24,7 +24,6 @@ public class BannerPatternTagGenerator extends TagsProvider<BannerPattern> {
     public static final TagKey<BannerPattern> EYE_BANNER_PATTERN = create("pattern_item/eye");
     public static final TagKey<BannerPattern> FAE_BANNER_PATTERN = create("pattern_item/fae");
     public static final TagKey<BannerPattern> FEATHER_BANNER_PATTERN = create("pattern_item/feather");
-    public static final TagKey<BannerPattern> GORGON_BANNER_PATTERN = create("pattern_item/gorgon");
     public static final TagKey<BannerPattern> HIPPOCAMPUS_BANNER_PATTERN = create("pattern_item/hippocampus");
     public static final TagKey<BannerPattern> HIPPOGRYPH_HEAD_BANNER_PATTERN = create("pattern_item/hippogryph_head");
     public static final TagKey<BannerPattern> MERMAID_BANNER_PATTERN = create("pattern_item/mermaid");
@@ -48,7 +47,6 @@ public class BannerPatternTagGenerator extends TagsProvider<BannerPattern> {
         this.tag(EYE_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_EYE.getKey());
         this.tag(FAE_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_FAE.getKey());
         this.tag(FEATHER_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_FEATHER.getKey());
-        this.tag(GORGON_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_GORGON.getKey());
         this.tag(HIPPOCAMPUS_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_HIPPOCAMPUS.getKey());
         this.tag(HIPPOGRYPH_HEAD_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_HIPPOGRYPH_HEAD.getKey());
         this.tag(MERMAID_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_MERMAID.getKey());

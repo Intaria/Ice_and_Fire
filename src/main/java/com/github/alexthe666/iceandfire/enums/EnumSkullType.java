@@ -9,7 +9,6 @@ import java.util.Locale;
 
 public enum EnumSkullType {
     HIPPOGRYPH,
-    COCKATRICE,
     AMPHITHERE;
 
     public String itemResourceName;

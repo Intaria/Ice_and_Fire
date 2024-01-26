@@ -87,26 +87,6 @@ public class ServerEvents {
     private static final Predicate<LivingEntity> VILLAGER_FEAR = entity -> entity instanceof IVillagerFear;
     private final Random rand = new Random();
 
-    private static void signalChickenAlarm(LivingEntity chicken, LivingEntity attacker) {
-        final float d0 = IafConfig.cockatriceChickenSearchLength;
-        final List<EntityCockatrice> list = chicken.level.getEntitiesOfClass(EntityCockatrice.class, (new AABB(chicken.getX(), chicken.getY(), chicken.getZ(), chicken.getX() + 1.0D, chicken.getY() + 1.0D, chicken.getZ() + 1.0D)).inflate(d0, 10.0D, d0));
-        if (list.isEmpty()) return;
-
-        for (final EntityCockatrice cockatrice : list) {
-            if (!(attacker instanceof EntityCockatrice)) {
-                if (!DragonUtils.hasSameOwner(cockatrice, attacker)) {
-                    if (attacker instanceof Player player) {
-                        if (!player.isCreative() && !cockatrice.isOwnedBy(player)) {
-                            cockatrice.setTarget(player);
-                        }
-                    } else {
-                        cockatrice.setTarget(attacker);
-                    }
-                }
-            }
-        }
-    }
-
     private static void signalAmphithereAlarm(LivingEntity villager, LivingEntity attacker) {
         final float d0 = IafConfig.amphithereVillagerSearchLength;
         final List<EntityAmphithere> list = villager.level.getEntitiesOfClass(EntityAmphithere.class, (new AABB(villager.getX() - 1.0D, villager.getY() - 1.0D, villager.getZ() - 1.0D, villager.getX() + 1.0D, villager.getY() + 1.0D, villager.getZ() + 1.0D)).inflate(d0, d0, d0));
@@ -141,14 +121,6 @@ public class ServerEvents {
 
     public static boolean isChicken(Entity entity) {
         return entity != null && isInEntityTag(IafTagRegistry.CHICKENS, entity.getType());
-    }
-
-    public static boolean isCockatriceTarget(Entity entity) {
-        return entity != null && isInEntityTag(IafTagRegistry.COCKATRICE_TARGETS, entity.getType());
-    }
-
-    public static boolean doesScareCockatrice(Entity entity) {
-        return entity != null && isInEntityTag(IafTagRegistry.SCARES_COCKATRICES, entity.getType());
     }
 
     public static boolean isBlindMob(Entity entity) {
@@ -271,9 +243,7 @@ public class ServerEvents {
                 if (MiscProperties.getLoveTicks((LivingEntity) attacker) > 0)
                     event.setCanceled(true);
 
-                if (isChicken(event.getEntity())) {
-                    signalChickenAlarm(event.getEntity(), (LivingEntity) attacker);
-                } else if (DragonUtils.isVillager(event.getEntity())) {
+                if (DragonUtils.isVillager(event.getEntity())) {
                     signalAmphithereAlarm(event.getEntity(), (LivingEntity) attacker);
                 }
             }
@@ -286,53 +256,8 @@ public class ServerEvents {
         final LivingEntity target = event.getOriginalTarget();
         if (target != null) {
             final LivingEntity attacker = event.getEntity();
-            if (isChicken(target)) {
-                signalChickenAlarm(target, attacker);
-            } else if (DragonUtils.isVillager(target)) {
+            if (DragonUtils.isVillager(target)) {
                 signalAmphithereAlarm(target, attacker);
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public void onPlayerAttack(final AttackEntityEvent event) {
-        if (event.getTarget() instanceof EntityStoneStatue statue) {
-            statue.setHealth(statue.getMaxHealth());
-
-            if (event.getEntity() != null) {
-                ItemStack stack = event.getEntity().getMainHandItem();
-                event.getTarget().playSound(SoundEvents.STONE_BREAK, 2, 0.5F + (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 0.5F);
-
-                if (stack.getItem().isCorrectToolForDrops(Blocks.STONE.defaultBlockState()) || stack.getItem().getDescriptionId().contains("pickaxe")) {
-                    event.setCanceled(true);
-                    statue.setCrackAmount(statue.getCrackAmount() + 1);
-
-                    if (statue.getCrackAmount() > 9) {
-                        CompoundTag writtenTag = new CompoundTag();
-                        event.getTarget().saveWithoutId(writtenTag);
-                        event.getTarget().playSound(SoundEvents.STONE_BREAK, 2, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 0.5F);
-                        event.getTarget().remove(Entity.RemovalReason.KILLED);
-
-                        if (stack.getEnchantmentLevel(Enchantments.SILK_TOUCH) > 0) {
-                            ItemStack statuette = new ItemStack(IafItemRegistry.STONE_STATUE.get());
-                            CompoundTag tag = statuette.getOrCreateTag();
-                            tag.putBoolean("IAFStoneStatuePlayerEntity", statue.getTrappedEntityTypeString().equalsIgnoreCase("minecraft:player"));
-                            tag.putString("IAFStoneStatueEntityID", statue.getTrappedEntityTypeString());
-                            tag.put("IAFStoneStatueNBT", writtenTag);
-                            statue.addAdditionalSaveData(tag);
-
-                            if (!statue.level.isClientSide()) {
-                                statue.spawnAtLocation(statuette, 1);
-                            }
-                        } else {
-                            if (!statue.level.isClientSide()) {
-                                statue.spawnAtLocation(Blocks.COBBLESTONE.asItem(), 2 + event.getEntity().getRandom().nextInt(4));
-                            }
-                        }
-
-                        statue.remove(Entity.RemovalReason.KILLED);
-                    }
-                }
             }
         }
     }
@@ -361,10 +286,6 @@ public class ServerEvents {
 
     @SubscribeEvent
     public void onEntityUpdate(LivingEvent.LivingTickEvent event) {
-        if (IafConfig.chickensLayRottenEggs && !event.getEntity().level.isClientSide && isChicken(event.getEntity()) && !event.getEntity().isBaby() && event.getEntity() instanceof Animal) {
-            ChickenProperties.tickChicken(event.getEntity());
-        }
-
         if (FrozenProperties.isFrozen(event.getEntity())) {
             FrozenProperties.tickFrozenEntity(event.getEntity());
 
@@ -453,18 +374,7 @@ public class ServerEvents {
             || eventName.equals(BuiltInLootTables.STRONGHOLD_CORRIDOR)
             || eventName.equals(BuiltInLootTables.STRONGHOLD_CROSSING);
 
-        if (condition1
-            || eventName.equals(BuiltInLootTables.IGLOO_CHEST)
-            || eventName.equals(BuiltInLootTables.WOODLAND_MANSION)
-            || eventName.equals(BuiltInLootTables.VILLAGE_TOOLSMITH)
-            || eventName.equals(BuiltInLootTables.VILLAGE_ARMORER)) {
-
-
-            LootPoolEntryContainer.Builder item = LootItem.lootTableItem(IafItemRegistry.SILVER_INGOT.get()).setQuality(15).setWeight(12);
-            LootPool.Builder builder = new LootPool.Builder().name("iaf_silver_ingot").add(item).when(LootItemRandomChanceCondition.randomChance(0.5f)).setRolls(UniformGenerator.between(1, 3)).setBonusRolls(UniformGenerator.between(0, 3));
-            event.getTable().addPool(builder.build());
-
-        } else if ((event.getName().equals(WorldGenFireDragonCave.FIRE_DRAGON_CHEST)
+        if ((event.getName().equals(WorldGenFireDragonCave.FIRE_DRAGON_CHEST)
             || event.getName().equals(WorldGenFireDragonCave.FIRE_DRAGON_CHEST_MALE)
             || event.getName().equals(WorldGenIceDragonCave.ICE_DRAGON_CHEST)
             || event.getName().equals(WorldGenIceDragonCave.ICE_DRAGON_CHEST_MALE)

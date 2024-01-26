@@ -56,13 +56,9 @@ public class IafClientSetup {
         EntityRenderers.register(IafEntityRegistry.LIGHTNING_DRAGON_CHARGE.get(), RenderDragonLightningCharge::new);
         EntityRenderers.register(IafEntityRegistry.HIPPOGRYPH_EGG.get(), ThrownItemRenderer::new);
         EntityRenderers.register(IafEntityRegistry.HIPPOGRYPH.get(), RenderHippogryph::new);
-        EntityRenderers.register(IafEntityRegistry.STONE_STATUE.get(), RenderStoneStatue::new);
-        EntityRenderers.register(IafEntityRegistry.GORGON.get(), RenderGorgon::new);
         EntityRenderers.register(IafEntityRegistry.PIXIE.get(), RenderPixie::new);
         EntityRenderers.register(IafEntityRegistry.SIREN.get(), RenderSiren::new);
         EntityRenderers.register(IafEntityRegistry.HIPPOCAMPUS.get(), RenderHippocampus::new);
-        EntityRenderers.register(IafEntityRegistry.COCKATRICE.get(), RenderCockatrice::new);
-        EntityRenderers.register(IafEntityRegistry.COCKATRICE_EGG.get(), ThrownItemRenderer::new);
         EntityRenderers.register(IafEntityRegistry.AMPHITHERE.get(), RenderAmphithere::new);
         EntityRenderers.register(IafEntityRegistry.AMPHITHERE_ARROW.get(), RenderAmphithereArrow::new);
         EntityRenderers.register(IafEntityRegistry.PIXIE_CHARGE.get(), RenderNothing::new);
@@ -117,8 +113,6 @@ public class IafClientSetup {
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.LIGHTNING_LILY.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.DRAGON_ICE_SPIKES.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.DREAD_STONE_FACE.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.DREAD_TORCH.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.BURNT_TORCH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.EGG_IN_ICE.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.JAR_EMPTY.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.JAR_PIXIE_0.get(), RenderType.cutout());
@@ -132,8 +126,6 @@ public class IafClientSetup {
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.PIXIE_HOUSE_BIRCH.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.PIXIE_HOUSE_SPRUCE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.PIXIE_HOUSE_DARK_OAK.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.DREAD_TORCH_WALL.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.BURNT_TORCH_WALL.get(), RenderType.cutout());
         ItemPropertyFunction pulling = ItemProperties.getProperty(Items.BOW, new ResourceLocation("pulling"));
         ItemPropertyFunction pull = (stack, worldIn, entity, p) -> {
             if (entity == null) {

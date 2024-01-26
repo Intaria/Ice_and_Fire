@@ -643,7 +643,7 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
         this.entityData.define(MODEL_DEAD, false);
         this.entityData.define(CONTROL_STATE, (byte) 0);
         this.entityData.define(TACKLE, false);
-        this.entityData.define(AGINGDISABLED, true);
+        this.entityData.define(AGINGDISABLED, false);
         this.entityData.define(COMMAND, 0);
         this.entityData.define(DRAGON_PITCH, 0F);
         this.entityData.define(CRYSTAL_BOUND, false);
@@ -2396,7 +2396,7 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     public abstract SoundEvent getRoarSound();
 
     public void roar() {
-        if (EntityGorgon.isStoneMob(this) || this.isModelDead()) {
+        if (this.isModelDead()) {
             return;
         }
         if (random.nextBoolean()) {
@@ -2453,7 +2453,7 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     }
 
     public boolean shouldRenderEyes() {
-        return !this.isSleeping() && !this.isModelDead() && !this.isBlinking() && !EntityGorgon.isStoneMob(this);
+        return !this.isSleeping() && !this.isModelDead() && !this.isBlinking();
     }
 
     @Override

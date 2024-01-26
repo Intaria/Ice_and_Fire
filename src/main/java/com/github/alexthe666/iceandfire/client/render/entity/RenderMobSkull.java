@@ -25,13 +25,11 @@ public class RenderMobSkull extends EntityRenderer<EntityMobSkull> {
 
     private static final Map<String, ResourceLocation> SKULL_TEXTURE_CACHE = Maps.newHashMap();
     private final ModelHippogryph hippogryphModel;
-    private final ModelCockatrice cockatriceModel;
     private final ModelAmphithere amphithereModel;
 
     public RenderMobSkull(EntityRendererProvider.Context context) {
         super(context);
         this.hippogryphModel = new ModelHippogryph();
-        this.cockatriceModel = new ModelCockatrice();
         this.amphithereModel = new ModelAmphithere();
     }
 
@@ -64,15 +62,6 @@ public class RenderMobSkull extends EntityRenderer<EntityMobSkull> {
                 hippogryphModel.resetToDefaultPose();
                 setRotationAngles(hippogryphModel.Head, onWall ? (float) Math.toRadians(50F) : (float) Math.toRadians(-5), 0, 0);
                 hippogryphModel.Head.render(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-                break;
-            case COCKATRICE:
-                if (onWall) {
-                    matrixStackIn.translate(0, 0F, 0.35F);
-                }
-                cockatriceModel.resetToDefaultPose();
-                setRotationAngles(cockatriceModel.head, onWall ? (float) Math.toRadians(50F) : 0F, 0, 0);
-                cockatriceModel.head.render(matrixStackIn, ivertexbuilder, packedLightIn, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
-
                 break;
             case AMPHITHERE:
                 matrixStackIn.translate(0, -0.2F, 0.7F);

@@ -38,9 +38,6 @@ public class IafBlockRegistry {
     public static final RegistryObject<Block> GOLD_PILE = register("gold_pile", BlockGoldPile::new);
     public static final RegistryObject<Block> SILVER_PILE = register("silver_pile", BlockGoldPile::new);
     public static final RegistryObject<Block> COPPER_PILE = register("copper_pile", BlockGoldPile::new);
-    public static final RegistryObject<Block> SILVER_ORE = register("silver_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE).strength(3, 3).requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> DEEPSLATE_SILVER_ORE = register("deepslate_silver_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE).strength(3, 3).requiresCorrectToolForDrops()));
-    public static final RegistryObject<Block> SILVER_BLOCK = register("silver_block", () -> BlockGeneric.builder(3.0F, 5.0F, SoundType.METAL, Material.METAL));
     public static final RegistryObject<Block> SAPPHIRE_ORE = register("sapphire_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4, 3).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
     public static final RegistryObject<Block> SAPPHIRE_BLOCK = register("sapphire_block", () -> BlockGeneric.builder(3.0F, 6.0F, SoundType.METAL, Material.METAL));
     public static final RegistryObject<Block> CHARRED_DIRT = register("chared_dirt", () -> BlockReturningState.builder(0.5F, 0.0F, SoundType.GRAVEL, Material.DIRT, Blocks.DIRT.defaultBlockState()));
@@ -106,14 +103,10 @@ public class IafBlockRegistry {
     public static final RegistryObject<BlockDreadBase> DREAD_STONE_BRICKS_MOSSY = register("dread_stone_bricks_mossy", () -> BlockDreadBase.builder(-1.0F, 100000.0F, SoundType.STONE, Material.STONE));
     public static final RegistryObject<BlockDreadBase> DREAD_STONE_TILE = register("dread_stone_tile", () -> BlockDreadBase.builder(-1.0F, 100000.0F, SoundType.STONE, Material.STONE));
     public static final RegistryObject<Block> DREAD_STONE_FACE = register("dread_stone_face", BlockDreadStoneFace::new);
-    public static final RegistryObject<TorchBlock> DREAD_TORCH = registerWallBlock("dread_torch", BlockDreadTorch::new);
-    public static final RegistryObject<BlockDreadTorchWall> DREAD_TORCH_WALL = registerWallTorch("dread_torch_wall", BlockDreadTorchWall::new);
     public static final RegistryObject<Block> DREAD_STONE_BRICKS_STAIRS = register("dread_stone_stairs", () -> new BlockGenericStairs(DREAD_STONE_BRICKS.get().defaultBlockState()));
     public static final RegistryObject<Block> DREAD_STONE_BRICKS_SLAB = register("dread_stone_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.STONE).strength(10F, 10000F)));
     public static final RegistryObject<Block> DREADWOOD_LOG = register("dreadwood_log", BlockDreadWoodLog::new);
     public static final RegistryObject<BlockDreadBase> DREADWOOD_PLANKS = register("dreadwood_planks", () -> BlockDreadBase.builder(-1.0F, 100000.0F, SoundType.WOOD, Material.WOOD));
-    public static final RegistryObject<TorchBlock> BURNT_TORCH = registerWallBlock("burnt_torch", BlockBurntTorch::new);
-    public static final RegistryObject<BlockBurntTorchWall> BURNT_TORCH_WALL = registerWallTorch("burnt_torch_wall", BlockBurntTorchWall::new);
     
     public static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block) {
         RegistryObject<T> ret = BLOCKS.register(name, block);

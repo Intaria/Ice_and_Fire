@@ -54,7 +54,6 @@ public class IafItemTags extends ItemTagsProvider {
     public static TagKey<Item> BREED_HIPPOCAMPUS = createKey("breed_hippocampus");
     public static TagKey<Item> BREED_HIPPOGRYPH = createKey("breed_hippogryph");
     public static TagKey<Item> HEAL_AMPITHERE = createKey("heal_ampithere");
-    public static TagKey<Item> HEAL_COCKATRICE = createKey("heal_cockatrice");
     public static TagKey<Item> HEAL_HIPPOCAMPUS = createKey("heal_hippocampus");
     public static TagKey<Item> HEAL_PIXIE = createKey("heal_pixie");
     public static TagKey<Item> TAME_HIPPOGRYPH = createKey("tame_hippogryph");
@@ -86,17 +85,7 @@ public class IafItemTags extends ItemTagsProvider {
                 .add(IafItemRegistry.ICE_DRAGON_BLOOD.get())
                 .add(IafItemRegistry.LIGHTNING_DRAGON_BLOOD.get());
 
-        tag(Tags.Items.INGOTS)
-//                .add(IafItemRegistry.COPPER_INGOT.get())
-                .add(IafItemRegistry.SILVER_INGOT.get());
-
-        tag(Tags.Items.NUGGETS)
-                .add(IafItemRegistry.COPPER_NUGGET.get())
-                .add(IafItemRegistry.SILVER_NUGGET.get());
-
         tag(Tags.Items.ORES)
-                .add(IafBlockRegistry.SILVER_ORE.get().asItem())
-                .add(IafBlockRegistry.DEEPSLATE_SILVER_ORE.get().asItem())
                 .add(IafBlockRegistry.SAPPHIRE_ORE.get().asItem());
 
         tag(Tags.Items.GEMS)
@@ -134,7 +123,6 @@ public class IafItemTags extends ItemTagsProvider {
                 .addTag(STORAGE_BLOCKS_SCALES_DRAGON_ICE)
                 .addTag(STORAGE_BLOCKS_SCALES_DRAGON_LIGHTNING)
                 .add(IafBlockRegistry.SAPPHIRE_BLOCK.get().asItem())
-                .add(IafBlockRegistry.SILVER_BLOCK.get().asItem())
                 .add(IafBlockRegistry.DRAGON_BONE_BLOCK.get().asItem());
 
         tag(DRAGON_FOOD_MEAT)
@@ -169,10 +157,6 @@ public class IafItemTags extends ItemTagsProvider {
 
         tag(HEAL_AMPITHERE)
                 .add(Items.COCOA_BEANS);
-
-        tag(HEAL_COCKATRICE)
-                .addTag(Tags.Items.SEEDS)
-                .add(Items.ROTTEN_FLESH);
 
         tag(HEAL_HIPPOCAMPUS)
                 .add(Items.KELP);
@@ -262,13 +246,7 @@ public class IafItemTags extends ItemTagsProvider {
         });
 
         // Might be used by other mods
-        tag(createForgeKey(ORES_PATH + "/silver")).add(IafBlockRegistry.SILVER_ORE.get().asItem());
-        tag(createForgeKey(ORES_PATH + "/silver")).add(IafBlockRegistry.DEEPSLATE_SILVER_ORE.get().asItem());
-        tag(INGOTS_SILVER).add(IafItemRegistry.SILVER_INGOT.get().asItem());
-        tag(NUGGETS_COPPER).add(IafItemRegistry.COPPER_NUGGET.get());
-        tag(NUGGETS_SILVER).add(IafItemRegistry.SILVER_NUGGET.get());
         tag(GEMS_SAPPHIRE).add(IafItemRegistry.SAPPHIRE_GEM.get());
-        tag(STORAGE_BLOCKS_SILVER).add(IafBlockRegistry.SILVER_BLOCK.get().asItem());
         tag(createForgeKey(STORAGE_BLOCK_PATH + "/sapphire")).add(IafBlockRegistry.SAPPHIRE_BLOCK.get().asItem());
         tag(BONES_WITHER).add(IafItemRegistry.WITHERBONE.get());
     }

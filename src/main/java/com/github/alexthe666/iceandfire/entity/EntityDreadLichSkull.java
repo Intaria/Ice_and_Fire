@@ -115,9 +115,6 @@ public class EntityDreadLichSkull extends AbstractArrow {
         double y = this.getY() + this.random.nextFloat() * this.getBbHeight() - this.getBbHeight();
         double z = this.getZ() + this.random.nextFloat() * this.getBbWidth() * 2.0F - this.getBbWidth();
         float f = (this.getBbWidth() + this.getBbHeight() + this.getBbWidth()) * 0.333F + 0.5F;
-        if (particleDistSq(x, y, z) < f * f) {
-            IceAndFire.PROXY.spawnParticle(EnumParticles.Dread_Torch, x, y + 0.5D, z, d0, d1, d2);
-        }
         super.tick();
     }
 

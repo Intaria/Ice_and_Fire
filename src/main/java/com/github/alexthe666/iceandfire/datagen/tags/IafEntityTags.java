@@ -12,16 +12,14 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
 public class IafEntityTags extends EntityTypeTagsProvider {
-    public static TagKey<EntityType<?>> IMMUNE_TO_GORGON_STONE = createKey("immune_to_gorgon_stone");
-
+    
     public IafEntityTags(final DataGenerator generator, @Nullable final ExistingFileHelper existingFileHelper) {
         super(generator, IceAndFire.MODID, existingFileHelper);
     }
 
     @Override
     protected void addTags() {
-        tag(IMMUNE_TO_GORGON_STONE)
-                .addTag(Tags.EntityTypes.BOSSES);
+
     }
 
     private static TagKey<EntityType<?>> createKey(final String name) {

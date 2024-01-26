@@ -4,7 +4,6 @@ import com.github.alexthe666.iceandfire.IafConfig;
 import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.client.ClientProxy;
 import com.github.alexthe666.iceandfire.client.IafKeybindRegistry;
-import com.github.alexthe666.iceandfire.client.particle.CockatriceBeamRender;
 import com.github.alexthe666.iceandfire.client.render.tile.RenderFrozenState;
 import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
 import com.github.alexthe666.iceandfire.entity.EntitySiren;
@@ -209,9 +208,6 @@ public class ClientEvents {
             event.setCanceled(true);
         }
         LivingEntity entity = event.getEntity();
-        MiscProperties.getTargetedBy(entity).forEach(caster -> {
-            CockatriceBeamRender.render(entity, caster, event.getPoseStack(), event.getMultiBufferSource(), event.getPartialTick());
-        });
         if (FrozenProperties.isFrozen(event.getEntity())) {
             RenderFrozenState.render(event.getEntity(), event.getPoseStack(), event.getMultiBufferSource(), event.getPackedLight());
         };

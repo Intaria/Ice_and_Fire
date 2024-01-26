@@ -13,7 +13,6 @@ import org.jetbrains.annotations.Nullable;
 
 
 public class IafBiomeTagGenerator extends BiomeTagsProvider {
-    public static final TagKey<Biome> HAS_GORGON_TEMPLE = TagKey.create(ForgeRegistries.BIOMES.getRegistryKey(), new ResourceLocation(IceAndFire.MODID, "has_structure/gorgon_temple"));
     
 
     public IafBiomeTagGenerator(DataGenerator generator, @Nullable ExistingFileHelper existingFileHelper) {
@@ -22,7 +21,7 @@ public class IafBiomeTagGenerator extends BiomeTagsProvider {
 
     @Override
     protected void addTags() {
-        tag(HAS_GORGON_TEMPLE).addTag(BiomeTags.IS_OVERWORLD);
+        
     }
 
     @Override

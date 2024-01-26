@@ -21,9 +21,7 @@
     "iceandfire:gold_pile",
     "iceandfire:silver_pile",
     "iceandfire:copper_pile",
-    "iceandfire:silver_ore",
     "iceandfire:sapphire_ore",
-    "iceandfire:silver_block",
     "iceandfire:sapphire_block",
     "iceandfire:chared_stone",
     "iceandfire:chared_cobblestone",
@@ -45,7 +43,6 @@
     "iceandfire:dread_stone_bricks_cracked",
     "iceandfire:dread_stone_bricks_mossy",
     "iceandfire:dread_stone",
-    "iceandfire:dread_stone_tile",
-    "iceandfire:deepslate_silver_ore"
+    "iceandfire:dread_stone_tile"
   ]
 }

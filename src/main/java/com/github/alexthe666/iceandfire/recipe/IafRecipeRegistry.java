@@ -67,17 +67,6 @@ public class IafRecipeRegistry {
                         position.y(), position.z(), stackIn);
                 }
             });
-            DispenserBlock.registerBehavior(IafItemRegistry.ROTTEN_EGG.get(), new AbstractProjectileDispenseBehavior() {
-                /**
-                 * Return the projectile entity spawned by this dispense behavior.
-                 */
-                @Override
-                protected @NotNull Projectile getProjectile(@NotNull Level worldIn, @NotNull Position position, @NotNull ItemStack stackIn) {
-                    return new EntityCockatriceEgg(IafEntityRegistry.COCKATRICE_EGG.get(), position.x(), position.y(),
-                        position.z(), worldIn);
-                }
-            });
-
             BrewingRecipeRegistry.addRecipe(Ingredient.of(createPotion(Potions.WATER).getItem()), Ingredient.of(IafItemRegistry.SHINY_SCALES.get()), createPotion(Potions.WATER_BREATHING));
         });
     }

@@ -40,8 +40,6 @@ public class ServerConfig {
     public final ForgeConfigSpec.IntValue dragonHungerTickRate;
     public final ForgeConfigSpec.BooleanValue spawnHippogryphs;
     public final ForgeConfigSpec.IntValue hippogryphSpawnRate;
-    public final ForgeConfigSpec.BooleanValue generateGorgonTemple;
-    public final ForgeConfigSpec.DoubleValue gorgonMaxHealth;
     public final ForgeConfigSpec.IntValue spawnPixiesChance;
     public final ForgeConfigSpec.IntValue pixieVillageSize;
     public final ForgeConfigSpec.BooleanValue pixiesStealItems;
@@ -51,12 +49,6 @@ public class ServerConfig {
     public final ForgeConfigSpec.IntValue sirenTimeBetweenSongs;
     public final ForgeConfigSpec.IntValue generateSirenChance;
     public final ForgeConfigSpec.IntValue hippocampusSpawnChance;
-    public final ForgeConfigSpec.IntValue cockatriceChickenSearchLength;
-    public final ForgeConfigSpec.IntValue cockatriceEggChance;
-    public final ForgeConfigSpec.DoubleValue cockatriceMaxHealth;
-    public final ForgeConfigSpec.BooleanValue chickensLayRottenEggs;
-    public final ForgeConfigSpec.BooleanValue spawnCockatrices;
-    public final ForgeConfigSpec.IntValue cockatriceSpawnRate;
     public final ForgeConfigSpec.BooleanValue villagersFearDragons;
     public final ForgeConfigSpec.BooleanValue animalsFearDragons;
     public final ForgeConfigSpec.BooleanValue spawnAmphitheres;
@@ -109,8 +101,7 @@ public class ServerConfig {
 
         this.generateMausoleums = buildBoolean(builder, "Generate Mausoleums", "all", true, "True if mausoleums are allowed to generate");
 
-        this.generateGorgonTemple = buildBoolean(builder, "Generate Gorgon Temple", "all", true, "True if gorgon temples are allowed to spawn");
-
+        
         builder.pop();
         builder.pop();
         builder.push("Dragons");
@@ -165,14 +156,6 @@ public class ServerConfig {
         this.sirenMaxSingTime = buildInt(builder, "Siren Max Sing Time", "all", 12000, 100, 24000, "how long(in ticks) can a siren use its sing effect on a player, without a cooldown.");
         this.sirenTimeBetweenSongs = buildInt(builder, "Siren Time Between Songs", "all", 2000, 100, 24000, "how long(in ticks) a siren has to wait after failing to lure in a player");
         builder.pop();
-        builder.push("Cockatrice");
-        this.cockatriceMaxHealth = buildDouble(builder, "Cockatrice Health", "all", 40, 1, 10000, "Maximum cockatrice health");
-        this.cockatriceChickenSearchLength = buildInt(builder, "Cockatrice chicken Search Length", "all", 32, 1, 10000, "How many blocks away can cockatrices detect chickens. Note that increasing this could cause lag.");
-        this.cockatriceEggChance = buildInt(builder, "Cockatrice chicken Search Length", "all", 30, 1, Integer.MAX_VALUE, "1 out of this number chance per 6000 ticks for a chicken to lay a cockatrice egg.");
-        this.chickensLayRottenEggs = buildBoolean(builder, "Chickens Lay Rotten Eggs", "all", true, "True if chickens lay rotten eggs.");
-        this.spawnCockatrices = buildBoolean(builder, "Spawn Cockatrices", "all", true, "True if cockatrices are allowed to spawn");
-        this.cockatriceSpawnRate = buildInt(builder, "Cockatrice Spawn Weight", "all", 4, 1, 10000, "Cockatrice spawn weight. Lower = lower chance to spawn");
-        builder.pop();
         builder.push("Amphitheres");
         this.spawnAmphitheres = buildBoolean(builder, "Spawn Amphitheres", "all", true, "True if amphitheres are allowed to spawn");
         this.amphithereSpawnRate = buildInt(builder, "Amphithere Spawn Weight", "all", 50, 1, 10000, "Amphithere spawn weight. Lower = lower chance to spawn");
@@ -190,9 +173,6 @@ public class ServerConfig {
         this.spawnHippogryphs = buildBoolean(builder, "Spawn Hippogryphs", "all", true, "True if hippogryphs are allowed to spawn");
         this.hippogryphSpawnRate = buildInt(builder, "Hippogryph Spawn Weight", "all", 2, 1, 10000, "Hippogryph spawn weight. Lower = lower chance to spawn.");
         this.hippogryphFlightSpeedMod = buildDouble(builder, "Hippogryph Flight Speed Modifier", "all", 1F, 0.0F, 2.0F, "Change this to slow down or speed up hippogryph flight.");
-        builder.pop();
-        builder.push("Gorgons");
-        this.gorgonMaxHealth = buildDouble(builder, "Gorgon Max Health", "all", 100, 1, 10000, "Maximum gorgon health");
         builder.pop();
         builder.push("Others");
         this.spawnLiches = buildBoolean(builder, "Spawn Liches", "all", true, "True if dread liches are allowed to spawn");

@@ -38,8 +38,6 @@ public class IafConfig {
     public static int dragonHungerTickRate = 3000;
     public static boolean spawnHippogryphs = true;
     public static int hippogryphSpawnRate = 2;
-    public static boolean generateGorgonTemple = true;
-    public static double gorgonMaxHealth = 100D;
     public static int spawnPixiesChance = 60;
     public static int pixieVillageSize = 5;
     public static boolean pixiesStealItems = true;
@@ -49,12 +47,6 @@ public class IafConfig {
     public static int sirenTimeBetweenSongs = 2000;
     public static int generateSirenChance = 400;
     public static int hippocampusSpawnChance = 40;
-    public static int cockatriceChickenSearchLength = 32;
-    public static int cockatriceEggChance = 30;
-    public static double cockatriceMaxHealth = 40.0D;
-    public static boolean chickensLayRottenEggs = true;
-    public static boolean spawnCockatrices = true;
-    public static int cockatriceSpawnRate = 4;
     public static boolean villagersFearDragons = true;
     public static boolean animalsFearDragons = true;
     public static boolean spawnAmphitheres = true;
@@ -133,8 +125,6 @@ public class IafConfig {
             dragonHungerTickRate = ConfigHolder.SERVER.dragonHungerTickRate.get();
             spawnHippogryphs = ConfigHolder.SERVER.spawnHippogryphs.get();
             hippogryphSpawnRate = ConfigHolder.SERVER.hippogryphSpawnRate.get();
-            generateGorgonTemple = ConfigHolder.SERVER.generateGorgonTemple.get();
-            gorgonMaxHealth = ConfigHolder.SERVER.gorgonMaxHealth.get();
             spawnPixiesChance = ConfigHolder.SERVER.spawnPixiesChance.get();
             pixieVillageSize = ConfigHolder.SERVER.pixieVillageSize.get();
             pixiesStealItems = ConfigHolder.SERVER.pixiesStealItems.get();
@@ -144,12 +134,6 @@ public class IafConfig {
             sirenTimeBetweenSongs = ConfigHolder.SERVER.sirenTimeBetweenSongs.get();
             generateSirenChance = ConfigHolder.SERVER.generateSirenChance.get();
             hippocampusSpawnChance = ConfigHolder.SERVER.hippocampusSpawnChance.get();
-            cockatriceChickenSearchLength = ConfigHolder.SERVER.cockatriceChickenSearchLength.get();
-            cockatriceEggChance = ConfigHolder.SERVER.cockatriceEggChance.get();
-            cockatriceMaxHealth = ConfigHolder.SERVER.cockatriceMaxHealth.get();
-            chickensLayRottenEggs = ConfigHolder.SERVER.chickensLayRottenEggs.get();
-            spawnCockatrices = ConfigHolder.SERVER.spawnCockatrices.get();
-            cockatriceSpawnRate = ConfigHolder.SERVER.cockatriceSpawnRate.get();
             villagersFearDragons = ConfigHolder.SERVER.villagersFearDragons.get();
             animalsFearDragons = ConfigHolder.SERVER.animalsFearDragons.get();
             spawnAmphitheres = ConfigHolder.SERVER.spawnAmphitheres.get();

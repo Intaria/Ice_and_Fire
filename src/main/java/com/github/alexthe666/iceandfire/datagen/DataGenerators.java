@@ -40,15 +40,6 @@ public class DataGenerators {
                 helper,
                 IceAndFire.MODID,
                 registryOps,
-                Registry.PROCESSOR_LIST_REGISTRY,
-                IafProcessorLists.gather()
-        ));
-
-        generator.addProvider(event.includeServer(), JsonCodecProvider.forDatapackRegistry(
-                generator,
-                helper,
-                IceAndFire.MODID,
-                registryOps,
                 Registry.CONFIGURED_FEATURE_REGISTRY,
                 IafConfiguredFeatures.gather(registryOps)
         ));
@@ -69,33 +60,6 @@ public class DataGenerators {
                 registryOps,
                 ForgeRegistries.Keys.BIOME_MODIFIERS,
                 IafBiomeModifierSerializers.gather(registryOps)
-        ));
-
-        generator.addProvider(event.includeServer(), JsonCodecProvider.forDatapackRegistry(
-                generator,
-                helper,
-                IceAndFire.MODID,
-                registryOps,
-                Registry.TEMPLATE_POOL_REGISTRY,
-                IafStructurePieces.gather(registryOps)
-        ));
-
-        generator.addProvider(event.includeServer(), JsonCodecProvider.forDatapackRegistry(
-                generator,
-                helper,
-                IceAndFire.MODID,
-                registryOps,
-                Registry.STRUCTURE_REGISTRY,
-                IafStructures.gather(registryOps)
-        ));
-
-        generator.addProvider(event.includeServer(), JsonCodecProvider.forDatapackRegistry(
-                generator,
-                helper,
-                IceAndFire.MODID,
-                registryOps,
-                Registry.STRUCTURE_SET_REGISTRY,
-                IafStructureSets.gather(registryOps)
         ));
     }
 }

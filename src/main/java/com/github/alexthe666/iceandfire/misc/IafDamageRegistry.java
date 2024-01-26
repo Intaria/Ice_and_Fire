@@ -14,7 +14,6 @@ import static com.github.alexthe666.iceandfire.IceAndFire.MODID;
 
 @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class IafDamageRegistry { // TODO 1.19.2
-    public static final String GORGON_DMG_TYPE = "gorgon";
     public static final String DRAGON_FIRE_TYPE = "dragon_fire";
     public static final String DRAGON_ICE_TYPE = "dragon_ice";
     public static final String DRAGON_LIGHTNING_TYPE = "dragon_lightning";
@@ -50,10 +49,6 @@ public class IafDamageRegistry { // TODO 1.19.2
             String s2 = s + ".attacker_" + index;
             return livingentity != null ? Component.translatable(s2, entityLivingBaseIn.getDisplayName(), livingentity.getDisplayName()) : Component.translatable(s1, entityLivingBaseIn.getDisplayName());
         }
-    }
-
-    public static CustomEntityDamageSource causeGorgonDamage(@Nullable Entity entity) {
-        return (CustomEntityDamageSource) new CustomEntityDamageSource(GORGON_DMG_TYPE, entity).bypassArmor().bypassMagic();
     }
 
     public static CustomEntityDamageSource causeDragonFireDamage(@Nullable Entity entity) {

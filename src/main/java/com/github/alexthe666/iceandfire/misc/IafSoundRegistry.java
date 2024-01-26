@@ -78,16 +78,6 @@ public final class IafSoundRegistry {
 
     public static final SoundEvent HIPPOGRYPH_DIE = createSoundEvent("hippogryph_die");
 
-    public static final SoundEvent GORGON_IDLE = createSoundEvent("gorgon_idle");
-
-    public static final SoundEvent GORGON_HURT = createSoundEvent("gorgon_hurt");
-
-    public static final SoundEvent GORGON_DIE = createSoundEvent("gorgon_die");
-
-    public static final SoundEvent GORGON_ATTACK = createSoundEvent("gorgon_attack");
-
-    public static final SoundEvent GORGON_PETRIFY = createSoundEvent("gorgon_petrify");
-
     public static final SoundEvent TURN_STONE = createSoundEvent("turn_stone");
 
     public static final SoundEvent PIXIE_IDLE = createSoundEvent("pixie_idle");
@@ -125,14 +115,6 @@ public final class IafSoundRegistry {
     public static final SoundEvent MERMAID_DIE = createSoundEvent("mermaid_die");
 
     public static final SoundEvent SIREN_SONG = createSoundEvent("siren_song");
-
-    public static final SoundEvent COCKATRICE_DIE = createSoundEvent("cockatrice_die");
-
-    public static final SoundEvent COCKATRICE_IDLE = createSoundEvent("cockatrice_idle");
-
-    public static final SoundEvent COCKATRICE_HURT = createSoundEvent("cockatrice_hurt");
-
-    public static final SoundEvent COCKATRICE_CRY = createSoundEvent("cockatrice_cry");
 
     public static final SoundEvent MYRMEX_WALK = createSoundEvent("myrmex_walk");
 

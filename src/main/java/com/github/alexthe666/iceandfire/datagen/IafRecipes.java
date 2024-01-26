@@ -82,21 +82,6 @@ public class IafRecipes extends RecipeProvider {
                 Items.CHAINMAIL_BOOTS
         );
 
-        armorSet(consumer, Tags.Items.INGOTS_COPPER,
-                IafItemRegistry.COPPER_HELMET.get(),
-                IafItemRegistry.COPPER_CHESTPLATE.get(),
-                IafItemRegistry.COPPER_LEGGINGS.get(),
-                IafItemRegistry.COPPER_BOOTS.get()
-        );
-
-        toolSet(consumer, Tags.Items.INGOTS_COPPER, Tags.Items.RODS_WOODEN,
-                IafItemRegistry.COPPER_SWORD.get(),
-                IafItemRegistry.COPPER_PICKAXE.get(),
-                IafItemRegistry.COPPER_AXE.get(),
-                IafItemRegistry.COPPER_SHOVEL.get(),
-                IafItemRegistry.COPPER_HOE.get()
-        );
-
         /*
 
         dragonArmorSet(consumer, Tags.Items.STORAGE_BLOCKS_COPPER,
@@ -289,20 +274,10 @@ public class IafRecipes extends RecipeProvider {
                 .define('D', IafBlockRegistry.DREAD_STONE_BRICKS.get())
                 .save(consumer);
 
-        CustomShaped.shaped(IafBlockRegistry.DREAD_TORCH.get(), 4)
-                .pattern("D")
-                .pattern("S")
-                .define('S', Tags.Items.RODS_WOODEN)
-                .define('D', IafItemRegistry.DREAD_SHARD.get())
-                .save(consumer);
-
         CustomShaped.shaped(IafItemRegistry.EARPLUGS.get())
                 .pattern("B B")
                 .define('B', ItemTags.PLANKS)
                 .save(consumer);
-
-        compact(consumer, IafItemRegistry.SILVER_INGOT.get(), IafBlockRegistry.SILVER_BLOCK.get());
-        compact(consumer, IafItemRegistry.SILVER_NUGGET.get(), IafItemRegistry.SILVER_INGOT.get());
 
         armorSet(consumer, IafItemTags.INGOTS_SILVER,
                 IafItemRegistry.SILVER_HELMET.get(),
@@ -335,14 +310,6 @@ public class IafRecipes extends RecipeProvider {
         CustomShapeless.shapeless(IafBlockRegistry.ASH.get())
                 .requires(IafItemTags.CHARRED_BLOCKS, 9)
                 .save(consumer);
-
-        CustomShapeless.shapeless(Items.COPPER_INGOT)
-                .requires(IafItemRegistry.COPPER_NUGGET.get(), 9)
-                .save(consumer, location("copper_nuggets_to_ingot"));
-
-        CustomShapeless.shapeless(IafItemRegistry.COPPER_NUGGET.get(), 9)
-                .requires(Tags.Items.INGOTS_COPPER)
-                .save(consumer, location("copper_ingot_to_nuggets"));
 
         CustomShapeless.shapeless(IafBlockRegistry.COPPER_PILE.get())
                 .requires(IafItemTags.NUGGETS_COPPER, 2)
