@@ -91,7 +91,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
-public abstract class EntityDragonBase extends TamableAnimal implements IPassabilityNavigator, ISyncMount, IFlyingMount, IMultipartEntity, IAnimatedEntity, IDragonFlute, IDeadMob, IVillagerFear, IAnimalFear, IDropArmor, IHasCustomizableAttributes, ICustomSizeNavigator, ICustomMoveController, ContainerListener {
+public abstract class EntityDragonBase extends TamableAnimal implements IPassabilityNavigator, ISyncMount, IFlyingMount, IMultipartEntity, IAnimatedEntity, IDeadMob, IVillagerFear, IAnimalFear, IDropArmor, IHasCustomizableAttributes, ICustomSizeNavigator, ICustomMoveController, ContainerListener {
 
     public static final int FLIGHT_CHANCE_PER_TICK = 1500;
     protected static final EntityDataAccessor<Boolean> SWIMMING = SynchedEntityData.defineId(EntityDragonBase.class, EntityDataSerializers.BOOLEAN);
@@ -2381,16 +2381,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     public void die(@NotNull DamageSource cause) {
         super.die(cause);
         this.setHunger(this.getHunger() + FoodUtils.getFoodPoints(this));
-    }
-
-    @Override
-    public void onHearFlute(Player player) {
-        if (this.isTame() && this.isOwnedBy(player)) {
-            if (this.isFlying() || this.isHovering()) {
-                this.setFlying(false);
-                this.setHovering(false);
-            }
-        }
     }
 
     public abstract SoundEvent getRoarSound();

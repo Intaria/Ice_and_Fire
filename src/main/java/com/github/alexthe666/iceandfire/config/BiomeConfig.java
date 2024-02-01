@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BiomeConfig {
-    public static Pair<String, SpawnBiomeData> sapphireBiomes = Pair.of("iceandfire:sapphire_gen_biomes", DefaultBiomes.VERY_SNOWY);
     public static Pair<String, SpawnBiomeData> fireLilyBiomes = Pair.of("iceandfire:fire_lily_biomes", DefaultBiomes.VERY_HOT);
     public static Pair<String, SpawnBiomeData> frostLilyBiomes = Pair.of("iceandfire:frost_lily_biomes", DefaultBiomes.VERY_SNOWY);
     public static Pair<String, SpawnBiomeData> lightningLilyBiomes = Pair.of("iceandfire:lightning_lily_biomes", DefaultBiomes.SAVANNAS);

@@ -3,7 +3,6 @@
     "#forge:storage_blocks/scales/dragon/fire",
     "#forge:storage_blocks/scales/dragon/ice",
     "#forge:storage_blocks/scales/dragon/lightning",
-    "iceandfire:sapphire_block",
     "iceandfire:dragon_bone_block"
   ]
 }

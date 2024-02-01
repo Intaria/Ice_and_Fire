@@ -70,8 +70,6 @@ public final class IafSoundRegistry {
 
     public static final SoundEvent ICEDRAGON_ADULT_HURT = createSoundEvent("icedragon_adult_hurt");
 
-    public static final SoundEvent DRAGONFLUTE = createSoundEvent("dragonflute");
-
     public static final SoundEvent HIPPOGRYPH_IDLE = createSoundEvent("hippogryph_idle");
 
     public static final SoundEvent HIPPOGRYPH_HURT = createSoundEvent("hippogryph_hurt");

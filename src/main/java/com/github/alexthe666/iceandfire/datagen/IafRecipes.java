@@ -148,14 +148,6 @@ public class IafRecipes extends RecipeProvider {
                 .define('B', IafItemRegistry.DRAGON_BONE.get())
                 .save(consumer);
 
-        CustomShaped.shaped(IafItemRegistry.DRAGON_FLUTE.get())
-                .pattern("B  ")
-                .pattern(" B ")
-                .pattern("  I")
-                .define('I', Tags.Items.INGOTS_IRON)
-                .define('B', IafItemRegistry.DRAGON_BONE.get())
-                .save(consumer);
-
         CustomShaped.shaped(IafBlockRegistry.DRAGON_ICE_SPIKES.get(), 4)
                 .pattern("I I")
                 .pattern("I I")
@@ -293,8 +285,6 @@ public class IafRecipes extends RecipeProvider {
                 IafItemRegistry.SILVER_SHOVEL.get(),
                 IafItemRegistry.SILVER_HOE.get()
         );
-
-        compact(consumer, IafItemRegistry.SAPPHIRE_GEM.get(), IafBlockRegistry.SAPPHIRE_BLOCK.get());
     }
 
     private void createShapeless(@NotNull final Consumer<FinishedRecipe> consumer) {

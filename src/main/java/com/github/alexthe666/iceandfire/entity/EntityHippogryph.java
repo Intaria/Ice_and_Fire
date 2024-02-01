@@ -69,7 +69,7 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.Nullable;
 import java.util.EnumSet;
 
-public class EntityHippogryph extends TamableAnimal implements ISyncMount, IAnimatedEntity, IDragonFlute, IVillagerFear, IAnimalFear, IDropArmor, IFlyingMount, ICustomMoveController {
+public class EntityHippogryph extends TamableAnimal implements ISyncMount, IAnimatedEntity, IVillagerFear, IAnimalFear, IDropArmor, IFlyingMount, ICustomMoveController {
 
     private static final int FLIGHT_CHANCE_PER_TICK = 1200;
     private static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(EntityHippogryph.class, EntityDataSerializers.INT);
@@ -1189,16 +1189,6 @@ public class EntityHippogryph extends TamableAnimal implements ISyncMount, IAnim
         }
 
         return super.isAlliedTo(entityIn);
-    }
-
-    @Override
-    public void onHearFlute(Player player) {
-        if (this.isTame() && this.isOwnedBy(player)) {
-            if (this.isFlying() || this.isHovering()) {
-                this.setFlying(false);
-                this.setHovering(false);
-            }
-        }
     }
 
     @Override

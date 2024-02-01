@@ -85,12 +85,6 @@ public class IafItemTags extends ItemTagsProvider {
                 .add(IafItemRegistry.ICE_DRAGON_BLOOD.get())
                 .add(IafItemRegistry.LIGHTNING_DRAGON_BLOOD.get());
 
-        tag(Tags.Items.ORES)
-                .add(IafBlockRegistry.SAPPHIRE_ORE.get().asItem());
-
-        tag(Tags.Items.GEMS)
-                .add(IafItemRegistry.SAPPHIRE_GEM.get());
-
         tag(Tags.Items.BONES)
                 .add(IafItemRegistry.DRAGON_BONE.get())
                 .add(IafItemRegistry.WITHERBONE.get());
@@ -122,7 +116,6 @@ public class IafItemTags extends ItemTagsProvider {
                 .addTag(STORAGE_BLOCKS_SCALES_DRAGON_FIRE)
                 .addTag(STORAGE_BLOCKS_SCALES_DRAGON_ICE)
                 .addTag(STORAGE_BLOCKS_SCALES_DRAGON_LIGHTNING)
-                .add(IafBlockRegistry.SAPPHIRE_BLOCK.get().asItem())
                 .add(IafBlockRegistry.DRAGON_BONE_BLOCK.get().asItem());
 
         tag(DRAGON_FOOD_MEAT)
@@ -245,9 +238,6 @@ public class IafItemTags extends ItemTagsProvider {
             }
         });
 
-        // Might be used by other mods
-        tag(GEMS_SAPPHIRE).add(IafItemRegistry.SAPPHIRE_GEM.get());
-        tag(createForgeKey(STORAGE_BLOCK_PATH + "/sapphire")).add(IafBlockRegistry.SAPPHIRE_BLOCK.get().asItem());
         tag(BONES_WITHER).add(IafItemRegistry.WITHERBONE.get());
     }
 

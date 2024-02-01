@@ -80,7 +80,6 @@ public class IafWorldRegistry {
         LOADED_FEATURES.put("iceandfire:fire_lily", false);
         LOADED_FEATURES.put("iceandfire:frost_lily", false);
         LOADED_FEATURES.put("iceandfire:lightning_lily", false);
-        LOADED_FEATURES.put("iceandfire:sapphire_ore", false);
         LOADED_FEATURES.put("iceandfire:fire_dragon_roost", false);
         LOADED_FEATURES.put("iceandfire:ice_dragon_roost", false);
         LOADED_FEATURES.put("iceandfire:lightning_dragon_roost", false);
@@ -109,9 +108,6 @@ public class IafWorldRegistry {
         }
         if (safelyTestBiome(BiomeConfig.frostLilyBiomes, biome)) {
             addFeatureToBiome(IafPlacedFeatures.PLACED_FROST_LILY, features, builder, GenerationStep.Decoration.VEGETAL_DECORATION);
-        }
-        if (safelyTestBiome(BiomeConfig.sapphireBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_SAPPHIRE_ORE, features, builder, GenerationStep.Decoration.UNDERGROUND_ORES);
         }
 
 

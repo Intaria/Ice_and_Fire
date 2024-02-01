@@ -38,8 +38,6 @@ public class IafBlockRegistry {
     public static final RegistryObject<Block> GOLD_PILE = register("gold_pile", BlockGoldPile::new);
     public static final RegistryObject<Block> SILVER_PILE = register("silver_pile", BlockGoldPile::new);
     public static final RegistryObject<Block> COPPER_PILE = register("copper_pile", BlockGoldPile::new);
-    public static final RegistryObject<Block> SAPPHIRE_ORE = register("sapphire_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE).strength(4, 3).requiresCorrectToolForDrops(), UniformInt.of(3, 7)));
-    public static final RegistryObject<Block> SAPPHIRE_BLOCK = register("sapphire_block", () -> BlockGeneric.builder(3.0F, 6.0F, SoundType.METAL, Material.METAL));
     public static final RegistryObject<Block> CHARRED_DIRT = register("chared_dirt", () -> BlockReturningState.builder(0.5F, 0.0F, SoundType.GRAVEL, Material.DIRT, Blocks.DIRT.defaultBlockState()));
     public static final RegistryObject<Block> CHARRED_GRASS = register("chared_grass", () -> BlockReturningState.builder(0.6F, 0.0F, SoundType.GRAVEL, Material.GRASS, Blocks.GRASS_BLOCK.defaultBlockState()));
     public static final RegistryObject<Block> CHARRED_STONE = register("chared_stone", () -> BlockReturningState.builder(1.5F, 10.0F, SoundType.STONE, Material.STONE, Blocks.STONE.defaultBlockState()));

@@ -84,9 +84,6 @@ public class IafBlockTags extends BlockTagsProvider {
         tag(FIRE_DRAGON_CAVE_ORES)
                 .add(Blocks.EMERALD_ORE);
 
-        tag(ICE_DRAGON_CAVE_ORES)
-                .add(IafBlockRegistry.SAPPHIRE_ORE.get());
-
         tag(LIGHTNING_DRAGON_CAVE_ORES)
                 .add(Blocks.BUDDING_AMETHYST);
 
@@ -101,16 +98,6 @@ public class IafBlockTags extends BlockTagsProvider {
                 .addTag(Tags.Blocks.COBBLESTONE)
                 .addTag(DRAGON_ENVIRONMENT_BLOCKS)
                 .add(Blocks.GRASS_BLOCK);
-
-        tag(BlockTags.NEEDS_IRON_TOOL)
-                .add(IafBlockRegistry.SAPPHIRE_ORE.get())
-                .add(IafBlockRegistry.SAPPHIRE_BLOCK.get());
-
-        tag(Tags.Blocks.ORES)
-                .add(IafBlockRegistry.SAPPHIRE_ORE.get());
-
-        tag(Tags.Blocks.ORES_IN_GROUND_STONE)
-                .add(IafBlockRegistry.SAPPHIRE_ORE.get());
     }
 
     private static TagKey<Block> createKey(final String name) {

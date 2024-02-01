@@ -17,7 +17,6 @@ public class IafConfig {
     public static int dragonGriefing = 0;
     public static boolean tamedDragonGriefing = true;
     public static int dragonFlapNoiseDistance = 4;
-    public static int dragonFluteDistance = 8;
     public static double dragonHealth = 500;
     public static int dragonAttackDamage = 17;
     public static double dragonAttackDamageFire = 2F;
@@ -104,7 +103,6 @@ public class IafConfig {
             dragonGriefing = ConfigHolder.SERVER.dragonGriefing.get();
             tamedDragonGriefing = ConfigHolder.SERVER.tamedDragonGriefing.get();
             dragonFlapNoiseDistance = ConfigHolder.SERVER.dragonFlapNoiseDistance.get();
-            dragonFluteDistance = ConfigHolder.SERVER.dragonFluteDistance.get();
             dragonHealth = ConfigHolder.SERVER.dragonHealth.get();
             dragonAttackDamage = ConfigHolder.SERVER.dragonAttackDamage.get();
             dragonAttackDamageFire = ConfigHolder.SERVER.dragonAttackDamageFire.get();
