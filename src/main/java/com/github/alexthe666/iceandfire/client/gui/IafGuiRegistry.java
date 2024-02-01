@@ -7,7 +7,6 @@ public class IafGuiRegistry {
 
     public static void register() {
         MenuScreens.register(IafContainerRegistry.PODIUM_CONTAINER.get(), GuiPodium::new);
-        MenuScreens.register(IafContainerRegistry.DRAGON_CONTAINER.get(), GuiDragon::new);
         MenuScreens.register(IafContainerRegistry.HIPPOGRYPH_CONTAINER.get(), GuiHippogryph::new);
         MenuScreens.register(IafContainerRegistry.HIPPOCAMPUS_CONTAINER.get(), GuiHippocampus::new);
     }

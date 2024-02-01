@@ -1315,7 +1315,8 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     }
 
     public void growDragon(final int ageInDays) {
-        if (this.isAgingDisabled()) {
+        //TODO: hope
+        if (this.isAgingDisabled() || this.isTame()) {
             return;
         }
         this.setAgeInDays(this.getAgeInDays() + ageInDays);
