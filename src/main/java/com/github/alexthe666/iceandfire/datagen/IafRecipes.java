@@ -144,16 +144,6 @@ public class IafRecipes extends RecipeProvider {
         forgeBrick(consumer, Items.STONE_BRICKS, IafItemTags.STORAGE_BLOCKS_SCALES_DRAGON_ICE, IafBlockRegistry.DRAGONFORGE_ICE_BRICK.get());
         
         forgeBrick(consumer, Items.STONE_BRICKS, IafItemTags.STORAGE_BLOCKS_SCALES_DRAGON_LIGHTNING, IafBlockRegistry.DRAGONFORGE_LIGHTNING_BRICK.get());
-        
-        /*
-        CustomShaped.shaped(IafItemRegistry.DRAGON_MEAL.get())
-                .pattern("BMB")
-                .pattern("MBM")
-                .pattern("BMB")
-                .define('B', Tags.Items.BONES)
-                .define('M', IafItemTags.DRAGON_FOOD_MEAT)
-                .save(consumer);
-        */
 
         compact(consumer, IafItemRegistry.DRAGONSCALES_RED.get(), IafBlockRegistry.DRAGON_SCALE_RED.get());
         compact(consumer, IafItemRegistry.DRAGONSCALES_GREEN.get(), IafBlockRegistry.DRAGON_SCALE_GREEN.get());

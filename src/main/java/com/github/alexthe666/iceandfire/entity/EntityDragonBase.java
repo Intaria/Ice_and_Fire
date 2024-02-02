@@ -1204,38 +1204,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
                         }
                         return InteractionResult.SUCCESS;
                     }
-                    /*
-                    final Item stackItem = stack.getItem();
-                    if (stackItem == IafItemRegistry.DRAGON_MEAL.get()) {
-                        this.growDragon(1);
-                        this.setHunger(this.getHunger() + 20);
-                        this.heal(Math.min(this.getHealth(), (int) (this.getMaxHealth() / 2)));
-                        this.playSound(SoundEvents.GENERIC_EAT, this.getSoundVolume(), this.getVoicePitch());
-                        this.spawnItemCrackParticles(stackItem);
-                        this.spawnItemCrackParticles(Items.BONE);
-                        this.spawnItemCrackParticles(Items.BONE_MEAL);
-                        this.eatFoodBonus(stack);
-                        if (!player.isCreative()) {
-                            stack.shrink(1);
-                        }
-                        return InteractionResult.SUCCESS;
-                    } else if (stackItem == IafItemRegistry.SICKLY_DRAGON_MEAL.get() && !this.isAgingDisabled()) {
-                        this.setHunger(this.getHunger() + 20);
-                        this.heal(this.getMaxHealth());
-                        this.playSound(SoundEvents.ZOMBIE_VILLAGER_CURE, this.getSoundVolume(), this.getVoicePitch());
-                        this.spawnItemCrackParticles(stackItem);
-                        this.spawnItemCrackParticles(Items.BONE);
-                        this.spawnItemCrackParticles(Items.BONE_MEAL);
-                        this.spawnItemCrackParticles(Items.POISONOUS_POTATO);
-                        this.spawnItemCrackParticles(Items.POISONOUS_POTATO);
-                        this.setAgingDisabled(true);
-                        this.eatFoodBonus(stack);
-                        if (!player.isCreative()) {
-                            stack.shrink(1);
-                        }
-                        return InteractionResult.SUCCESS;
-                    }
-                    */
                 }
             }
         }

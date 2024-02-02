@@ -92,11 +92,6 @@ public class IafItemRegistry {
     public static final RegistryObject<Item> DRAGON_SKULL_FIRE = registerItem(ItemDragonSkull.getName(0), () -> new ItemDragonSkull(0));
     public static final RegistryObject<Item> DRAGON_SKULL_ICE = registerItem(ItemDragonSkull.getName(1), () -> new ItemDragonSkull(1));
     public static final RegistryObject<Item> DRAGON_SKULL_LIGHTNING = registerItem(ItemDragonSkull.getName(2), () -> new ItemDragonSkull(2));
-
-    /*
-    public static final RegistryObject<Item> DRAGON_MEAL = registerItem("dragon_meal", ItemGeneric::new);
-    public static final RegistryObject<Item> SICKLY_DRAGON_MEAL = registerItem("sickly_dragon_meal", () -> new ItemGeneric(1));
-    */
     
     public static final RegistryObject<Item> FIRE_DRAGON_FLESH = registerItem(ItemDragonFlesh.getNameForType(0), () -> new ItemDragonFlesh(0));
     public static final RegistryObject<Item> ICE_DRAGON_FLESH = registerItem(ItemDragonFlesh.getNameForType(1), () -> new ItemDragonFlesh(1));
