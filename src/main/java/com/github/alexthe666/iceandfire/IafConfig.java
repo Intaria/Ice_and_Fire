@@ -7,8 +7,7 @@ public class IafConfig {
     //public static boolean logCascadingWorldGen = false;
     public static boolean generateDragonSkeletons = true;
     public static int generateDragonSkeletonChance = 50;
-    public static int generateDragonDenChance = 60;
-    public static int generateDragonRoostChance = 40;
+    public static int generateDragonDenChance = 50;
     public static int dragonDenGoldAmount = 4;
     public static boolean spawnGlaciers = true;
     public static int glacierSpawnChance = 4;
@@ -94,7 +93,6 @@ public class IafConfig {
             generateDragonSkeletons = ConfigHolder.SERVER.generateDragonSkeletons.get();
             generateDragonSkeletonChance = ConfigHolder.SERVER.generateDragonSkeletonChance.get();
             generateDragonDenChance = ConfigHolder.SERVER.generateDragonDenChance.get();
-            generateDragonRoostChance = ConfigHolder.SERVER.generateDragonRoostChance.get();
             dragonDenGoldAmount = ConfigHolder.SERVER.dragonDenGoldAmount.get();
             spawnGlaciers = ConfigHolder.SERVER.spawnGlaciers.get();
             glacierSpawnChance = ConfigHolder.SERVER.glacierSpawnChance.get();

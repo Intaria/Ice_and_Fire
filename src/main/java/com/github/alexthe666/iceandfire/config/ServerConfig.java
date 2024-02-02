@@ -10,7 +10,6 @@ public class ServerConfig {
     public final ForgeConfigSpec.BooleanValue generateDragonSkeletons;
     public final ForgeConfigSpec.IntValue generateDragonSkeletonChance;
     public final ForgeConfigSpec.IntValue generateDragonDenChance;
-    public final ForgeConfigSpec.IntValue generateDragonRoostChance;
     public final ForgeConfigSpec.IntValue dragonDenGoldAmount;
     public final ForgeConfigSpec.BooleanValue spawnGlaciers;
     public final ForgeConfigSpec.IntValue glacierSpawnChance;
@@ -87,7 +86,6 @@ public class ServerConfig {
         this.generateDragonSkeletons = buildBoolean(builder, "Generate Dragon Skeletons", "all", true, "Whether to generate dragon skeletons or not");
         this.generateDragonSkeletonChance = buildInt(builder, "Generate Dragon Skeleton Chance", "all", 300, 1, 10000, "1 out of this number chance per chunk for generation");
         this.generateDragonDenChance = buildInt(builder, "Generate Dragon Cave Chance", "all", 180, 1, 10000, "1 out of this number chance per chunk for generation");
-        this.generateDragonRoostChance = buildInt(builder, "Generate Dragon Roost Chance", "all", 360, 1, 10000, "1 out of this number chance per chunk for generation");
         this.dragonDenGoldAmount = buildInt(builder, "Dragon Den Gold Amount", "all", 4, 1, 10000, "1 out of this number chance per block that gold will generate in dragon lairs.");
         this.oreToStoneRatioForDragonCaves = buildInt(builder, "Dragon Cave Ore Ratio", "all", 45, 1, 10000, "Ratio of Stone(this number) to Ores in Dragon Caves");
         builder.pop();
