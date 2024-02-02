@@ -3,7 +3,6 @@ package com.github.alexthe666.iceandfire.client;
 import com.github.alexthe666.iceandfire.CommonProxy;
 import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.client.particle.*;
-import com.github.alexthe666.iceandfire.client.render.entity.layer.LayerDragonArmor;
 import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
 import com.github.alexthe666.iceandfire.enums.EnumParticles;
 import com.github.alexthe666.iceandfire.event.ClientEvents;
@@ -130,11 +129,6 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void setPreviousViewType(int view) {
         previousViewType = view;
-    }
-
-    @Override
-    public void updateDragonArmorRender(String clear) {
-        LayerDragonArmor.clearCache(clear);
     }
 
     @Override

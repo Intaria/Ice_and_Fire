@@ -55,11 +55,6 @@ public class IceAndFireJEIPlugin implements IModPlugin {
         addDescription(registry, new ItemStack(IafItemRegistry.DRAGON_SKULL_ICE.get()));
         addDescription(registry, new ItemStack(IafItemRegistry.DRAGON_SKULL_LIGHTNING.get()));
 
-        /*
-        addDescription(registry, new ItemStack(IafItemRegistry.FIRE_STEW.get()));
-        addDescription(registry, new ItemStack(IafItemRegistry.FROST_STEW.get()));
-        */
-
         for (EnumSkullType skull : EnumSkullType.values()) {
             addDescription(registry, new ItemStack(skull.skull_item.get()));
         }

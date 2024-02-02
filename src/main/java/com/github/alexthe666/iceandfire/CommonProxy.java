@@ -74,9 +74,6 @@ public class CommonProxy {
     public void setPreviousViewType(int view) {
     }
 
-    public void updateDragonArmorRender(String clear) {
-    }
-
     public Entity getReferencedMob() {
         return null;
     }

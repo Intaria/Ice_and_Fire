@@ -3,9 +3,7 @@ package com.github.alexthe666.iceandfire.datagen;
 import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.block.IafBlockRegistry;
 import com.github.alexthe666.iceandfire.datagen.tags.IafItemTags;
-import com.github.alexthe666.iceandfire.enums.EnumDragonArmor;
 import com.github.alexthe666.iceandfire.item.IafItemRegistry;
-import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
 import com.google.common.collect.Sets;
 import com.google.gson.JsonObject;
 import net.minecraft.data.CachedOutput;
@@ -81,44 +79,6 @@ public class IafRecipes extends RecipeProvider {
                 Items.CHAINMAIL_LEGGINGS,
                 Items.CHAINMAIL_BOOTS
         );
-
-        /*
-
-        dragonArmorSet(consumer, Tags.Items.STORAGE_BLOCKS_COPPER,
-                IafItemRegistry.DRAGONARMOR_COPPER_0.get(),
-                IafItemRegistry.DRAGONARMOR_COPPER_1.get(),
-                IafItemRegistry.DRAGONARMOR_COPPER_2.get(),
-                IafItemRegistry.DRAGONARMOR_COPPER_3.get()
-        );
-
-        dragonArmorSet(consumer, Tags.Items.STORAGE_BLOCKS_IRON,
-                IafItemRegistry.DRAGONARMOR_IRON_0.get(),
-                IafItemRegistry.DRAGONARMOR_IRON_1.get(),
-                IafItemRegistry.DRAGONARMOR_IRON_2.get(),
-                IafItemRegistry.DRAGONARMOR_IRON_3.get()
-        );
-
-        dragonArmorSet(consumer, IafItemTags.STORAGE_BLOCKS_SILVER,
-                IafItemRegistry.DRAGONARMOR_SILVER_0.get(),
-                IafItemRegistry.DRAGONARMOR_SILVER_1.get(),
-                IafItemRegistry.DRAGONARMOR_SILVER_2.get(),
-                IafItemRegistry.DRAGONARMOR_SILVER_3.get()
-        );
-
-        dragonArmorSet(consumer, Tags.Items.STORAGE_BLOCKS_GOLD,
-                IafItemRegistry.DRAGONARMOR_GOLD_0.get(),
-                IafItemRegistry.DRAGONARMOR_GOLD_1.get(),
-                IafItemRegistry.DRAGONARMOR_GOLD_2.get(),
-                IafItemRegistry.DRAGONARMOR_GOLD_3.get()
-        );
-
-        dragonArmorSet(consumer, Tags.Items.STORAGE_BLOCKS_DIAMOND,
-                IafItemRegistry.DRAGONARMOR_DIAMOND_0.get(),
-                IafItemRegistry.DRAGONARMOR_DIAMOND_1.get(),
-                IafItemRegistry.DRAGONARMOR_DIAMOND_2.get(),
-                IafItemRegistry.DRAGONARMOR_DIAMOND_3.get()
-        );
-        */
 
         CustomShaped.shaped(IafItemRegistry.IRON_HIPPOGRYPH_ARMOR.get())
                 .pattern("FDF")
@@ -210,14 +170,6 @@ public class IafRecipes extends RecipeProvider {
         compact(consumer, IafItemRegistry.DRAGONSCALES_COPPER.get(), IafBlockRegistry.DRAGON_SCALE_COPPER.get());
         compact(consumer, IafItemRegistry.DRAGONSCALES_BLACK.get(), IafBlockRegistry.DRAGON_SCALE_BLACK.get());
 
-        for (EnumDragonArmor type : EnumDragonArmor.values()) {
-            armorSet(consumer, type.armorMaterial.getRepairIngredient(),
-                    type.helmet.get(),
-                    type.chestplate.get(),
-                    type.leggings.get(),
-                    type.boots.get()
-            );
-        }
 
         CustomShaped.shaped(IafBlockRegistry.DREAD_STONE.get(), 8)
                 .pattern("DDD")
@@ -326,20 +278,6 @@ public class IafRecipes extends RecipeProvider {
         CustomShapeless.shapeless(IafBlockRegistry.DREADWOOD_PLANKS.get(), 4)
                 .requires(IafBlockRegistry.DREADWOOD_LOG.get())
                 .save(consumer);
-
-        /*
-        CustomShapeless.shapeless(IafItemRegistry.FIRE_STEW.get())
-                .requires(Items.BOWL)
-                .requires(Items.BLAZE_ROD)
-                .requires(IafBlockRegistry.FIRE_LILY.get())
-                .save(consumer);
-
-        CustomShapeless.shapeless(IafItemRegistry.FROST_STEW.get())
-                .requires(Items.BOWL)
-                .requires(Items.PRISMARINE_CRYSTALS)
-                .requires(IafBlockRegistry.FROST_LILY.get())
-                .save(consumer);
-        */
 
         CustomShapeless.shapeless(IafBlockRegistry.GOLD_PILE.get())
                 .requires(Tags.Items.NUGGETS_GOLD, 2)
@@ -508,31 +446,6 @@ public class IafRecipes extends RecipeProvider {
                 .define('M', material)
                 .define('H', handle)
                 .save(consumer);
-    }
-
-    private void dragonArmorSet(@NotNull final Consumer<FinishedRecipe> consumer, final ItemLike material, final ItemLike... results) {
-        dragonArmorSet(consumer, Ingredient.of(material), results);
-    }
-
-    private void dragonArmorSet(@NotNull final Consumer<FinishedRecipe> consumer, final TagKey<Item> tag, final ItemLike... results) {
-        dragonArmorSet(consumer, Ingredient.of(tag), results);
-    }
-
-    private void dragonArmorSet(@NotNull final Consumer<FinishedRecipe> consumer, final Ingredient ingredient, final ItemLike... results) {
-        for (ItemLike result : results) {
-            if (result instanceof ItemDragonArmor dragonArmor) {
-                switch (dragonArmor.dragonSlot) {
-                    case 0 -> dragonHead(consumer, ingredient, result);
-                    case 1 -> dragonNeck(consumer, ingredient, result);
-                    case 2 -> dragonBody(consumer, ingredient, result);
-                    case 3 -> dragonTail(consumer, ingredient, result);
-                    default ->
-                            throw new IllegalArgumentException("Result is not a valid dragon armor [" + result + "]");
-                }
-            } else {
-                throw new IllegalArgumentException("Result is not a dragon armor [" + result + "]");
-            }
-        }
     }
 
     private void dragonHead(@NotNull final Consumer<FinishedRecipe> consumer, final Ingredient ingredient, final ItemLike result) {

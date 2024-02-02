@@ -160,11 +160,6 @@ public class IafItemTags extends ItemTagsProvider {
         tag(TAME_PIXIE)
                 .add(Items.CAKE);
 
-        /*
-        tag(TEMPT_DRAGON)
-                .add(IafItemRegistry.FIRE_STEW.get());
-        */
-
         tag(TEMPT_HIPPOCAMPUS)
                 .add(Items.KELP)
                 .add(Items.PRISMARINE_CRYSTALS);

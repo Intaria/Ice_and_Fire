@@ -1,8 +1,6 @@
 package com.github.alexthe666.iceandfire.client.render.entity;
 
 import com.github.alexthe666.citadel.client.model.AdvancedEntityModel;
-import com.github.alexthe666.iceandfire.client.render.entity.layer.LayerDragonArmor;
-import com.github.alexthe666.iceandfire.client.render.entity.layer.LayerDragonBanner;
 import com.github.alexthe666.iceandfire.client.render.entity.layer.LayerDragonEyes;
 import com.github.alexthe666.iceandfire.client.render.entity.layer.LayerDragonRider;
 import com.github.alexthe666.iceandfire.client.texture.ArrayLayeredTexture;
@@ -32,8 +30,6 @@ public class RenderDragonBase extends MobRenderer<EntityDragonBase, AdvancedEnti
         super(context, model, 0.15F);
         this.addLayer(new LayerDragonEyes(this));
         this.addLayer(new LayerDragonRider(this, false));
-        this.addLayer(new LayerDragonBanner(this));
-        this.addLayer(new LayerDragonArmor(this, dragonType));
         this.dragonType = dragonType;
     }
 

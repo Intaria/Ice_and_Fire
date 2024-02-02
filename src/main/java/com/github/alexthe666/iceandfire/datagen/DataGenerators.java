@@ -25,7 +25,6 @@ public class DataGenerators {
         DataGenerator generator = event.getGenerator();
         ExistingFileHelper helper = event.getExistingFileHelper();
         generator.addProvider(event.includeServer(), new BannerPatternTagGenerator(generator, helper));
-        generator.addProvider(event.includeServer(), new POITagGenerator(generator, helper));
         generator.addProvider(event.includeServer(), new IafBiomeTagGenerator(generator, helper));
         IafBlockTags blockTagsProvider = new IafBlockTags(generator, helper);
         generator.addProvider(event.includeServer(), blockTagsProvider);

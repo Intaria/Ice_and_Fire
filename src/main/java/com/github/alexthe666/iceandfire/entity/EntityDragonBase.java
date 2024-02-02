@@ -16,9 +16,7 @@ import com.github.alexthe666.iceandfire.entity.ai.*;
 import com.github.alexthe666.iceandfire.entity.props.MiscProperties;
 import com.github.alexthe666.iceandfire.entity.util.*;
 import com.github.alexthe666.iceandfire.enums.EnumDragonEgg;
-import com.github.alexthe666.iceandfire.inventory.ContainerDragon;
 import com.github.alexthe666.iceandfire.item.IafItemRegistry;
-import com.github.alexthe666.iceandfire.item.ItemDragonArmor;
 import com.github.alexthe666.iceandfire.message.MessageDragonSetBurnBlock;
 import com.github.alexthe666.iceandfire.message.MessageStartRidingMob;
 import com.github.alexthe666.iceandfire.misc.IafSoundRegistry;
@@ -553,16 +551,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
         return 30 * this.getDragonStage() / 5;
     }
 
-    public void openInventory(Player player) {
-        if (!this.level.isClientSide)
-            NetworkHooks.openScreen((ServerPlayer) player, getMenuProvider());
-        IceAndFire.PROXY.setReferencedMob(this);
-    }
-
-    public MenuProvider getMenuProvider() {
-        return new SimpleMenuProvider((containerId, playerInventory, player) -> new ContainerDragon(containerId, dragonInventory, playerInventory, this), this.getDisplayName());
-    }
-
     @Override
     public int getAmbientSoundInterval() {
         return 90;
@@ -611,9 +599,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     }
 
     public int getArmorOrdinal(ItemStack stack) {
-        if (!stack.isEmpty() && stack.getItem() instanceof ItemDragonArmor armorItem) {
-            return armorItem.type.ordinal() + 1;
-        }
         return 0;
     }
 
@@ -922,7 +907,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
         final int armorLegs = this.getArmorOrdinal(this.getItemBySlot(EquipmentSlot.LEGS));
         final int armorFeet = this.getArmorOrdinal(this.getItemBySlot(EquipmentSlot.FEET));
         armorResLoc = dragonType.getName() + "|" + armorHead + "|" + armorNeck + "|" + armorLegs + "|" + armorFeet;
-        IceAndFire.PROXY.updateDragonArmorRender(armorResLoc);
 
         double age = 125F;
         if (this.getAgeInDays() <= 125) age = this.getAgeInDays();
@@ -1206,9 +1190,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
                         }
                         this.getNavigation().stop();
                     }
-                    return InteractionResult.SUCCESS;
-                } else if (stack.isEmpty() && player.isShiftKeyDown()) {
-                    this.openInventory(player);
                     return InteractionResult.SUCCESS;
                 } else {
                     int itemFoodAmount = FoodUtils.getFoodPoints(stack, true, dragonType.isPiscivore());

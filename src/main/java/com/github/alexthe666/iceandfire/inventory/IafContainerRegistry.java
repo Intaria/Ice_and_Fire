@@ -16,8 +16,6 @@ public class IafContainerRegistry {
 
     public static final RegistryObject<MenuType<ContainerPodium>> PODIUM_CONTAINER = register(
         () -> new MenuType<>(ContainerPodium::new), "podium");
-    public static final RegistryObject<MenuType<ContainerDragon>> DRAGON_CONTAINER = register(
-        () -> new MenuType<>(ContainerDragon::new), "dragon");
     public static final RegistryObject<MenuType<ContainerHippogryph>> HIPPOGRYPH_CONTAINER = register(
         () -> new MenuType<>(ContainerHippogryph::new), "hippogryph");
     public static final RegistryObject<MenuType<HippocampusContainerMenu>> HIPPOCAMPUS_CONTAINER = register(
