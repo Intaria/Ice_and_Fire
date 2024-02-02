@@ -27,9 +27,6 @@ import java.util.Map;
 import java.util.function.Function;
 
 public final class IafConfiguredFeatures {
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FIRE_DRAGON_ROOST = registerKey("fire_dragon_roost");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ICE_DRAGON_ROOST = registerKey("ice_dragon_roost");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LIGHTNING_DRAGON_ROOST = registerKey("lightning_dragon_roost");
     public static final ResourceKey<ConfiguredFeature<?, ?>> FIRE_DRAGON_CAVE = registerKey("fire_dragon_cave");
     public static final ResourceKey<ConfiguredFeature<?, ?>> ICE_DRAGON_CAVE = registerKey("ice_dragon_cave");
     public static final ResourceKey<ConfiguredFeature<?, ?>> LIGHTNING_DRAGON_CAVE = registerKey("lightning_dragon_cave");
@@ -52,9 +49,6 @@ public final class IafConfiguredFeatures {
     public static Map<ResourceLocation, ConfiguredFeature<?, ?>> gather(RegistryOps<JsonElement> registryOps) {
         Map<ResourceLocation, ConfiguredFeature<?, ?>> entries = new HashMap<>();
 
-        entries.put(FIRE_DRAGON_ROOST.location(), new ConfiguredFeature<>(IafWorldRegistry.FIRE_DRAGON_ROOST.get(), FeatureConfiguration.NONE));
-        entries.put(ICE_DRAGON_ROOST.location(), new ConfiguredFeature<>(IafWorldRegistry.ICE_DRAGON_ROOST.get(), FeatureConfiguration.NONE));
-        entries.put(LIGHTNING_DRAGON_ROOST.location(), new ConfiguredFeature<>(IafWorldRegistry.LIGHTNING_DRAGON_ROOST.get(), FeatureConfiguration.NONE));
         entries.put(FIRE_DRAGON_CAVE.location(), new ConfiguredFeature<>(IafWorldRegistry.FIRE_DRAGON_CAVE.get(), FeatureConfiguration.NONE));
         entries.put(ICE_DRAGON_CAVE.location(), new ConfiguredFeature<>(IafWorldRegistry.ICE_DRAGON_CAVE.get(), FeatureConfiguration.NONE));
         entries.put(LIGHTNING_DRAGON_CAVE.location(), new ConfiguredFeature<>(IafWorldRegistry.LIGHTNING_DRAGON_CAVE.get(), FeatureConfiguration.NONE));

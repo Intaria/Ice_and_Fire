@@ -77,9 +77,6 @@ public class IafWorldRegistry {
         LOADED_FEATURES.put("iceandfire:fire_lily", false);
         LOADED_FEATURES.put("iceandfire:frost_lily", false);
         LOADED_FEATURES.put("iceandfire:lightning_lily", false);
-        LOADED_FEATURES.put("iceandfire:fire_dragon_roost", false);
-        LOADED_FEATURES.put("iceandfire:ice_dragon_roost", false);
-        LOADED_FEATURES.put("iceandfire:lightning_dragon_roost", false);
         LOADED_FEATURES.put("iceandfire:fire_dragon_cave", false);
         LOADED_FEATURES.put("iceandfire:ice_dragon_cave", false);
         LOADED_FEATURES.put("iceandfire:lightning_dragon_cave", false);
@@ -105,17 +102,6 @@ public class IafWorldRegistry {
         }
         if (safelyTestBiome(BiomeConfig.frostLilyBiomes, biome)) {
             addFeatureToBiome(IafPlacedFeatures.PLACED_FROST_LILY, features, builder, GenerationStep.Decoration.VEGETAL_DECORATION);
-        }
-
-
-        if (safelyTestBiome(BiomeConfig.fireDragonBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_FIRE_DRAGON_ROOST, features, builder);
-        }
-        if (safelyTestBiome(BiomeConfig.lightningDragonBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_LIGHTNING_DRAGON_ROOST, features, builder);
-        }
-        if (safelyTestBiome(BiomeConfig.iceDragonBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_ICE_DRAGON_ROOST, features, builder);
         }
 
 

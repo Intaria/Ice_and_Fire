@@ -27,9 +27,6 @@ public class IafBiomeModifierSerializers {
 
     public static Map<ResourceLocation, BiomeModifier> gather(RegistryOps<JsonElement> registryOps) {
         List<ResourceKey<PlacedFeature>> features = List.of(
-                IafPlacedFeatures.PLACED_FIRE_DRAGON_ROOST,
-                IafPlacedFeatures.PLACED_ICE_DRAGON_ROOST,
-                IafPlacedFeatures.PLACED_LIGHTNING_DRAGON_ROOST,
                 IafPlacedFeatures.PLACED_FIRE_DRAGON_CAVE,
                 IafPlacedFeatures.PLACED_ICE_DRAGON_CAVE,
                 IafPlacedFeatures.PLACED_LIGHTNING_DRAGON_CAVE,

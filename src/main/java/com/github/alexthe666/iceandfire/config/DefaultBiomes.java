@@ -12,7 +12,7 @@ public class DefaultBiomes {
     public static final SpawnBiomeData OVERWORLD = new SpawnBiomeData()
             .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_OVERWORLD.location().toString(), 0);
 
-    public static final SpawnBiomeData FIREDRAGON_ROOST = new SpawnBiomeData()
+            public static final SpawnBiomeData FIREDRAGON_CAVE = new SpawnBiomeData()
             .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_HOT_OVERWORLD.location().toString(), 0)
             .addBiomeEntry(BiomeEntryType.BIOME_TAG, true, IS_JUNGLE.location().toString(), 0)
             .addBiomeEntry(BiomeEntryType.BIOME_TAG, true, IS_BADLANDS.location().toString(), 0)
@@ -31,16 +31,13 @@ public class DefaultBiomes {
             .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:firecracker_shrubland", 5)
             .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:autumnal_valley", 6)
             .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:lush_stacks", 7);
-    public static final SpawnBiomeData FIREDRAGON_CAVE = FIREDRAGON_ROOST;
-    public static final SpawnBiomeData ICEDRAGON_ROOST = new SpawnBiomeData()
+    public static final SpawnBiomeData ICEDRAGON_CAVE = new SpawnBiomeData()
             .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_COLD_OVERWORLD.location().toString(), 0)
             .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:shattered_glacier", 1)
             .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:frosted_taiga", 2)
             .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:frosted_coniferous_forest", 3);
 
-    public static final SpawnBiomeData ICEDRAGON_CAVE = ICEDRAGON_ROOST;
-
-    public static final SpawnBiomeData LIGHTNING_ROOST = new SpawnBiomeData()
+    public static final SpawnBiomeData LIGHTNING_CAVE = new SpawnBiomeData()
             .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_OVERWORLD.location().toString(), 0)
             .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_JUNGLE.location().toString(), 0)
             .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_OVERWORLD.location().toString(), 1)
@@ -56,7 +53,6 @@ public class DefaultBiomes {
             .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:jacaranda_forest", 8)
             .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:sierra_badlands", 9);
 
-    public static final SpawnBiomeData LIGHTNING_CAVE = LIGHTNING_ROOST;
     public static final SpawnBiomeData VERY_HOT = new SpawnBiomeData()
             .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_HOT_OVERWORLD.location().toString(), 0)
             .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:firecracker_shrubland", 1);
