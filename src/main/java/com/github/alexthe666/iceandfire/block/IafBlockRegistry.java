@@ -103,8 +103,6 @@ public class IafBlockRegistry {
     public static final RegistryObject<Block> DREAD_STONE_FACE = register("dread_stone_face", BlockDreadStoneFace::new);
     public static final RegistryObject<Block> DREAD_STONE_BRICKS_STAIRS = register("dread_stone_stairs", () -> new BlockGenericStairs(DREAD_STONE_BRICKS.get().defaultBlockState()));
     public static final RegistryObject<Block> DREAD_STONE_BRICKS_SLAB = register("dread_stone_slab", () -> new SlabBlock(BlockBehaviour.Properties.of(Material.STONE).strength(10F, 10000F)));
-    public static final RegistryObject<Block> DREADWOOD_LOG = register("dreadwood_log", BlockDreadWoodLog::new);
-    public static final RegistryObject<BlockDreadBase> DREADWOOD_PLANKS = register("dreadwood_planks", () -> BlockDreadBase.builder(-1.0F, 100000.0F, SoundType.WOOD, Material.WOOD));
     
     public static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block) {
         RegistryObject<T> ret = BLOCKS.register(name, block);

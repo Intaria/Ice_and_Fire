@@ -265,10 +265,6 @@ public class IafRecipes extends RecipeProvider {
                 .requires(IafBlockRegistry.DREAD_STONE_BRICKS.get())
                 .save(consumer);
 
-        CustomShapeless.shapeless(IafBlockRegistry.DREADWOOD_PLANKS.get(), 4)
-                .requires(IafBlockRegistry.DREADWOOD_LOG.get())
-                .save(consumer);
-
         CustomShapeless.shapeless(IafBlockRegistry.GOLD_PILE.get())
                 .requires(Tags.Items.NUGGETS_GOLD, 2)
                 .save(consumer);
