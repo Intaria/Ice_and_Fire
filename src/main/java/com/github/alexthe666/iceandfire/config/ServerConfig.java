@@ -7,10 +7,6 @@ import java.util.List;
 
 public class ServerConfig {
 
-    public final ForgeConfigSpec.BooleanValue generateDragonSkeletons;
-    public final ForgeConfigSpec.IntValue generateDragonSkeletonChance;
-    public final ForgeConfigSpec.IntValue generateDragonDenChance;
-    public final ForgeConfigSpec.IntValue dragonDenGoldAmount;
     public final ForgeConfigSpec.BooleanValue spawnGlaciers;
     public final ForgeConfigSpec.IntValue glacierSpawnChance;
     public final ForgeConfigSpec.IntValue dragonEggTime;
@@ -81,12 +77,6 @@ public class ServerConfig {
 
     public ServerConfig(final ForgeConfigSpec.Builder builder) {
         builder.push("Generation");
-        builder.push("Dragon");
-        this.generateDragonSkeletons = buildBoolean(builder, "Generate Dragon Skeletons", "all", true, "Whether to generate dragon skeletons or not");
-        this.generateDragonSkeletonChance = buildInt(builder, "Generate Dragon Skeleton Chance", "all", 300, 1, 10000, "1 out of this number chance per chunk for generation");
-        this.generateDragonDenChance = buildInt(builder, "Generate Dragon Cave Chance", "all", 180, 1, 10000, "1 out of this number chance per chunk for generation");
-        this.dragonDenGoldAmount = buildInt(builder, "Dragon Den Gold Amount", "all", 4, 1, 10000, "1 out of this number chance per block that gold will generate in dragon lairs.");
-        builder.pop();
         builder.push("Structures-Features");
         this.dangerousWorldGenDistanceLimit = buildInt(builder, "Dangerous World Gen Dist From Spawn", "all", 800, 1, 10000, "How far away dangerous structures(dragon roosts, cyclops caves, etc.) must be from spawn.");
         this.dangerousWorldGenSeparationLimit = buildInt(builder, "Dangerous World Gen Dist Seperation", "all", 300, 1, 10000, "How far away dangerous structures(dragon roosts, cyclops caves, etc.) must be from the last generated structure.");

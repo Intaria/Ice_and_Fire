@@ -5,10 +5,6 @@ import net.minecraftforge.fml.config.ModConfig;
 
 public class IafConfig {
     //public static boolean logCascadingWorldGen = false;
-    public static boolean generateDragonSkeletons = true;
-    public static int generateDragonSkeletonChance = 50;
-    public static int generateDragonDenChance = 50;
-    public static int dragonDenGoldAmount = 4;
     public static boolean spawnGlaciers = true;
     public static int glacierSpawnChance = 4;
     public static int dragonEggTime = 7200;
@@ -89,10 +85,6 @@ public class IafConfig {
 
     public static void bakeServer(final ModConfig config) {
         try {
-            generateDragonSkeletons = ConfigHolder.SERVER.generateDragonSkeletons.get();
-            generateDragonSkeletonChance = ConfigHolder.SERVER.generateDragonSkeletonChance.get();
-            generateDragonDenChance = ConfigHolder.SERVER.generateDragonDenChance.get();
-            dragonDenGoldAmount = ConfigHolder.SERVER.dragonDenGoldAmount.get();
             spawnGlaciers = ConfigHolder.SERVER.spawnGlaciers.get();
             glacierSpawnChance = ConfigHolder.SERVER.glacierSpawnChance.get();
             dragonEggTime = ConfigHolder.SERVER.dragonEggTime.get();

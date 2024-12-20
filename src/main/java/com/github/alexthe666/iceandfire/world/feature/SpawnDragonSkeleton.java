@@ -31,20 +31,6 @@ public class SpawnDragonSkeleton extends Feature<NoneFeatureConfiguration> {
 
         position = worldIn.getHeightmapPos(Heightmap.Types.WORLD_SURFACE_WG, position.offset(8, 0, 8));
 
-        if (IafConfig.generateDragonSkeletons) {
-            if (rand.nextInt(IafConfig.generateDragonSkeletonChance + 1) == 0) {
-                EntityDragonBase dragon = dragonType.get().create(worldIn.getLevel());
-                dragon.setPos(position.getX() + 0.5F, position.getY() + 1, position.getZ() + 0.5F);
-                int dragonage = 10 + rand.nextInt(100);
-                dragon.growDragon(dragonage);
-                dragon.modelDeadProgress = 20;
-                dragon.setModelDead(true);
-                dragon.setDeathStage((dragonage / 5) / 2);
-                dragon.setYRot(rand.nextInt(360));
-                worldIn.addFreshEntity(dragon);
-            }
-        }
-
         return true;
     }
 }

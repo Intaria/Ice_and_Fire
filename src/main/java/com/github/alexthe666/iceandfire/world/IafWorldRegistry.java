@@ -38,9 +38,6 @@ public class IafWorldRegistry {
 
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> PIXIE_VILLAGE = register("pixie_village", () -> new WorldGenPixieVillage(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SIREN_ISLAND = register("siren_island", () -> new WorldGenSirenIsland(NoneFeatureConfiguration.CODEC));
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> SPAWN_DRAGON_SKELETON_L = register("spawn_dragon_skeleton_lightning", () -> new SpawnDragonSkeleton(castToBase(IafEntityRegistry.LIGHTNING_DRAGON), NoneFeatureConfiguration.CODEC));
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> SPAWN_DRAGON_SKELETON_F = register("spawn_dragon_skeleton_fire", () -> new SpawnDragonSkeleton(castToBase(IafEntityRegistry.FIRE_DRAGON), NoneFeatureConfiguration.CODEC));
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> SPAWN_DRAGON_SKELETON_I = register("spawn_dragon_skeleton_ice", () -> new SpawnDragonSkeleton(castToBase(IafEntityRegistry.ICE_DRAGON), NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SPAWN_HIPPOCAMPUS = register("spawn_hippocampus", () -> new SpawnHippocampus(NoneFeatureConfiguration.CODEC));
     
     @SuppressWarnings({"rawtypes", "unchecked"})
@@ -103,16 +100,6 @@ public class IafWorldRegistry {
         }
         if (safelyTestBiome(BiomeConfig.sirenBiomes, biome)) {
             addFeatureToBiome(IafPlacedFeatures.PLACED_SIREN_ISLAND, features, builder);
-        }
-
-        if (safelyTestBiome(BiomeConfig.lightningDragonSkeletonBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_SPAWN_DRAGON_SKELETON_L, features, builder);
-        }
-        if (safelyTestBiome(BiomeConfig.fireDragonSkeletonBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_SPAWN_DRAGON_SKELETON_F, features, builder);
-        }
-        if (safelyTestBiome(BiomeConfig.iceDragonSkeletonBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_SPAWN_DRAGON_SKELETON_I, features, builder);
         }
 
         if (safelyTestBiome(BiomeConfig.hippocampusBiomes, biome)) {

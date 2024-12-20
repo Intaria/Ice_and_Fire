@@ -25,10 +25,6 @@ public class BiomeConfig {
     
     public static Pair<String, SpawnBiomeData> mausoleumBiomes = Pair.of("iceandfire:mausoleum_biomes", DefaultBiomes.MAUSOLEUM);
     
-    public static Pair<String, SpawnBiomeData> lightningDragonSkeletonBiomes = Pair.of("iceandfire:lightning_dragon_skeleton_biomes", DefaultBiomes.SAVANNAS);
-    public static Pair<String, SpawnBiomeData> fireDragonSkeletonBiomes = Pair.of("iceandfire:fire_dragon_skeleton_biomes", DefaultBiomes.DESERT);
-    public static Pair<String, SpawnBiomeData> iceDragonSkeletonBiomes = Pair.of("iceandfire:ice_dragon_skeleton_biomes", DefaultBiomes.VERY_SNOWY);
-
     public static Pair<String, SpawnBiomeData> blackHippogryphBiomes = Pair.of("iceandfire:hippogryph_black_biomes", DefaultBiomes.HIPPOGRYPH_BLACK);
     public static Pair<String, SpawnBiomeData> brownHippogryphBiomes = Pair.of("iceandfire:hippogryph_brown_biomes", DefaultBiomes.VERY_HILLY);
     public static Pair<String, SpawnBiomeData> grayHippogryphBiomes = Pair.of("iceandfire:hippogryph_gray_biomes", DefaultBiomes.HIPPOGRYPH_GRAY);
