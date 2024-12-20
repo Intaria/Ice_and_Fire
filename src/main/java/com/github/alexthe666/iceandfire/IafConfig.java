@@ -11,7 +11,6 @@ public class IafConfig {
     public static int dragonDenGoldAmount = 4;
     public static boolean spawnGlaciers = true;
     public static int glacierSpawnChance = 4;
-    public static int oreToStoneRatioForDragonCaves = 45;
     public static int dragonEggTime = 7200;
     public static int dragonGriefing = 2;
     public static boolean tamedDragonGriefing = true;
@@ -96,7 +95,6 @@ public class IafConfig {
             dragonDenGoldAmount = ConfigHolder.SERVER.dragonDenGoldAmount.get();
             spawnGlaciers = ConfigHolder.SERVER.spawnGlaciers.get();
             glacierSpawnChance = ConfigHolder.SERVER.glacierSpawnChance.get();
-            oreToStoneRatioForDragonCaves = ConfigHolder.SERVER.oreToStoneRatioForDragonCaves.get();
             dragonEggTime = ConfigHolder.SERVER.dragonEggTime.get();
             dragonGriefing = ConfigHolder.SERVER.dragonGriefing.get();
             tamedDragonGriefing = ConfigHolder.SERVER.tamedDragonGriefing.get();

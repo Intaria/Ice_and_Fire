@@ -20,14 +20,6 @@ public class IafBlockTags extends BlockTagsProvider {
     public static TagKey<Block> CRACKLED_BLOCKS = createKey("crackled_blocks");
     public static TagKey<Block> DRAGON_ENVIRONMENT_BLOCKS = createKey("dragon_environment_blocks");
 
-    public static TagKey<Block> DRAGON_CAVE_RARE_ORES = createKey("dragon_cave_rare_ores");
-    public static TagKey<Block> DRAGON_CAVE_UNCOMMON_ORES = createKey("dragon_cave_uncommon_ores");
-    public static TagKey<Block> DRAGON_CAVE_COMMON_ORES = createKey("dragon_cave_common_ores");
-
-    public static TagKey<Block> FIRE_DRAGON_CAVE_ORES = createKey("fire_dragon_cave_ores");
-    public static TagKey<Block> ICE_DRAGON_CAVE_ORES = createKey("ice_dragon_cave_ores");
-    public static TagKey<Block> LIGHTNING_DRAGON_CAVE_ORES = createKey("lightning_dragon_cave_ores");
-
     public static TagKey<Block> DRAGON_BLOCK_BREAK_BLACKLIST = createKey("dragon_block_break_blacklist");
     public static TagKey<Block> DRAGON_BLOCK_BREAK_NO_DROPS = createKey("dragon_block_break_no_drops");
 
@@ -66,26 +58,6 @@ public class IafBlockTags extends BlockTagsProvider {
                 .addTag(CHARRED_BLOCKS)
                 .addTag(FROZEN_BLOCKS)
                 .addTag(CRACKLED_BLOCKS);
-
-        tag(DRAGON_CAVE_RARE_ORES)
-                .add(Blocks.DIAMOND_ORE)
-                .add(Blocks.EMERALD_ORE);
-
-        tag(DRAGON_CAVE_UNCOMMON_ORES)
-                .add(Blocks.LAPIS_ORE)
-                .add(Blocks.REDSTONE_ORE)
-                .add(Blocks.GOLD_ORE);
-
-        tag(DRAGON_CAVE_COMMON_ORES)
-                .add(Blocks.COAL_ORE)
-                .add(Blocks.COPPER_ORE)
-                .add(Blocks.IRON_ORE);
-
-        tag(FIRE_DRAGON_CAVE_ORES)
-                .add(Blocks.EMERALD_ORE);
-
-        tag(LIGHTNING_DRAGON_CAVE_ORES)
-                .add(Blocks.BUDDING_AMETHYST);
 
         tag(DRAGON_BLOCK_BREAK_BLACKLIST)
                 .addTag(Tags.Blocks.CHESTS)

@@ -20,9 +20,6 @@ import com.github.alexthe666.iceandfire.misc.IafDamageRegistry;
 import com.github.alexthe666.iceandfire.misc.IafTagRegistry;
 import com.github.alexthe666.iceandfire.pathfinding.raycoms.Pathfinding;
 import com.github.alexthe666.iceandfire.pathfinding.raycoms.pathjobs.AbstractPathJob;
-import com.github.alexthe666.iceandfire.world.gen.WorldGenFireDragonCave;
-import com.github.alexthe666.iceandfire.world.gen.WorldGenIceDragonCave;
-import com.github.alexthe666.iceandfire.world.gen.WorldGenLightningDragonCave;
 import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
@@ -373,17 +370,6 @@ public class ServerEvents {
             || eventName.equals(BuiltInLootTables.JUNGLE_TEMPLE)
             || eventName.equals(BuiltInLootTables.STRONGHOLD_CORRIDOR)
             || eventName.equals(BuiltInLootTables.STRONGHOLD_CROSSING);
-
-        if ((event.getName().equals(WorldGenFireDragonCave.FIRE_DRAGON_CHEST)
-            || event.getName().equals(WorldGenFireDragonCave.FIRE_DRAGON_CHEST_MALE)
-            || event.getName().equals(WorldGenIceDragonCave.ICE_DRAGON_CHEST)
-            || event.getName().equals(WorldGenIceDragonCave.ICE_DRAGON_CHEST_MALE)
-            || event.getName().equals(WorldGenLightningDragonCave.LIGHTNING_DRAGON_CHEST)
-            || event.getName().equals(WorldGenLightningDragonCave.LIGHTNING_DRAGON_CHEST_MALE))) {
-            LootPoolEntryContainer.Builder item = LootItem.lootTableItem(IafItemRegistry.WEEZER_BLUE_ALBUM.get()).setQuality(100).setWeight(1);
-            LootPool.Builder builder = new LootPool.Builder().name("iaf_weezer").add(item).when(LootItemRandomChanceCondition.randomChance(0.01f)).setRolls(UniformGenerator.between(1, 1));
-            event.getTable().addPool(builder.build());
-        }
     }
 
     @SubscribeEvent

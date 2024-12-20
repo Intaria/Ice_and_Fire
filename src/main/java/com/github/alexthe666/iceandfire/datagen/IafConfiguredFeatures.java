@@ -27,9 +27,6 @@ import java.util.Map;
 import java.util.function.Function;
 
 public final class IafConfiguredFeatures {
-    public static final ResourceKey<ConfiguredFeature<?, ?>> FIRE_DRAGON_CAVE = registerKey("fire_dragon_cave");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> ICE_DRAGON_CAVE = registerKey("ice_dragon_cave");
-    public static final ResourceKey<ConfiguredFeature<?, ?>> LIGHTNING_DRAGON_CAVE = registerKey("lightning_dragon_cave");
     public static final ResourceKey<ConfiguredFeature<?, ?>> PIXIE_VILLAGE = registerKey("pixie_village");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SIREN_ISLAND = registerKey("siren_island");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SPAWN_DRAGON_SKELETON_L = registerKey("spawn_dragon_skeleton_lightning");
@@ -49,9 +46,6 @@ public final class IafConfiguredFeatures {
     public static Map<ResourceLocation, ConfiguredFeature<?, ?>> gather(RegistryOps<JsonElement> registryOps) {
         Map<ResourceLocation, ConfiguredFeature<?, ?>> entries = new HashMap<>();
 
-        entries.put(FIRE_DRAGON_CAVE.location(), new ConfiguredFeature<>(IafWorldRegistry.FIRE_DRAGON_CAVE.get(), FeatureConfiguration.NONE));
-        entries.put(ICE_DRAGON_CAVE.location(), new ConfiguredFeature<>(IafWorldRegistry.ICE_DRAGON_CAVE.get(), FeatureConfiguration.NONE));
-        entries.put(LIGHTNING_DRAGON_CAVE.location(), new ConfiguredFeature<>(IafWorldRegistry.LIGHTNING_DRAGON_CAVE.get(), FeatureConfiguration.NONE));
         entries.put(PIXIE_VILLAGE.location(), new ConfiguredFeature<>(IafWorldRegistry.PIXIE_VILLAGE.get(), FeatureConfiguration.NONE));
         entries.put(SIREN_ISLAND.location(), new ConfiguredFeature<>(IafWorldRegistry.SIREN_ISLAND.get(), FeatureConfiguration.NONE));
         entries.put(SPAWN_DRAGON_SKELETON_L.location(), new ConfiguredFeature<>(IafWorldRegistry.SPAWN_DRAGON_SKELETON_L.get(), FeatureConfiguration.NONE));

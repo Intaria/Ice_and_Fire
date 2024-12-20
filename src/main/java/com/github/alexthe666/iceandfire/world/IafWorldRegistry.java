@@ -36,9 +36,6 @@ import java.util.function.Supplier;
 public class IafWorldRegistry {
     public static final DeferredRegister<Feature<?>> FEATURES = DeferredRegister.create(ForgeRegistries.FEATURES, IceAndFire.MODID);
 
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> FIRE_DRAGON_CAVE = register("fire_dragon_cave", () -> new WorldGenFireDragonCave(NoneFeatureConfiguration.CODEC));
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> ICE_DRAGON_CAVE = register("ice_dragon_cave", () -> new WorldGenIceDragonCave(NoneFeatureConfiguration.CODEC));
-    public static final RegistryObject<Feature<NoneFeatureConfiguration>> LIGHTNING_DRAGON_CAVE = register("lightning_dragon_cave", () -> new WorldGenLightningDragonCave(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> PIXIE_VILLAGE = register("pixie_village", () -> new WorldGenPixieVillage(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SIREN_ISLAND = register("siren_island", () -> new WorldGenSirenIsland(NoneFeatureConfiguration.CODEC));
     public static final RegistryObject<Feature<NoneFeatureConfiguration>> SPAWN_DRAGON_SKELETON_L = register("spawn_dragon_skeleton_lightning", () -> new SpawnDragonSkeleton(castToBase(IafEntityRegistry.LIGHTNING_DRAGON), NoneFeatureConfiguration.CODEC));
@@ -77,9 +74,6 @@ public class IafWorldRegistry {
         LOADED_FEATURES.put("iceandfire:fire_lily", false);
         LOADED_FEATURES.put("iceandfire:frost_lily", false);
         LOADED_FEATURES.put("iceandfire:lightning_lily", false);
-        LOADED_FEATURES.put("iceandfire:fire_dragon_cave", false);
-        LOADED_FEATURES.put("iceandfire:ice_dragon_cave", false);
-        LOADED_FEATURES.put("iceandfire:lightning_dragon_cave", false);
         LOADED_FEATURES.put("iceandfire:pixie_village", false);
         LOADED_FEATURES.put("iceandfire:siren_island", false);
         LOADED_FEATURES.put("iceandfire:spawn_dragon_skeleton_lightning", false);
@@ -103,18 +97,6 @@ public class IafWorldRegistry {
         if (safelyTestBiome(BiomeConfig.frostLilyBiomes, biome)) {
             addFeatureToBiome(IafPlacedFeatures.PLACED_FROST_LILY, features, builder, GenerationStep.Decoration.VEGETAL_DECORATION);
         }
-
-
-        if (safelyTestBiome(BiomeConfig.fireDragonCaveBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_FIRE_DRAGON_CAVE, features, builder, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
-        }
-        if (safelyTestBiome(BiomeConfig.lightningDragonCaveBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_LIGHTNING_DRAGON_CAVE, features, builder, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
-        }
-        if (safelyTestBiome(BiomeConfig.iceDragonCaveBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_ICE_DRAGON_CAVE, features, builder, GenerationStep.Decoration.UNDERGROUND_STRUCTURES);
-        }
-
 
         if (safelyTestBiome(BiomeConfig.pixieBiomes, biome)) {
             addFeatureToBiome(IafPlacedFeatures.PLACED_PIXIE_VILLAGE, features, builder);

@@ -12,47 +12,6 @@ public class DefaultBiomes {
     public static final SpawnBiomeData OVERWORLD = new SpawnBiomeData()
             .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_OVERWORLD.location().toString(), 0);
 
-            public static final SpawnBiomeData FIREDRAGON_CAVE = new SpawnBiomeData()
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_HOT_OVERWORLD.location().toString(), 0)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, true, IS_JUNGLE.location().toString(), 0)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, true, IS_BADLANDS.location().toString(), 0)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, true, IS_SAVANNA.location().toString(), 0)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_OVERWORLD.location().toString(), 1)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_PLAINS.location().toString(), 1)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, true, IS_WET_OVERWORLD.location().toString(), 1)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, true, IS_COLD_OVERWORLD.location().toString(), 1)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, true, IS_JUNGLE.location().toString(), 1)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, true, IS_BADLANDS.location().toString(), 1)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, true, IS_SAVANNA.location().toString(), 1)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, true, IS_FOREST.location().toString(), 1)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "terralith:steppe", 2)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:rose_fields", 3)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:prairie", 4)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:firecracker_shrubland", 5)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:autumnal_valley", 6)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:lush_stacks", 7);
-    public static final SpawnBiomeData ICEDRAGON_CAVE = new SpawnBiomeData()
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_COLD_OVERWORLD.location().toString(), 0)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:shattered_glacier", 1)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:frosted_taiga", 2)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:frosted_coniferous_forest", 3);
-
-    public static final SpawnBiomeData LIGHTNING_CAVE = new SpawnBiomeData()
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_OVERWORLD.location().toString(), 0)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_JUNGLE.location().toString(), 0)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_OVERWORLD.location().toString(), 1)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_BADLANDS.location().toString(), 1)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_OVERWORLD.location().toString(), 2)
-            .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_SAVANNA.location().toString(), 2)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "terralith:ashen_savanna", 3)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "terralith:savanna_badlands", 4)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "terralith:savanna_slopes", 5)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:guiana_shield", 6)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:temperate_rainforest", 7)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:tropical_rainforest", 8)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:jacaranda_forest", 8)
-            .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:sierra_badlands", 9);
-
     public static final SpawnBiomeData VERY_HOT = new SpawnBiomeData()
             .addBiomeEntry(BiomeEntryType.BIOME_TAG, false, IS_HOT_OVERWORLD.location().toString(), 0)
             .addBiomeEntry(BiomeEntryType.REGISTRY_NAME, false, "byg:firecracker_shrubland", 1);
