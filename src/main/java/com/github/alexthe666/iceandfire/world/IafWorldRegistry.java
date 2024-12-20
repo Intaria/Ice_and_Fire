@@ -68,14 +68,8 @@ public class IafWorldRegistry {
 
     static {
         LOADED_FEATURES = new HashMap<>();
-        LOADED_FEATURES.put("iceandfire:fire_lily", false);
-        LOADED_FEATURES.put("iceandfire:frost_lily", false);
-        LOADED_FEATURES.put("iceandfire:lightning_lily", false);
         LOADED_FEATURES.put("iceandfire:pixie_village", false);
         LOADED_FEATURES.put("iceandfire:siren_island", false);
-        LOADED_FEATURES.put("iceandfire:spawn_dragon_skeleton_lightning", false);
-        LOADED_FEATURES.put("iceandfire:spawn_dragon_skeleton_fire", false);
-        LOADED_FEATURES.put("iceandfire:spawn_dragon_skeleton_ice", false);
         LOADED_FEATURES.put("iceandfire:spawn_hippocampus", false);
     }
 
@@ -84,16 +78,6 @@ public class IafWorldRegistry {
 
     public static void addFeatures(Holder<Biome> biome, HashMap<String, Holder<PlacedFeature>> features, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
         ADDED_FEATURES = new ArrayList<>();
-
-        if (safelyTestBiome(BiomeConfig.fireLilyBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_FIRE_LILY, features, builder, GenerationStep.Decoration.VEGETAL_DECORATION);
-        }
-        if (safelyTestBiome(BiomeConfig.lightningLilyBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_LIGHTNING_LILY, features, builder, GenerationStep.Decoration.VEGETAL_DECORATION);
-        }
-        if (safelyTestBiome(BiomeConfig.frostLilyBiomes, biome)) {
-            addFeatureToBiome(IafPlacedFeatures.PLACED_FROST_LILY, features, builder, GenerationStep.Decoration.VEGETAL_DECORATION);
-        }
 
         if (safelyTestBiome(BiomeConfig.pixieBiomes, biome)) {
             addFeatureToBiome(IafPlacedFeatures.PLACED_PIXIE_VILLAGE, features, builder);

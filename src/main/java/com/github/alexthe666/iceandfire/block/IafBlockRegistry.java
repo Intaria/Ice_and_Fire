@@ -32,9 +32,6 @@ public class IafBlockRegistry {
     public static final RegistryObject<Block> PODIUM_JUNGLE = register("podium_jungle", BlockPodium::new);
     public static final RegistryObject<Block> PODIUM_DARK_OAK = register("podium_dark_oak", BlockPodium::new);
     public static final RegistryObject<Block> PODIUM_ACACIA = register("podium_acacia", BlockPodium::new);
-    public static final RegistryObject<Block> FIRE_LILY = register("fire_lily", BlockElementalFlower::new);
-    public static final RegistryObject<Block> FROST_LILY = register("frost_lily", BlockElementalFlower::new);
-    public static final RegistryObject<Block> LIGHTNING_LILY = register("lightning_lily", BlockElementalFlower::new);
     public static final RegistryObject<Block> GOLD_PILE = register("gold_pile", BlockGoldPile::new);
     public static final RegistryObject<Block> SILVER_PILE = register("silver_pile", BlockGoldPile::new);
     public static final RegistryObject<Block> COPPER_PILE = register("copper_pile", BlockGoldPile::new);

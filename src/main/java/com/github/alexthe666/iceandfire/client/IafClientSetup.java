@@ -108,9 +108,6 @@ public class IafClientSetup {
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.PODIUM_JUNGLE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.PODIUM_ACACIA.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.PODIUM_DARK_OAK.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.FIRE_LILY.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.FROST_LILY.get(), RenderType.cutout());
-        ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.LIGHTNING_LILY.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.DRAGON_ICE_SPIKES.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.DREAD_STONE_FACE.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(IafBlockRegistry.EGG_IN_ICE.get(), RenderType.translucent());

@@ -29,13 +29,7 @@ public class IafBiomeModifierSerializers {
         List<ResourceKey<PlacedFeature>> features = List.of(
                 IafPlacedFeatures.PLACED_PIXIE_VILLAGE,
                 IafPlacedFeatures.PLACED_SIREN_ISLAND,
-                IafPlacedFeatures.PLACED_SPAWN_DRAGON_SKELETON_L,
-                IafPlacedFeatures.PLACED_SPAWN_DRAGON_SKELETON_F,
-                IafPlacedFeatures.PLACED_SPAWN_DRAGON_SKELETON_I,
-                IafPlacedFeatures.PLACED_SPAWN_HIPPOCAMPUS,
-                IafPlacedFeatures.PLACED_FIRE_LILY,
-                IafPlacedFeatures.PLACED_FROST_LILY,
-                IafPlacedFeatures.PLACED_LIGHTNING_LILY
+                IafPlacedFeatures.PLACED_SPAWN_HIPPOCAMPUS
         );
 
         List<Holder<PlacedFeature>> holders = new ArrayList<>();
