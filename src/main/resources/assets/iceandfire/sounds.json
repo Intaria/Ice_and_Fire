@@ -297,16 +297,6 @@
     ],
     "subtitle": "iceandfire.sound.subtitle.amphithere_bite"
   },
-  "myrmex_walk": {
-    "category": "hostile",
-    "sounds": [
-      {
-        "name": "iceandfire:mobs/myrmex/walk",
-        "volume": 0.4
-      }
-    ],
-    "subtitle": "iceandfire.sound.subtitle.myrmex_walk"
-  },
   "naga_attack": {
     "category": "hostile",
     "sounds": [

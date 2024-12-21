@@ -938,10 +938,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     public @NotNull InteractionResult interactAt(Player player, @NotNull Vec3 vec, @NotNull InteractionHand hand) {
         ItemStack stack = player.getItemInHand(hand);
         int lastDeathStage = Math.min(this.getAgeInDays() / 5, 25);
-        if (stack.getItem() == IafItemRegistry.DRAGON_DEBUG_STICK.get()) {
-            logic.debug();
-            return InteractionResult.SUCCESS;
-        }
         return super.interactAt(player, vec, hand);
     }
 
@@ -954,10 +950,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
             stack = player.getItemInHand(hand);
         }
 
-        if (stack.getItem() == IafItemRegistry.DRAGON_DEBUG_STICK.get()) {
-            logic.debug();
-            return InteractionResult.SUCCESS;
-        }
         if (!this.isModelDead()) {
             if (this.isFood(stack) && this.shouldDropLoot()) {
                 this.setAge(0);
