@@ -4,10 +4,8 @@ import com.github.alexthe666.iceandfire.IafConfig;
 import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.client.ClientProxy;
 import com.github.alexthe666.iceandfire.client.IafKeybindRegistry;
-import com.github.alexthe666.iceandfire.client.render.tile.RenderFrozenState;
 import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
 import com.github.alexthe666.iceandfire.entity.EntitySiren;
-import com.github.alexthe666.iceandfire.entity.props.FrozenProperties;
 import com.github.alexthe666.iceandfire.entity.props.MiscProperties;
 import com.github.alexthe666.iceandfire.entity.props.SirenProperties;
 import com.github.alexthe666.iceandfire.entity.util.ICustomMoveController;
@@ -208,9 +206,6 @@ public class ClientEvents {
             event.setCanceled(true);
         }
         LivingEntity entity = event.getEntity();
-        if (FrozenProperties.isFrozen(event.getEntity())) {
-            RenderFrozenState.render(event.getEntity(), event.getPoseStack(), event.getMultiBufferSource(), event.getPackedLight());
-        };
     }
 
     /*
@@ -233,14 +228,6 @@ public class ClientEvents {
                 if (AUTO_ADAPT_3RD_PERSON) {
                     // Auto adjust 3rd person camera's according to dragon's size
                     IceAndFire.PROXY.setDragon3rdPersonView(2);
-                }
-                if (IafConfig.dragonAuto3rdPerson) {
-                    if (event.isDismounting()) {
-                        Minecraft.getInstance().options.setCameraType(CameraType.values()[IceAndFire.PROXY.getPreviousViewType()]);
-                    } else {
-                        IceAndFire.PROXY.setPreviousViewType(Minecraft.getInstance().options.getCameraType().ordinal());
-                        Minecraft.getInstance().options.setCameraType(CameraType.values()[1]);
-                    }
                 }
             }
         }

@@ -76,8 +76,6 @@ public final class IafSoundRegistry {
 
     public static final SoundEvent HIPPOGRYPH_DIE = createSoundEvent("hippogryph_die");
 
-    public static final SoundEvent TURN_STONE = createSoundEvent("turn_stone");
-
     public static final SoundEvent PIXIE_IDLE = createSoundEvent("pixie_idle");
 
     public static final SoundEvent PIXIE_HURT = createSoundEvent("pixie_hurt");
@@ -127,10 +125,6 @@ public final class IafSoundRegistry {
     public static final SoundEvent AMPHITHERE_GUST = createSoundEvent("amphithere_gust");
 
     public static final SoundEvent PIXIE_WAND = createSoundEvent("pixie_wand");
-
-    public static final SoundEvent DREAD_LICH_SUMMON = createSoundEvent("dread_lich_summon");
-
-    public static final SoundEvent DREAD_GHOUL_IDLE = createSoundEvent("dread_ghoul_idle");
 
     public static final SoundEvent LIGHTNINGDRAGON_CHILD_IDLE = createSoundEvent("lightningdragon_child_idle");
 

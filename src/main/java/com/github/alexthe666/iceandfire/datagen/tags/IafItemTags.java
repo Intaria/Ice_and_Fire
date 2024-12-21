@@ -20,36 +20,19 @@ public class IafItemTags extends ItemTagsProvider {
     private final static String STORAGE_BLOCK_PATH = Tags.Items.STORAGE_BLOCKS.location().getPath();
     private final static String INGOTS_PATH = Tags.Items.INGOTS.location().getPath();
     private final static String NUGGETS_PATH = Tags.Items.NUGGETS.location().getPath();
-    private final static String BONES_PATH = Tags.Items.BONES.location().getPath();
-    private final static String ORES_PATH = Tags.Items.ORES.location().getPath();
     private final static String GEMS = Tags.Items.GEMS.location().getPath();
 
-    // Recipes
-    public static TagKey<Item> CHARRED_BLOCKS = createKey("charred_blocks");
-    public static TagKey<Item> FROZEN_BLOCKS = createKey("frozen_blocks");
-    public static TagKey<Item> CRACKLED_BLOCKS = createKey("crackled_blocks");
-    public static TagKey<Item> DRAGON_SKULLS = createKey("dragon_skulls");
+    //Recipes
     public static TagKey<Item> MOB_SKULLS = createKey("mob_skulls");
-    public static TagKey<Item> SCALES_DRAGON_FIRE = createKey("scales/dragon/fire");
-    public static TagKey<Item> SCALES_DRAGON_ICE = createKey("scales/dragon/ice");
-    public static TagKey<Item> SCALES_DRAGON_LIGHTNING = createKey("scales/dragon/lightning");
-    public static TagKey<Item> DRAGON_FOOD_MEAT = createKey("dragon_food_meat");
 
     // Forge (+ Recipes)
-    public static TagKey<Item> STORAGE_BLOCKS_SCALES_DRAGON_FIRE = createForgeKey(STORAGE_BLOCK_PATH + "/scales/dragon/fire");
-    public static TagKey<Item> STORAGE_BLOCKS_SCALES_DRAGON_ICE = createForgeKey(STORAGE_BLOCK_PATH + "/scales/dragon/ice");
-    public static TagKey<Item> STORAGE_BLOCKS_SCALES_DRAGON_LIGHTNING = createForgeKey(STORAGE_BLOCK_PATH + "/scales/dragon/lightning");
     public static TagKey<Item> STORAGE_BLOCKS_SILVER = createForgeKey(STORAGE_BLOCK_PATH + "/silver");
     public static TagKey<Item> GEMS_SAPPHIRE = createForgeKey(GEMS + "/sapphire");
     public static TagKey<Item> INGOTS_SILVER = createForgeKey(INGOTS_PATH + "/silver");
     public static TagKey<Item> NUGGETS_COPPER = createForgeKey(NUGGETS_PATH + "/copper");
     public static TagKey<Item> NUGGETS_SILVER = createForgeKey(NUGGETS_PATH + "/silver");
-    public static TagKey<Item> BONES_WITHER = createForgeKey(BONES_PATH + "/wither");
-
+    
     // Logic
-    public static TagKey<Item> DRAGON_BLOODS = createKey("dragon_bloods");
-    public static TagKey<Item> DRAGON_HEARTS = createKey("dragon_hearts");
-
     public static TagKey<Item> BREED_AMPITHERE = createKey("breed_ampithere");
     public static TagKey<Item> BREED_HIPPOCAMPUS = createKey("breed_hippocampus");
     public static TagKey<Item> BREED_HIPPOGRYPH = createKey("breed_hippogryph");
@@ -58,7 +41,6 @@ public class IafItemTags extends ItemTagsProvider {
     public static TagKey<Item> HEAL_PIXIE = createKey("heal_pixie");
     public static TagKey<Item> TAME_HIPPOGRYPH = createKey("tame_hippogryph");
     public static TagKey<Item> TAME_PIXIE = createKey("tame_pixie");
-    public static TagKey<Item> TEMPT_DRAGON = createKey("tempt_dragon");
     public static TagKey<Item> TEMPT_HIPPOCAMPUS = createKey("tempt_hippocampus");
     public static TagKey<Item> TEMPT_HIPPOGRYPH = createKey("tempt_hippogryph");
 
@@ -68,73 +50,8 @@ public class IafItemTags extends ItemTagsProvider {
 
     @Override
     protected void addTags() {
-        copy(IafBlockTags.CHARRED_BLOCKS, CHARRED_BLOCKS);
-        copy(IafBlockTags.FROZEN_BLOCKS, FROZEN_BLOCKS);
-        copy(IafBlockTags.CRACKLED_BLOCKS, CRACKLED_BLOCKS);
-
-        tag(DRAGON_SKULLS)
-                .add(IafItemRegistry.DRAGON_SKULL_FIRE.get())
-                .add(IafItemRegistry.DRAGON_SKULL_ICE.get())
-                .add(IafItemRegistry.DRAGON_SKULL_LIGHTNING.get());
-
-        tag(MOB_SKULLS)
-                .addTag(DRAGON_SKULLS);
-
-        tag(DRAGON_BLOODS)
-                .add(IafItemRegistry.FIRE_DRAGON_BLOOD.get())
-                .add(IafItemRegistry.ICE_DRAGON_BLOOD.get())
-                .add(IafItemRegistry.LIGHTNING_DRAGON_BLOOD.get());
-
-        tag(Tags.Items.BONES)
-                .add(IafItemRegistry.DRAGON_BONE.get())
-                .add(IafItemRegistry.WITHERBONE.get());
-
         tag(Tags.Items.EGGS)
                 .add(IafItemRegistry.HIPPOGRYPH_EGG.get());
-
-        // Not sure if this should be in the forge namespace or not (or if the recipes should be using tags here)
-        tag(STORAGE_BLOCKS_SCALES_DRAGON_FIRE)
-                .add(IafBlockRegistry.DRAGON_SCALE_RED.get().asItem())
-                .add(IafBlockRegistry.DRAGON_SCALE_GREEN.get().asItem())
-                .add(IafBlockRegistry.DRAGON_SCALE_BRONZE.get().asItem())
-                .add(IafBlockRegistry.DRAGON_SCALE_GRAY.get().asItem());
-
-        tag(STORAGE_BLOCKS_SCALES_DRAGON_ICE)
-                .add(IafBlockRegistry.DRAGON_SCALE_BLUE.get().asItem())
-                .add(IafBlockRegistry.DRAGON_SCALE_WHITE.get().asItem())
-                .add(IafBlockRegistry.DRAGON_SCALE_SAPPHIRE.get().asItem())
-                .add(IafBlockRegistry.DRAGON_SCALE_SILVER.get().asItem());
-
-        tag(STORAGE_BLOCKS_SCALES_DRAGON_LIGHTNING)
-                .add(IafBlockRegistry.DRAGON_SCALE_ELECTRIC.get().asItem())
-                .add(IafBlockRegistry.DRAGON_SCALE_AMYTHEST.get().asItem())
-                .add(IafBlockRegistry.DRAGON_SCALE_COPPER.get().asItem())
-                .add(IafBlockRegistry.DRAGON_SCALE_BLACK.get().asItem());
-        //
-
-        tag(Tags.Items.STORAGE_BLOCKS)
-                .addTag(STORAGE_BLOCKS_SCALES_DRAGON_FIRE)
-                .addTag(STORAGE_BLOCKS_SCALES_DRAGON_ICE)
-                .addTag(STORAGE_BLOCKS_SCALES_DRAGON_LIGHTNING)
-                .add(IafBlockRegistry.DRAGON_BONE_BLOCK.get().asItem());
-
-        tag(DRAGON_FOOD_MEAT)
-                // Farmer's Delight
-//                .addOptionalTag(new ResourceLocation("forge", "raw_fishes"))
-                .addOptionalTag(new ResourceLocation("forge", "raw_mutton"))
-                .addOptionalTag(new ResourceLocation("forge", "raw_pork"))
-                .addOptionalTag(new ResourceLocation("forge", "raw_chicken"))
-                .addOptionalTag(new ResourceLocation("forge", "raw_beef"))
-//                .addOptionalTag(new ResourceLocation("forge", "cooked_fishes"))
-                .addOptionalTag(new ResourceLocation("forge", "cooked_mutton"))
-                .addOptionalTag(new ResourceLocation("forge", "cooked_pork"))
-                .addOptionalTag(new ResourceLocation("forge", "cooked_chicken"))
-                .addOptionalTag(new ResourceLocation("forge", "cooked_beef"))
-                //
-                .add(Items.BEEF, Items.COOKED_BEEF)
-                .add(Items.CHICKEN, Items.COOKED_CHICKEN)
-                .add(Items.MUTTON, Items.COOKED_MUTTON)
-                .add(Items.PORKCHOP, Items.COOKED_PORKCHOP);
 
         tag(BREED_AMPITHERE)
                 .add(Items.COOKIE);
@@ -167,34 +84,6 @@ public class IafItemTags extends ItemTagsProvider {
         tag(TEMPT_HIPPOGRYPH)
                 .add(Items.RABBIT)
                 .add(Items.COOKED_RABBIT);
-
-        tag(SCALES_DRAGON_FIRE)
-                .add(IafItemRegistry.DRAGONSCALES_RED.get())
-                .add(IafItemRegistry.DRAGONSCALES_GREEN.get())
-                .add(IafItemRegistry.DRAGONSCALES_BRONZE.get())
-                .add(IafItemRegistry.DRAGONSCALES_GRAY.get());
-
-        tag(SCALES_DRAGON_ICE)
-                .add(IafItemRegistry.DRAGONSCALES_BLUE.get())
-                .add(IafItemRegistry.DRAGONSCALES_WHITE.get())
-                .add(IafItemRegistry.DRAGONSCALES_SAPPHIRE.get())
-                .add(IafItemRegistry.DRAGONSCALES_SILVER.get());
-
-        tag(SCALES_DRAGON_LIGHTNING)
-                .add(IafItemRegistry.DRAGONSCALES_ELECTRIC.get())
-                .add(IafItemRegistry.DRAGONSCALES_AMYTHEST.get())
-                .add(IafItemRegistry.DRAGONSCALES_COPPER.get())
-                .add(IafItemRegistry.DRAGONSCALES_BLACK.get());
-
-        tag(createKey("scales/dragon"))
-                .addTag(SCALES_DRAGON_FIRE)
-                .addTag(SCALES_DRAGON_ICE)
-                .addTag(SCALES_DRAGON_LIGHTNING);
-
-        tag(DRAGON_HEARTS)
-                .add(IafItemRegistry.FIRE_DRAGON_HEART.get())
-                .add(IafItemRegistry.ICE_DRAGON_HEART.get())
-                .add(IafItemRegistry.LIGHTNING_DRAGON_HEART.get());
 
         IafItemRegistry.ITEMS.getEntries().forEach(registryObject -> {
             Item item = registryObject.get();
@@ -232,8 +121,6 @@ public class IafItemTags extends ItemTagsProvider {
                 tag(Tags.Items.TOOLS).add(item);
             }
         });
-
-        tag(BONES_WITHER).add(IafItemRegistry.WITHERBONE.get());
     }
 
     private static TagKey<Item> createKey(final String name) {

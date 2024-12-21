@@ -7,27 +7,12 @@ import java.util.List;
 
 public class ServerConfig {
 
-    public final ForgeConfigSpec.BooleanValue spawnGlaciers;
-    public final ForgeConfigSpec.IntValue glacierSpawnChance;
-    public final ForgeConfigSpec.IntValue dragonEggTime;
     public final ForgeConfigSpec.IntValue dragonGriefing;
     public final ForgeConfigSpec.BooleanValue tamedDragonGriefing;
     public final ForgeConfigSpec.IntValue dragonFlapNoiseDistance;
-    public final ForgeConfigSpec.DoubleValue dragonHealth;
-    public final ForgeConfigSpec.IntValue dragonAttackDamage;
-    public final ForgeConfigSpec.DoubleValue dragonAttackDamageFire;
-    public final ForgeConfigSpec.DoubleValue dragonAttackDamageIce;
-    public final ForgeConfigSpec.DoubleValue dragonAttackDamageLightning;
     public final ForgeConfigSpec.IntValue maxDragonFlight;
-    public final ForgeConfigSpec.IntValue dragonGoldSearchLength;
-    public final ForgeConfigSpec.BooleanValue canDragonsHealFromBiting;
-    public final ForgeConfigSpec.BooleanValue canDragonsDespawn;
     public final ForgeConfigSpec.BooleanValue doDragonsSleep;
-    public final ForgeConfigSpec.BooleanValue dragonDigWhenStuck;
     public final ForgeConfigSpec.IntValue dragonBreakBlockCooldown;
-    public final ForgeConfigSpec.BooleanValue dragonDropSkull;
-    public final ForgeConfigSpec.BooleanValue dragonDropHeart;
-    public final ForgeConfigSpec.BooleanValue dragonDropBlood;
     public final ForgeConfigSpec.IntValue dragonTargetSearchLength;
     public final ForgeConfigSpec.IntValue dragonWanderFromHomeDistance;
     public final ForgeConfigSpec.IntValue dragonHungerTickRate;
@@ -42,8 +27,6 @@ public class ServerConfig {
     public final ForgeConfigSpec.IntValue sirenTimeBetweenSongs;
     public final ForgeConfigSpec.IntValue generateSirenChance;
     public final ForgeConfigSpec.IntValue hippocampusSpawnChance;
-    public final ForgeConfigSpec.BooleanValue villagersFearDragons;
-    public final ForgeConfigSpec.BooleanValue animalsFearDragons;
     public final ForgeConfigSpec.BooleanValue spawnAmphitheres;
     public final ForgeConfigSpec.IntValue amphithereSpawnRate;
     public final ForgeConfigSpec.IntValue amphithereVillagerSearchLength ;
@@ -51,15 +34,8 @@ public class ServerConfig {
     public final ForgeConfigSpec.DoubleValue amphithereFlightSpeed;
     public final ForgeConfigSpec.DoubleValue amphithereMaxHealth;
     public final ForgeConfigSpec.DoubleValue amphithereAttackStrength;
-    public final ForgeConfigSpec.BooleanValue dragonMovedWronglyFix; // FIXME :: Unused
     public final ForgeConfigSpec.BooleanValue weezerTinkers; // FIXME :: Unused
-    public final ForgeConfigSpec.DoubleValue dragonBlockBreakingDropChance;
-    public final ForgeConfigSpec.BooleanValue completeDragonPathfinding; // FIXME :: Unused
     public final ForgeConfigSpec.BooleanValue generateMausoleums;
-    public final ForgeConfigSpec.BooleanValue spawnLiches;
-    public final ForgeConfigSpec.IntValue lichSpawnRate;
-    public final ForgeConfigSpec.IntValue lichSpawnChance;
-    public final ForgeConfigSpec.BooleanValue explosiveDragonBreath;
     public final ForgeConfigSpec.DoubleValue weezerTinkersDisarmChance; // FIXME :: Unused
     public final ForgeConfigSpec.BooleanValue chunkLoadSummonCrystal;
     public ForgeConfigSpec.IntValue dangerousWorldGenDistanceLimit;
@@ -70,9 +46,6 @@ public class ServerConfig {
     public ForgeConfigSpec.IntValue dragonPathfindingThreads;
     public ForgeConfigSpec.IntValue maxDragonPathingNodes;
     public ForgeConfigSpec.BooleanValue pathfindingDebug;
-    public final ForgeConfigSpec.BooleanValue dragonWeaponFireAbility;
-    public final ForgeConfigSpec.BooleanValue dragonWeaponIceAbility;
-    public final ForgeConfigSpec.BooleanValue dragonWeaponLightningAbility;
     public ForgeConfigSpec.BooleanValue allowAttributeOverriding;
 
     public ServerConfig(final ForgeConfigSpec.Builder builder) {
@@ -81,52 +54,24 @@ public class ServerConfig {
         this.dangerousWorldGenDistanceLimit = buildInt(builder, "Dangerous World Gen Dist From Spawn", "all", 800, 1, 10000, "How far away dangerous structures(dragon roosts, cyclops caves, etc.) must be from spawn.");
         this.dangerousWorldGenSeparationLimit = buildInt(builder, "Dangerous World Gen Dist Seperation", "all", 300, 1, 10000, "How far away dangerous structures(dragon roosts, cyclops caves, etc.) must be from the last generated structure.");
 
-        this.spawnGlaciers = buildBoolean(builder, "Generate Glaciers", "all", true, "Whether to generate glacier biomes or not");
-        this.glacierSpawnChance = buildInt(builder, "Glacier Spawn Weight", "all", 4, 1, 10000, "Glacier Spawn Weight. Higher number = more common");
-
         this.generateMausoleums = buildBoolean(builder, "Generate Mausoleums", "all", true, "True if mausoleums are allowed to generate");
 
         
         builder.pop();
         builder.pop();
+        builder.push("Mobs");
         builder.push("Dragons");
-        builder.push("Griefing");
         this.dragonGriefing = buildInt(builder, "Dragon Griefing", "all", 0, 0, 2, "Dragon griefing - 2 is no griefing, 1 is breaking weak blocks, 0 is default. This value is also affected by minecrafts mob griefing rule.");
         this.tamedDragonGriefing = buildBoolean(builder, "Tamed Dragon Griefing", "all", true, "True if tamed dragons can follow the griefing rules.");
-        this.dragonBlockBreakingDropChance = buildDouble(builder, "Dragon Block Breaking Drop Chance", "all", 0.1F, 0.0F, 1.0F, "The percentage chance for a block to drop as an item when a dragon breaks it.");
-        builder.pop();
-        builder.push("Attributes");
-        this.dragonEggTime = buildInt(builder, "Dragon Egg Hatch Time", "all", 7200, 1, Integer.MAX_VALUE, "How long it takes(in ticks) for a dragon egg to hatch");
         this.dragonFlapNoiseDistance = buildInt(builder, "Dragon Flap Noise Distance", "all", 4, 0, 10000, "Dragon Flap Noise Distance - Larger number, further away you can hear it");
-        this.dragonHealth = buildDouble(builder, "Dragon Health", "all", 500, 1, 100000, "Max dragon health. Health is scaled to this");
-        this.dragonAttackDamage = buildInt(builder, "Dragon Attack Damage", "all", 17, 1, 10000, "Max dragon attack damage. Attack Damage is scaled to this");
-        this.dragonAttackDamageFire = buildDouble(builder, "Dragon Attack Damage(Fire breath)", "all", 2.0F, 0, 10000, "Damage dealt from a successful fire breath attack. Attack Damage is scaled to by age, so a stage 5 dragon will deal 5x as much as this number");
-        this.dragonAttackDamageIce = buildDouble(builder, "Dragon Attack Damage(Ice breath)", "all", 2.5F, 0, 10000, "Damage dealt from a successful ice breath attack. Attack Damage is scaled to by age, so a stage 5 dragon will deal 5x as much as this number");
-        this.dragonAttackDamageLightning = buildDouble(builder, "Dragon Attack Damage(Lightning breath)", "all", 3.5F, 0, 10000, "Damage dealt from a successful lightning breath attack. Attack Damage is scaled to by age, so a stage 5 dragon will deal 5x as much as this number");
         this.dragonFlightSpeedMod = buildDouble(builder, "Dragon Flight Speed Modifier", "all", 1F, 0.0F, 2.0F, "Change this to slow down or speed up dragon or amphithere flight.");
-        this.dragonMovedWronglyFix = buildBoolean(builder, "Dragon Moved Wrongly Error Fix", "all", false, "Enable this if your server is being bombarded with moved wrongly or moved too fast console messages. REQUIRES RESTART!");
-        builder.pop();
-        builder.push("Behaviour");
         this.maxDragonFlight = buildInt(builder, "Max Dragon Flight Height", "all", 256, 100, Integer.MAX_VALUE, "How high dragons can fly, in Y height.");
-        this.dragonGoldSearchLength = buildInt(builder, "Dragon Gold Search Length", "all", 30, 0, 10000, "How far away dragons will detect gold blocks being destroyed or chests being opened");
-        this.canDragonsHealFromBiting = buildBoolean(builder, "Dragon Bite Heal", "all", true, "Whether the bite attack from a dragon heals them or not.");
-        this.canDragonsDespawn = buildBoolean(builder, "Dragons Despawn", "all", true, "True if dragons can despawn. Note that if this is false there may be SERIOUS lag issues.");
         this.doDragonsSleep = buildBoolean(builder, "Tamed Dragons Sleep", "all", true, "True if tamed dragons go to sleep at night.");
-        this.dragonDigWhenStuck = buildBoolean(builder, "Dragons Dig When Stuck", "all", true, "True if dragons can break blocks if they get stuck. Turn this off if your dragons randomly explode.");
-        this.dragonDropSkull = buildBoolean(builder, "Dragons Drop Skull", "all", true, "True if dragons can drop their skull on death.");
-        this.dragonDropHeart = buildBoolean(builder, "Dragons Drop Heart", "all", true, "True if dragons can drop their heart on death.");
-        this.dragonDropBlood = buildBoolean(builder, "Dragons Drop Blood", "all", true, "True if dragons can drop their blood on death.");
-        this.explosiveDragonBreath = buildBoolean(builder, "Explosive Dragon Breath", "all", false, "True if dragons fire/ice charges create secondary explosions that launch blocks everywhere. Turn this to true if you like unfair explosions. Or lag.");
         this.dragonTargetSearchLength = buildInt(builder, "Dragon Target Search Length", "all", 128, 1, 10000, "How many blocks away can dragons spot potential prey. Note that increasing this could cause lag.");
         this.dragonWanderFromHomeDistance = buildInt(builder, "Dragon Wander From Home Distance", "all", 40, 1, 10000, "How many blocks away can dragons wander from their defined \"home\" position.");
         this.dragonHungerTickRate = buildInt(builder, "Dragon Hunger Tick Rate", "all", 3000, 1, 10000, "Every interval of this number in ticks, dragon hunger decreases.");
         this.dragonBreakBlockCooldown = buildInt(builder, "Dragon Block Break Cooldown", "all", 5, 0, 10000, "Every interval of this number in ticks, dragon allowed to break blocks.");
-        this.villagersFearDragons = buildBoolean(builder, "Villagers Fear Dragons", "all", true, "True if villagers should run away and hide from dragons and other hostile Ice and Fire mobs.");
-        this.animalsFearDragons = buildBoolean(builder, "Animals Fear Dragons", "all", true, "True if animals should run away and hide from dragons and other hostile Ice and Fire mobs.");
-        this.completeDragonPathfinding = buildBoolean(builder, "Intelligent Dragon Pathfinding", "all", false, "A more intelligent dragon pathfinding system, but is also laggier. Turn this on if you think dragons are too stupid.");
         builder.pop();
-        builder.pop();
-        builder.push("Mobs");
 
         builder.push("Pixies");
         this.spawnPixiesChance = buildInt(builder, "Spawn Pixies Chance", "all", 60, 1, 10000, "1 out of this number chance per chunk for generation");
@@ -159,10 +104,7 @@ public class ServerConfig {
         this.hippogryphFlightSpeedMod = buildDouble(builder, "Hippogryph Flight Speed Modifier", "all", 1F, 0.0F, 2.0F, "Change this to slow down or speed up hippogryph flight.");
         builder.pop();
         builder.push("Others");
-        this.spawnLiches = buildBoolean(builder, "Spawn Liches", "all", true, "True if dread liches are allowed to spawn");
-        this.lichSpawnRate = buildInt(builder, "Lich Spawn Weight", "all", 2, 1, 10000, "Dread Lich spawn weight. Lower = lower chance to spawn");
-        this.lichSpawnChance = buildInt(builder, "Lich Spawn Chance", "all", 30, 1, 10000, "Dread Lich spawn chance. Lower = higher chance to spawn");
-
+        
         this.allowAttributeOverriding = buildBoolean(builder, "Allow Attribute Overriding", "all", true, "Allows attributes for mobs to be overridden via the config file. One might want to disable this if other mods are enabled that change mob attributes e.g armor, health etc...");
         builder.pop();
         builder.pop();
@@ -170,13 +112,8 @@ public class ServerConfig {
         this.weezerTinkers = buildBoolean(builder, "Weezer", "all", true, "Disable this to remove easter egg with tinkers installed.");
         this.weezerTinkersDisarmChance = buildDouble(builder, "Easter Egg Tinkers Tool Disarm chance", "all", 0.2F, 0F, 1F, "Percentage of critical strike that will disarm with easter egg tinkers material.");
         this.chunkLoadSummonCrystal = buildBoolean(builder, "Chunk Load Summon Crystal", "all", true, "True if the summon crystal can load chunks to find dragons.");
-        this.dragonWeaponFireAbility = buildBoolean(builder, "Dragon Bone Fire Abilities", "all", true, "True if the dragon bone fire sword ignites attackers.");
-        this.dragonWeaponIceAbility = buildBoolean(builder, "Dragon Bone Ice Abilities", "all", true, "True if the dragon bone ice sword freezes attackers.");
-        this.dragonWeaponLightningAbility = buildBoolean(builder, "Dragon Bone Lightning Abilities", "all", true, "True if the dragon bone lightning sword strikes attackers.");
         builder.pop();
         builder.push("Pathfinding");
-        this.dragonPathfindingThreads = buildInt(builder, "Dragon Pathfinding Threads", "all", 3, 1, Integer.MAX_VALUE, "Maximum threads to use for dragon/myrmex pathfinding. Increase this number if pathing is slow and you have many cores.");
-        this.maxDragonPathingNodes = buildInt(builder, "Dragon Max Pathfinding Nodes", "all", 5000, 1, Integer.MAX_VALUE, "Maximum nodes for dragons/myrmex to path too. Decrease this is dragon pathfinding is super slow or intensive.");
         this.pathfindingDebug = buildBoolean(builder, "Debug Pathfinding Mode", "all", false, "Enables the option to draw the pathfinding nodes when enabled (use a stick on an entity)");
     }
 

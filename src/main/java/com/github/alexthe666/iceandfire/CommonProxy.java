@@ -24,10 +24,7 @@ public class CommonProxy {
     @SubscribeEvent
     public static void onModConfigEvent(final ModConfigEvent.Loading event) {
         final ModConfig config = event.getConfig();
-        // Rebake the configs when they change
-        if (config.getSpec() == ConfigHolder.CLIENT_SPEC) {
-            IafConfig.bakeClient(config);
-        } else if (config.getSpec() == ConfigHolder.SERVER_SPEC) {
+        if (config.getSpec() == ConfigHolder.SERVER_SPEC) {
             // We only need to initialize the biome config on the server
             BiomeConfig.init();
             IafConfig.bakeServer(config);

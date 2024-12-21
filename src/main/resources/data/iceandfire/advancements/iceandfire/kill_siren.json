@@ -10,7 +10,6 @@
       "translate": "advancements.iceandfire.kill_siren.description"
     }
   },
-  "parent": "iceandfire:iceandfire/root",
   "criteria": {
     "killed_fire_dragon": {
       "trigger": "minecraft:player_killed_entity",

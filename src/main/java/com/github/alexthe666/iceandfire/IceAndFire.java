@@ -7,7 +7,6 @@ import com.github.alexthe666.iceandfire.entity.IafEntityRegistry;
 import com.github.alexthe666.iceandfire.entity.tile.IafTileEntityRegistry;
 import com.github.alexthe666.iceandfire.inventory.IafContainerRegistry;
 import com.github.alexthe666.iceandfire.item.IafItemRegistry;
-import com.github.alexthe666.iceandfire.loot.IafLootRegistry;
 import com.github.alexthe666.iceandfire.message.*;
 import com.github.alexthe666.iceandfire.recipe.IafBannerPatterns;
 import com.github.alexthe666.iceandfire.recipe.IafRecipeRegistry;
@@ -140,13 +139,11 @@ public class IceAndFire {
         NETWORK_WRAPPER.registerMessage(packetsRegistered++, MessageUpdatePixieHouse.class, MessageUpdatePixieHouse::write, MessageUpdatePixieHouse::read, MessageHandler.handle(MessageUpdatePixieHouse.Handler::handle));
         NETWORK_WRAPPER.registerMessage(packetsRegistered++, MessageUpdatePixieHouseModel.class, MessageUpdatePixieHouseModel::write, MessageUpdatePixieHouseModel::read, MessageHandler.handle(MessageUpdatePixieHouseModel.Handler::handle));
         NETWORK_WRAPPER.registerMessage(packetsRegistered++, MessageUpdatePixieJar.class, MessageUpdatePixieJar::write, MessageUpdatePixieJar::read, MessageHandler.handle(MessageUpdatePixieJar.Handler::handle));
-        NETWORK_WRAPPER.registerMessage(packetsRegistered++, MessageUpdatePodium.class, MessageUpdatePodium::write, MessageUpdatePodium::read, MessageHandler.handle(MessageUpdatePodium.Handler::handle));
         NETWORK_WRAPPER.registerMessage(packetsRegistered++, MessageSyncPath.class, MessageSyncPath::write, MessageSyncPath::read, MessageHandler.handle(MessageSyncPath::handle));
         NETWORK_WRAPPER.registerMessage(packetsRegistered++, MessageSyncPathReached.class, MessageSyncPathReached::write, MessageSyncPathReached::read, MessageHandler.handle(MessageSyncPathReached::handle));
         NETWORK_WRAPPER.registerMessage(packetsRegistered++, MessageSwingArm.class, MessageSwingArm::write, MessageSwingArm::read, MessageHandler.handle(MessageSwingArm.Handler::handle));
         event.enqueueWork(() -> {
             PROXY.setup();
-            IafLootRegistry.init();
         });
     }
 
@@ -161,14 +158,14 @@ public class IceAndFire {
     public static CreativeModeTab TAB_ITEMS = new CreativeModeTab(MODID + ".items") {
         @Override
         public @NotNull ItemStack makeIcon() {
-            return new ItemStack(IafItemRegistry.DRAGON_SKULL_FIRE.get());
+            return new ItemStack(IafItemRegistry.PIXIE_WAND.get());
         }
     };
 
     public static CreativeModeTab TAB_BLOCKS = new CreativeModeTab(MODID + ".blocks") {
         @Override
         public @NotNull ItemStack makeIcon() {
-            return new ItemStack(IafBlockRegistry.DRAGON_SCALE_RED.get());
+            return new ItemStack(IafBlockRegistry.PIXIE_HOUSE_MUSHROOM_RED.get());
         }
     };
 }

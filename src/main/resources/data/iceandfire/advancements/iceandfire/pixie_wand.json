@@ -10,7 +10,6 @@
       "translate": "advancements.iceandfire.pixie_wand.description"
     }
   },
-  "parent": "iceandfire:iceandfire/tame_pixie",
   "criteria": {
     "forge": {
       "trigger": "minecraft:inventory_changed",

@@ -2,7 +2,6 @@ package com.github.alexthe666.iceandfire.entity.ai;
 
 import com.github.alexthe666.iceandfire.api.FoodUtils;
 import com.github.alexthe666.iceandfire.entity.EntityDragonBase;
-import com.github.alexthe666.iceandfire.entity.EntityIceDragon;
 import com.github.alexthe666.iceandfire.util.IAFMath;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.Entity;
@@ -43,7 +42,7 @@ public class DragonAITargetItems<T extends ItemEntity> extends TargetGoal {
     public DragonAITargetItems(EntityDragonBase creature, int chance, boolean checkSight, boolean onlyNearby, boolean prioritizeItems) {
         super(creature, checkSight, onlyNearby);
         this.setFlags(EnumSet.of(Flag.TARGET));
-        this.isIce = creature instanceof EntityIceDragon;
+        this.isIce = false;
         this.targetChance = chance;
         this.theNearestAttackableTargetSorter = new DragonAITargetItems.Sorter(creature);
         this.setFlags(EnumSet.of(Flag.MOVE));

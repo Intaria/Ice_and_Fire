@@ -220,16 +220,6 @@ public class DragonUtils {
         return (dragonBase.getHomeDimensionName() == null || getDimensionName(dragonBase.level).equals(dragonBase.getHomeDimensionName()));
     }
 
-    public static boolean canDragonBreak(final BlockState state, final Entity entity) {
-        if (!ForgeEventFactory.getMobGriefingEvent(entity.level, entity)) {
-            return false;
-        }
-
-        Block block = state.getBlock();
-
-        return block.getExplosionResistance() < 1200 && !state.is(IafBlockTags.DRAGON_BLOCK_BREAK_BLACKLIST);
-    }
-
     public static boolean hasSameOwner(TamableAnimal cockatrice, Entity entity) {
         if (entity instanceof TamableAnimal tameable) {
             return tameable.getOwnerUUID() != null && cockatrice.getOwnerUUID() != null && tameable.getOwnerUUID().equals(cockatrice.getOwnerUUID());
@@ -292,13 +282,5 @@ public class DragonUtils {
             return owner1.is(owner2);
         }
         return def;
-    }
-
-    public static boolean isDreadBlock(BlockState state) {
-        Block block = state.getBlock();
-        return block == IafBlockRegistry.DREAD_STONE.get() || block == IafBlockRegistry.DREAD_STONE_BRICKS.get() || block == IafBlockRegistry.DREAD_STONE_BRICKS_CHISELED.get() ||
-                block == IafBlockRegistry.DREAD_STONE_BRICKS_CRACKED.get() || block == IafBlockRegistry.DREAD_STONE_BRICKS_MOSSY.get() || block == IafBlockRegistry.DREAD_STONE_TILE.get() ||
-                block == IafBlockRegistry.DREAD_STONE_FACE.get() || block == IafBlockRegistry.DREAD_STONE_BRICKS_STAIRS.get() ||
-                block == IafBlockRegistry.DREAD_STONE_BRICKS_SLAB.get();
     }
 }

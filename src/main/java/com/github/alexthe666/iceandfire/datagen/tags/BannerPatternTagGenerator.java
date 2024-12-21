@@ -13,12 +13,6 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import javax.annotation.Nullable;
 
 public class BannerPatternTagGenerator extends TagsProvider<BannerPattern> {
-    public static final TagKey<BannerPattern> FIRE_BANNER_PATTERN = create("pattern_item/fire");
-    public static final TagKey<BannerPattern> ICE_BANNER_PATTERN = create("pattern_item/ice");
-    public static final TagKey<BannerPattern> LIGHTNING_BANNER_PATTERN = create("pattern_item/lightning");
-    public static final TagKey<BannerPattern> FIRE_HEAD_BANNER_PATTERN = create("pattern_item/fire_head");
-    public static final TagKey<BannerPattern> ICE_HEAD_BANNER_PATTERN = create("pattern_item/ice_head");
-    public static final TagKey<BannerPattern> LIGHTNING_HEAD_BANNER_PATTERN = create("pattern_item/lightning_head");
     public static final TagKey<BannerPattern> AMPHITHERE_BANNER_PATTERN = create("pattern_item/amphithere");
     public static final TagKey<BannerPattern> BIRD_BANNER_PATTERN = create("pattern_item/bird");
     public static final TagKey<BannerPattern> EYE_BANNER_PATTERN = create("pattern_item/eye");
@@ -28,7 +22,6 @@ public class BannerPatternTagGenerator extends TagsProvider<BannerPattern> {
     public static final TagKey<BannerPattern> HIPPOGRYPH_HEAD_BANNER_PATTERN = create("pattern_item/hippogryph_head");
     public static final TagKey<BannerPattern> MERMAID_BANNER_PATTERN = create("pattern_item/mermaid");
     public static final TagKey<BannerPattern> WEEZER_BANNER_PATTERN = create("pattern_item/weezer");
-    public static final TagKey<BannerPattern> DREAD_BANNER_PATTERN = create("pattern_item/dread");
 
     public BannerPatternTagGenerator(DataGenerator generator, @Nullable ExistingFileHelper existingFileHelper) {
         super(generator, Registry.BANNER_PATTERN, IceAndFire.MODID, existingFileHelper);
@@ -36,12 +29,6 @@ public class BannerPatternTagGenerator extends TagsProvider<BannerPattern> {
 
     @Override
     protected void addTags() {
-        this.tag(FIRE_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_FIRE.getKey());
-        this.tag(ICE_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_ICE.getKey());
-        this.tag(LIGHTNING_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_LIGHTNING.getKey());
-        this.tag(FIRE_HEAD_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_FIRE_HEAD.getKey());
-        this.tag(ICE_HEAD_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_ICE_HEAD.getKey());
-        this.tag(LIGHTNING_HEAD_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_LIGHTNING_HEAD.getKey());
         this.tag(AMPHITHERE_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_AMPHITHERE.getKey());
         this.tag(BIRD_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_BIRD.getKey());
         this.tag(EYE_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_EYE.getKey());
@@ -51,7 +38,6 @@ public class BannerPatternTagGenerator extends TagsProvider<BannerPattern> {
         this.tag(HIPPOGRYPH_HEAD_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_HIPPOGRYPH_HEAD.getKey());
         this.tag(MERMAID_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_MERMAID.getKey());
         this.tag(WEEZER_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_WEEZER.getKey());
-        this.tag(DREAD_BANNER_PATTERN).add(IafBannerPatterns.PATTERN_DREAD.getKey());
     }
 
     private static TagKey<BannerPattern> create(String name) {

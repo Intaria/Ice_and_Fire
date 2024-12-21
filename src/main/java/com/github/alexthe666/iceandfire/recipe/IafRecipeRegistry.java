@@ -44,20 +44,7 @@ public class IafRecipeRegistry {
                     entityarrow.pickup = AbstractArrow.Pickup.ALLOWED;
                     return entityarrow;
                 }
-            });
-            DispenserBlock.registerBehavior(IafItemRegistry.DRAGONBONE_ARROW.get(), new AbstractProjectileDispenseBehavior() {
-                /**
-                 * Return the projectile entity spawned by this dispense behavior.
-                 */
-                @Override
-                protected @NotNull Projectile getProjectile(@NotNull Level worldIn, @NotNull Position position, @NotNull ItemStack stackIn) {
-                    EntityDragonArrow entityarrow = new EntityDragonArrow(IafEntityRegistry.DRAGON_ARROW.get(),
-                        position.x(), position.y(), position.z(), worldIn);
-                    entityarrow.pickup = AbstractArrow.Pickup.ALLOWED;
-                    return entityarrow;
-                }
-            });
-            DispenserBlock.registerBehavior(IafItemRegistry.HIPPOGRYPH_EGG.get(), new AbstractProjectileDispenseBehavior() {
+            });            DispenserBlock.registerBehavior(IafItemRegistry.HIPPOGRYPH_EGG.get(), new AbstractProjectileDispenseBehavior() {
                 /**
                  * Return the projectile entity spawned by this dispense behavior.
                  */

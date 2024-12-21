@@ -10,7 +10,6 @@
       "translate": "advancements.iceandfire.jar_pixie.description"
     }
   },
-  "parent": "iceandfire:iceandfire/tame_pixie",
   "criteria": {
     "jar": {
       "trigger": "minecraft:inventory_changed",

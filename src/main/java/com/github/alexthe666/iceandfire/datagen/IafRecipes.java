@@ -98,116 +98,6 @@ public class IafRecipes extends RecipeProvider {
                 .define('D', Items.DIAMOND_HORSE_ARMOR)
                 .save(consumer);
 
-        nineBlockStorageRecipes(consumer, IafItemRegistry.DRAGON_BONE.get(), IafBlockRegistry.DRAGON_BONE_BLOCK.get()
-                , locationString("dragon_bone_block"), null
-                , locationString("dragonbone"), null);
-
-        CustomShaped.shaped(IafBlockRegistry.DRAGON_BONE_BLOCK_WALL.get())
-                .pattern("BBB")
-                .pattern("BBB")
-                .define('B', IafItemRegistry.DRAGON_BONE.get())
-                .save(consumer);
-
-        CustomShaped.shaped(IafBlockRegistry.DRAGON_ICE_SPIKES.get(), 4)
-                .pattern("I I")
-                .pattern("I I")
-                .define('I', IafBlockRegistry.DRAGON_ICE.get())
-                .save(consumer);
-
-        CustomShaped.shaped(IafBlockRegistry.NEST.get(), 8)
-                .pattern("HHH")
-                .pattern("HBH")
-                .pattern("HHH")
-                .define('H', Blocks.HAY_BLOCK)
-                .define('B', IafItemRegistry.DRAGON_BONE.get())
-                .save(consumer);
-
-        toolSet(consumer, IafItemRegistry.DRAGON_BONE.get(), IafItemTags.BONES_WITHER,
-                IafItemRegistry.DRAGONBONE_SWORD.get(),
-                IafItemRegistry.DRAGONBONE_PICKAXE.get(),
-                IafItemRegistry.DRAGONBONE_AXE.get(),
-                IafItemRegistry.DRAGONBONE_SHOVEL.get(),
-                IafItemRegistry.DRAGONBONE_HOE.get()
-        );
-
-        CustomShaped.shaped(IafItemRegistry.DRAGON_BOW.get())
-                .pattern(" DS")
-                .pattern("W S")
-                .pattern(" DS")
-                .define('S', Tags.Items.STRING)
-                .define('W', IafItemTags.BONES_WITHER)
-                .define('D', IafItemRegistry.DRAGON_BONE.get())
-                .save(consumer);
-
-        forgeBrick(consumer, Items.STONE_BRICKS, IafItemTags.STORAGE_BLOCKS_SCALES_DRAGON_FIRE, IafBlockRegistry.DRAGONFORGE_FIRE_BRICK.get());
-        
-        forgeBrick(consumer, Items.STONE_BRICKS, IafItemTags.STORAGE_BLOCKS_SCALES_DRAGON_ICE, IafBlockRegistry.DRAGONFORGE_ICE_BRICK.get());
-        
-        forgeBrick(consumer, Items.STONE_BRICKS, IafItemTags.STORAGE_BLOCKS_SCALES_DRAGON_LIGHTNING, IafBlockRegistry.DRAGONFORGE_LIGHTNING_BRICK.get());
-
-        compact(consumer, IafItemRegistry.DRAGONSCALES_RED.get(), IafBlockRegistry.DRAGON_SCALE_RED.get());
-        compact(consumer, IafItemRegistry.DRAGONSCALES_GREEN.get(), IafBlockRegistry.DRAGON_SCALE_GREEN.get());
-        compact(consumer, IafItemRegistry.DRAGONSCALES_BRONZE.get(), IafBlockRegistry.DRAGON_SCALE_BRONZE.get());
-        compact(consumer, IafItemRegistry.DRAGONSCALES_GRAY.get(), IafBlockRegistry.DRAGON_SCALE_GRAY.get());
-
-        compact(consumer, IafItemRegistry.DRAGONSCALES_BLUE.get(), IafBlockRegistry.DRAGON_SCALE_BLUE.get());
-        compact(consumer, IafItemRegistry.DRAGONSCALES_WHITE.get(), IafBlockRegistry.DRAGON_SCALE_WHITE.get());
-        compact(consumer, IafItemRegistry.DRAGONSCALES_SAPPHIRE.get(), IafBlockRegistry.DRAGON_SCALE_SAPPHIRE.get());
-        compact(consumer, IafItemRegistry.DRAGONSCALES_SILVER.get(), IafBlockRegistry.DRAGON_SCALE_SILVER.get());
-
-        compact(consumer, IafItemRegistry.DRAGONSCALES_ELECTRIC.get(), IafBlockRegistry.DRAGON_SCALE_ELECTRIC.get());
-        compact(consumer, IafItemRegistry.DRAGONSCALES_AMYTHEST.get(), IafBlockRegistry.DRAGON_SCALE_AMYTHEST.get());
-        compact(consumer, IafItemRegistry.DRAGONSCALES_COPPER.get(), IafBlockRegistry.DRAGON_SCALE_COPPER.get());
-        compact(consumer, IafItemRegistry.DRAGONSCALES_BLACK.get(), IafBlockRegistry.DRAGON_SCALE_BLACK.get());
-
-
-        CustomShaped.shaped(IafBlockRegistry.DREAD_STONE.get(), 8)
-                .pattern("DDD")
-                .pattern("DSD")
-                .pattern("DDD")
-                .define('S', Tags.Items.STONE)
-                .define('D', IafItemRegistry.DREAD_SHARD.get())
-                .save(consumer);
-
-        CustomShaped.shaped(IafBlockRegistry.DREAD_STONE_BRICKS.get(), 4)
-                .pattern("DD")
-                .pattern("DD")
-                .define('D', IafBlockRegistry.DREAD_STONE.get())
-                .save(consumer);
-
-        CustomShaped.shaped(IafBlockRegistry.DREAD_STONE_BRICKS_CHISELED.get())
-                .pattern("D")
-                .pattern("D")
-                .define('D', IafBlockRegistry.DREAD_STONE_BRICKS_SLAB.get())
-                .save(consumer);
-
-        CustomShaped.shaped(IafBlockRegistry.DREAD_STONE_FACE.get(), 8)
-                .pattern("DDD")
-                .pattern("DSD")
-                .pattern("DDD")
-                .define('S', Items.SKELETON_SKULL)
-                .define('D', IafBlockRegistry.DREAD_STONE_BRICKS.get())
-                .save(consumer);
-
-        CustomShaped.shaped(IafBlockRegistry.DREAD_STONE_BRICKS_SLAB.get(), 6)
-                .pattern("DDD")
-                .define('D', IafBlockRegistry.DREAD_STONE_BRICKS.get())
-                .save(consumer);
-
-        CustomShaped.shaped(IafBlockRegistry.DREAD_STONE_BRICKS_STAIRS.get(), 4)
-                .pattern("D  ")
-                .pattern("DD ")
-                .pattern("DDD")
-                .define('D', IafBlockRegistry.DREAD_STONE_BRICKS.get())
-                .save(consumer);
-
-        CustomShaped.shaped(IafBlockRegistry.DREAD_STONE_TILE.get(), 8)
-                .pattern("DDD")
-                .pattern("D D")
-                .pattern("DDD")
-                .define('D', IafBlockRegistry.DREAD_STONE_BRICKS.get())
-                .save(consumer);
-
         CustomShaped.shaped(IafItemRegistry.EARPLUGS.get())
                 .pattern("B B")
                 .define('B', ItemTags.PLANKS)
@@ -235,43 +125,17 @@ public class IafRecipes extends RecipeProvider {
                 .requires(Items.BOWL)
                 .save(consumer);
 
-        CustomShapeless.shapeless(Items.CHARCOAL)
-                .requires(IafBlockRegistry.ASH.get(), 9)
-                .save(consumer, location("ash_to_charcoal"));
-
-        CustomShapeless.shapeless(IafBlockRegistry.ASH.get())
-                .requires(IafItemTags.CHARRED_BLOCKS, 9)
-                .save(consumer);
-
         CustomShapeless.shapeless(IafBlockRegistry.COPPER_PILE.get())
                 .requires(IafItemTags.NUGGETS_COPPER, 2)
-                .save(consumer);
-
-        CustomShapeless.shapeless(IafBlockRegistry.DRAGON_ICE.get())
-                .requires(IafItemTags.FROZEN_BLOCKS, 9)
                 .save(consumer);
 
         CustomShapeless.shapeless(Items.BONE_MEAL, 5)
                 .requires(IafItemTags.MOB_SKULLS)
                 .save(consumer, location("skull_to_bone_meal"));
 
-        CustomShapeless.shapeless(IafItemRegistry.DRAGONBONE_ARROW.get(), 5)
-                .requires(IafItemRegistry.DRAGON_BONE.get())
-                .requires(IafItemRegistry.WITHER_SHARD.get())
-                .save(consumer);
-
-        CustomShapeless.shapeless(IafBlockRegistry.DREAD_STONE_BRICKS_MOSSY.get())
-                .requires(Items.VINE)
-                .requires(IafBlockRegistry.DREAD_STONE_BRICKS.get())
-                .save(consumer);
-
         CustomShapeless.shapeless(IafBlockRegistry.GOLD_PILE.get())
                 .requires(Tags.Items.NUGGETS_GOLD, 2)
                 .save(consumer);
-
-        CustomShapeless.shapeless(Items.GRAVEL)
-                .requires(IafItemTags.CRACKLED_BLOCKS, 9)
-                .save(consumer, location("crackled_to_gravel"));
     }
 
     private void smithing(@NotNull final Consumer<FinishedRecipe> consumer, final ItemLike base, final ItemLike material, final Item result) {

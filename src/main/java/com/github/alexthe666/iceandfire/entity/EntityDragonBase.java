@@ -6,8 +6,6 @@ import com.github.alexthe666.citadel.animation.IAnimatedEntity;
 import com.github.alexthe666.iceandfire.IafConfig;
 import com.github.alexthe666.iceandfire.IceAndFire;
 import com.github.alexthe666.iceandfire.api.FoodUtils;
-import com.github.alexthe666.iceandfire.api.event.GenericGriefEvent;
-import com.github.alexthe666.iceandfire.block.IDragonProof;
 import com.github.alexthe666.iceandfire.client.model.IFChainBuffer;
 import com.github.alexthe666.iceandfire.client.model.util.LegSolverQuadruped;
 import com.github.alexthe666.iceandfire.datagen.tags.IafBlockTags;
@@ -15,7 +13,6 @@ import com.github.alexthe666.iceandfire.datagen.tags.IafItemTags;
 import com.github.alexthe666.iceandfire.entity.ai.*;
 import com.github.alexthe666.iceandfire.entity.props.MiscProperties;
 import com.github.alexthe666.iceandfire.entity.util.*;
-import com.github.alexthe666.iceandfire.enums.EnumDragonEgg;
 import com.github.alexthe666.iceandfire.item.IafItemRegistry;
 import com.github.alexthe666.iceandfire.message.MessageDragonSetBurnBlock;
 import com.github.alexthe666.iceandfire.message.MessageStartRidingMob;
@@ -120,7 +117,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     public static Animation ANIMATION_ROAR;
     public static Animation ANIMATION_EPIC_ROAR;
     public static Animation ANIMATION_TAILWHACK;
-    public DragonType dragonType;
     public double minimumDamage;
     public double maximumDamage;
     public double minimumHealth;
@@ -205,24 +201,13 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     private Animation currentAnimation;
     private float lastScale;
 
-    private EntityDragonPart headPart;
-    private EntityDragonPart neckPart;
-    private EntityDragonPart rightWingUpperPart;
-    private EntityDragonPart rightWingLowerPart;
-    private EntityDragonPart leftWingUpperPart;
-    private EntityDragonPart leftWingLowerPart;
-    private EntityDragonPart tail1Part;
-    private EntityDragonPart tail2Part;
-    private EntityDragonPart tail3Part;
-    private EntityDragonPart tail4Part;
     private boolean isOverAir;
 
     private LazyOptional<?> itemHandler = null;
 
-    public EntityDragonBase(EntityType t, Level world, DragonType type, double minimumDamage, double maximumDamage, double minimumHealth, double maximumHealth, double minimumSpeed, double maximumSpeed) {
+    public EntityDragonBase(EntityType t, Level world, double minimumDamage, double maximumDamage, double minimumHealth, double maximumHealth, double minimumSpeed, double maximumSpeed) {
         super(t, world);
         setPathfindingMalus(BlockPathTypes.WATER, 0.0F);
-        this.dragonType = type;
         this.minimumDamage = minimumDamage;
         this.maximumDamage = maximumDamage;
         this.minimumHealth = minimumHealth;
@@ -246,7 +231,7 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
         this.noCulling = true;
         switchNavigator(0);
         randomizeAttacks();
-        resetParts(1);
+        //resetParts(1);
     }
 
     public static AttributeSupplier.Builder bakeAttributes() {
@@ -293,11 +278,9 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     protected void registerGoals() {
 //        this.goalSelector.addGoal(0, new DragonAIRide<>(this));
         this.goalSelector.addGoal(1, new SitWhenOrderedToGoal(this));
-        this.goalSelector.addGoal(2, new DragonAIMate(this, 1.0D));
         this.goalSelector.addGoal(3, new DragonAIReturnToRoost(this, 1.0D));
         this.goalSelector.addGoal(4, new DragonAIEscort(this, 1.0D));
         this.goalSelector.addGoal(5, new DragonAIAttackMelee(this, 1.5D, false));
-        this.goalSelector.addGoal(6, new AquaticAITempt(this, 1.0D, false, IafItemTags.TEMPT_DRAGON));
         this.goalSelector.addGoal(7, new DragonAIWander(this, 1.0D));
         this.goalSelector.addGoal(8, new DragonAIWatchClosest(this, LivingEntity.class, 6.0F));
         this.goalSelector.addGoal(8, new DragonAILookIdle(this));
@@ -321,146 +304,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     }
 
     protected abstract boolean shouldTarget(Entity entity);
-
-    public void resetParts(float scale) {
-        removeParts();
-        headPart = new EntityDragonPart(this, 1.55F * scale, 0, 0.6F * scale, 0.5F * scale, 0.35F * scale, 1.5F);
-        headPart.copyPosition(this);
-        headPart.setParent(this);
-        neckPart = new EntityDragonPart(this, 0.85F * scale, 0, 0.7F * scale, 0.5F * scale, 0.2F * scale, 1);
-        neckPart.copyPosition(this);
-        neckPart.setParent(this);
-        rightWingUpperPart = new EntityDragonPart(this, scale, 90, 0.5F * scale, 0.85F * scale, 0.3F * scale, 0.5F);
-        rightWingUpperPart.copyPosition(this);
-        rightWingUpperPart.setParent(this);
-        rightWingLowerPart = new EntityDragonPart(this, 1.4F * scale, 100, 0.3F * scale, 0.85F * scale, 0.2F * scale, 0.5F);
-        rightWingLowerPart.copyPosition(this);
-        rightWingLowerPart.setParent(this);
-        leftWingUpperPart = new EntityDragonPart(this, scale, -90, 0.5F * scale, 0.85F * scale, 0.3F * scale, 0.5F);
-        leftWingUpperPart.copyPosition(this);
-        leftWingUpperPart.setParent(this);
-        leftWingLowerPart = new EntityDragonPart(this, 1.4F * scale, -100, 0.3F * scale, 0.85F * scale, 0.2F * scale, 0.5F);
-        leftWingLowerPart.copyPosition(this);
-        leftWingLowerPart.setParent(this);
-        tail1Part = new EntityDragonPart(this, -0.75F * scale, 0, 0.6F * scale, 0.35F * scale, 0.35F * scale, 1);
-        tail1Part.copyPosition(this);
-        tail1Part.setParent(this);
-        tail2Part = new EntityDragonPart(this, -1.15F * scale, 0, 0.45F * scale, 0.35F * scale, 0.35F * scale, 1);
-        tail2Part.copyPosition(this);
-        tail2Part.setParent(this);
-        tail3Part = new EntityDragonPart(this, -1.5F * scale, 0, 0.35F * scale, 0.35F * scale, 0.35F * scale, 1);
-        tail3Part.copyPosition(this);
-        tail3Part.setParent(this);
-        tail4Part = new EntityDragonPart(this, -1.95F * scale, 0, 0.25F * scale, 0.45F * scale, 0.3F * scale, 1.5F);
-        tail4Part.copyPosition(this);
-        tail4Part.setParent(this);
-    }
-
-    public void removeParts() {
-        if (headPart != null) {
-            headPart.remove(RemovalReason.DISCARDED);
-            headPart = null;
-        }
-        if (neckPart != null) {
-            neckPart.remove(RemovalReason.DISCARDED);
-            neckPart = null;
-        }
-        if (rightWingUpperPart != null) {
-            rightWingUpperPart.remove(RemovalReason.DISCARDED);
-            rightWingUpperPart = null;
-        }
-        if (rightWingLowerPart != null) {
-            rightWingLowerPart.remove(RemovalReason.DISCARDED);
-            rightWingLowerPart = null;
-        }
-        if (leftWingUpperPart != null) {
-            leftWingUpperPart.remove(RemovalReason.DISCARDED);
-            leftWingUpperPart = null;
-        }
-        if (leftWingLowerPart != null) {
-            leftWingLowerPart.remove(RemovalReason.DISCARDED);
-            leftWingLowerPart = null;
-        }
-        if (tail1Part != null) {
-            tail1Part.remove(RemovalReason.DISCARDED);
-            tail1Part = null;
-        }
-        if (tail2Part != null) {
-            tail2Part.remove(RemovalReason.DISCARDED);
-            tail2Part = null;
-        }
-        if (tail3Part != null) {
-            tail3Part.remove(RemovalReason.DISCARDED);
-            tail3Part = null;
-        }
-        if (tail4Part != null) {
-            tail4Part.remove(RemovalReason.DISCARDED);
-            tail4Part = null;
-        }
-    }
-
-    public void updateParts() {
-        if (headPart != null) {
-            if (!headPart.shouldContinuePersisting()) {
-                level.addFreshEntity(headPart);
-            }
-            headPart.setParent(this);
-        }
-        if (neckPart != null) {
-            if (!neckPart.shouldContinuePersisting()) {
-                level.addFreshEntity(neckPart);
-            }
-            neckPart.setParent(this);
-        }
-        if (rightWingUpperPart != null) {
-            if (!rightWingUpperPart.shouldContinuePersisting()) {
-                level.addFreshEntity(rightWingUpperPart);
-            }
-            rightWingUpperPart.setParent(this);
-        }
-        if (rightWingLowerPart != null) {
-            if (!rightWingLowerPart.shouldContinuePersisting()) {
-                level.addFreshEntity(rightWingLowerPart);
-            }
-            rightWingLowerPart.setParent(this);
-        }
-        if (leftWingUpperPart != null) {
-            if (!leftWingUpperPart.shouldContinuePersisting()) {
-                level.addFreshEntity(leftWingUpperPart);
-            }
-            leftWingUpperPart.setParent(this);
-        }
-        if (leftWingLowerPart != null) {
-            if (!leftWingLowerPart.shouldContinuePersisting()) {
-                level.addFreshEntity(leftWingLowerPart);
-            }
-            leftWingLowerPart.setParent(this);
-        }
-        if (tail1Part != null) {
-            if (!tail1Part.shouldContinuePersisting()) {
-                level.addFreshEntity(tail1Part);
-            }
-            tail1Part.setParent(this);
-        }
-        if (tail2Part != null) {
-            if (!tail2Part.shouldContinuePersisting()) {
-                level.addFreshEntity(tail2Part);
-            }
-            tail2Part.setParent(this);
-        }
-        if (tail3Part != null) {
-            if (!tail3Part.shouldContinuePersisting()) {
-                level.addFreshEntity(tail3Part);
-            }
-            tail3Part.setParent(this);
-        }
-        if (tail4Part != null) {
-            if (!tail4Part.shouldContinuePersisting()) {
-                level.addFreshEntity(tail4Part);
-            }
-            tail4Part.setParent(this);
-        }
-    }
 
     protected void updateBurnTarget() {
         if (burningTarget != null && !this.isSleeping() && !this.isModelDead() && !this.isBaby()) {
@@ -527,14 +370,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     @Override
     protected void customServerAiStep() {
         super.customServerAiStep();
-        breakBlocks(false);
-    }
-
-    @Override
-    public void checkDespawn() {
-        if (IafConfig.canDragonsDespawn) {
-            super.checkDespawn();
-        }
     }
 
     public boolean canDestroyBlock(BlockPos pos, BlockState state) {
@@ -583,7 +418,7 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
 
     @Override
     public void remove(Entity.@NotNull RemovalReason reason) {
-        removeParts();
+        //removeParts();
         super.remove(reason);
     }
 
@@ -906,8 +741,7 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
         final int armorNeck = this.getArmorOrdinal(this.getItemBySlot(EquipmentSlot.CHEST));
         final int armorLegs = this.getArmorOrdinal(this.getItemBySlot(EquipmentSlot.LEGS));
         final int armorFeet = this.getArmorOrdinal(this.getItemBySlot(EquipmentSlot.FEET));
-        armorResLoc = dragonType.getName() + "|" + armorHead + "|" + armorNeck + "|" + armorLegs + "|" + armorFeet;
-
+        
         double age = 125F;
         if (this.getAgeInDays() <= 125) age = this.getAgeInDays();
         final double healthStep = (maximumHealth - minimumHealth) / 125F;
@@ -924,7 +758,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
             this.getAttribute(Attributes.ARMOR).removeModifier(ARMOR_MODIFIER_UUID);
             this.getAttribute(Attributes.ARMOR).addPermanentModifier(new AttributeModifier(ARMOR_MODIFIER_UUID, "Dragon armor bonus", calculateArmorModifier(), AttributeModifier.Operation.ADDITION));
         }
-        this.getAttribute(Attributes.FOLLOW_RANGE).setBaseValue(Math.min(2048, IafConfig.dragonTargetSearchLength));
     }
 
     public int getHunger() {
@@ -1109,46 +942,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
             logic.debug();
             return InteractionResult.SUCCESS;
         }
-        if (this.isModelDead() && this.getDeathStage() < lastDeathStage && player.mayBuild()) {
-            if (!level.isClientSide && !stack.isEmpty() && stack.getItem() != null && stack.getItem() == Items.GLASS_BOTTLE && this.getDeathStage() < lastDeathStage / 2 && IafConfig.dragonDropBlood) {
-                if (!player.isCreative()) {
-                    stack.shrink(1);
-                }
-                this.setDeathStage(this.getDeathStage() + 1);
-                player.getInventory().add(new ItemStack(this.getBloodItem(), 1));
-                return InteractionResult.SUCCESS;
-            } else if (!level.isClientSide && stack.isEmpty() && IafConfig.dragonDropSkull) {
-                if (this.getDeathStage() >= lastDeathStage - 1) {
-                    ItemStack skull = getSkull().copy();
-                    skull.setTag(new CompoundTag());
-                    skull.getTag().putInt("Stage", this.getDragonStage());
-                    skull.getTag().putInt("DragonType", 0);
-                    skull.getTag().putInt("DragonAge", this.getAgeInDays());
-                    this.setDeathStage(this.getDeathStage() + 1);
-                    if (!level.isClientSide) {
-                        this.spawnAtLocation(skull, 1);
-                    }
-                    this.remove(RemovalReason.DISCARDED);
-                } else if (this.getDeathStage() == (lastDeathStage / 2) - 1 && IafConfig.dragonDropHeart) {
-                    ItemStack heart = new ItemStack(this.getHeartItem(), 1);
-                    ItemStack egg = new ItemStack(this.getVariantEgg(this.random.nextInt(4)), 1);
-                    if (!level.isClientSide) {
-                        this.spawnAtLocation(heart, 1);
-                        if (!this.isMale() && this.getDragonStage() > 3) {
-                            this.spawnAtLocation(egg, 1);
-                        }
-                    }
-                    this.setDeathStage(this.getDeathStage() + 1);
-                } else {
-                    this.setDeathStage(this.getDeathStage() + 1);
-                    ItemStack drop = getRandomDrop();
-                    if (!drop.isEmpty() && !level.isClientSide) {
-                        this.spawnAtLocation(drop, 1);
-                    }
-                }
-            }
-            return InteractionResult.SUCCESS;
-        }
         return super.interactAt(player, vec, hand);
     }
 
@@ -1192,18 +985,7 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
                     }
                     return InteractionResult.SUCCESS;
                 } else {
-                    int itemFoodAmount = FoodUtils.getFoodPoints(stack, true, dragonType.isPiscivore());
-                    if (itemFoodAmount > 0 && (this.getHunger() < 100 || this.getHealth() < this.getMaxHealth())) {
-                        this.setHunger(this.getHunger() + itemFoodAmount);
-                        this.setHealth(Math.min(this.getMaxHealth(), (int) (this.getHealth() + (itemFoodAmount / 10))));
-                        this.playSound(SoundEvents.GENERIC_EAT, this.getSoundVolume(), this.getVoicePitch());
-                        this.spawnItemCrackParticles(stack.getItem());
-                        this.eatFoodBonus(stack);
-                        if (!player.isCreative()) {
-                            stack.shrink(1);
-                        }
-                        return InteractionResult.SUCCESS;
-                    }
+                    
                 }
             }
         }
@@ -1219,16 +1001,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
 
     public ItemStack getSkull() {
         return ItemStack.EMPTY;
-    }
-
-    private ItemStack getRandomDrop() {
-        ItemStack stack = getItemFromLootTable();
-        if (stack.getItem() == IafItemRegistry.DRAGON_BONE.get()) {
-            this.playSound(SoundEvents.SKELETON_AMBIENT, 1, 1);
-        } else {
-            this.playSound(SoundEvents.ARMOR_EQUIP_LEATHER, 1, 1);
-        }
-        return stack;
     }
 
     public boolean canPositionBeSeen(final double x, final double y, final double z) {
@@ -1359,72 +1131,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
         return 1;
     }
 
-    public void breakBlock(final BlockPos position) {
-        if (MinecraftForge.EVENT_BUS.post(new GenericGriefEvent(this, position.getX(), position.getY(), position.getZ()))) {
-            return;
-        }
-
-        final BlockState state = level.getBlockState(position);
-        final float hardness = IafConfig.dragonGriefing == 1 || this.getDragonStage() <= 3 ? 2.0F : 5.0F;
-        if (isBreakable(position, state, hardness, this)) {
-            this.setDeltaMovement(this.getDeltaMovement().multiply(0.6F, 1, 0.6F));
-
-            if (!level.isClientSide()) {
-                level.destroyBlock(position, !state.is(IafBlockTags.DRAGON_BLOCK_BREAK_NO_DROPS) && random.nextFloat() <= IafConfig.dragonBlockBreakingDropChance);
-            }
-        }
-    }
-
-    public void breakBlocks(boolean force) {
-        boolean doBreak = force;
-
-        if (this.blockBreakCounter > 0 || IafConfig.dragonBreakBlockCooldown == 0) {
-            --this.blockBreakCounter;
-
-            if (blockBreakCounter == 0 || IafConfig.dragonBreakBlockCooldown == 0) {
-                doBreak = true;
-            }
-        }
-
-        if (doBreak) {
-            if (ForgeEventFactory.getMobGriefingEvent(this.level, this)) {
-                if (DragonUtils.canGrief(this)) {
-                    // TODO :: make `force` ignore the dragon stage?
-                    if (!isModelDead() && this.getDragonStage() >= 3 && (this.canMove() || this.getControllingPassenger() != null)) {
-                        final int bounds = 1;
-                        final int flightModifier = isFlying() && this.getTarget() != null ? -1 : 1;
-                        final int yMinus = calculateDownY();
-                        BlockPos.betweenClosedStream(
-                                (int) Math.floor(this.getBoundingBox().minX) - bounds,
-                                (int) Math.floor(this.getBoundingBox().minY) + yMinus,
-                                (int) Math.floor(this.getBoundingBox().minZ) - bounds,
-                                (int) Math.floor(this.getBoundingBox().maxX) + bounds,
-                                (int) Math.floor(this.getBoundingBox().maxY) + bounds + flightModifier,
-                                (int) Math.floor(this.getBoundingBox().maxZ) + bounds
-                        ).forEach(this::breakBlock);
-                    }
-                }
-            }
-        }
-    }
-
-    protected boolean isBreakable(BlockPos pos, BlockState state, float hardness, EntityDragonBase entity) {
-        return state.getMaterial().blocksMotion() && !state.isAir() &&
-                state.getFluidState().isEmpty() && !state.getShape(level, pos).isEmpty() &&
-                state.getDestroySpeed(level, pos) >= 0F &&
-                state.getDestroySpeed(level, pos) <= hardness &&
-                DragonUtils.canDragonBreak(state, entity) && this.canDestroyBlock(pos, state);
-    }
-
-    @Override
-    public boolean isBlockExplicitlyPassable(BlockState state, BlockPos pos, BlockPos entityPos) {
-        if (!isModelDead() && this.getDragonStage() >= 3) {
-            if (DragonUtils.canGrief(this) && pos.getY() >= this.getY()) {
-                return isBreakable(pos, state, IafConfig.dragonGriefing == 1 || this.getDragonStage() <= 3 ? 2.0F : 5.0F, this);
-            }
-        }
-        return false;
-    }
 
     @Override
     public boolean isBlockExplicitlyNotPassable(BlockState state, BlockPos pos, BlockPos entityPos) {
@@ -1515,10 +1221,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
             float baseDamage = (float) this.getAttribute(Attributes.ATTACK_DAMAGE).getValue();
             float damage = baseDamage * 2;
             boolean didDamage = prey.hurt(DamageSource.mobAttack(this), damage);
-
-            if (didDamage && IafConfig.canDragonsHealFromBiting) {
-                heal(damage * 0.5f);
-            }
 
             if (!(prey instanceof Player)) {
                 setHunger(getHunger() + 1);
@@ -1617,24 +1319,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
 
     }
 
-
-    @Override
-    public void refreshDimensions() {
-        super.refreshDimensions();
-        final float scale = Math.min(this.getRenderSize() * 0.35F, 7F);
-//        double prevX = getPosX();
-//        double prevY = getPosY();
-//        double prevZ = getPosZ();
-//        float localWidth = this.getWidth();
-//        if (this.getWidth() > localWidth && !this.firstUpdate && !this.world.isRemote) {
-//            this.setPosition(prevX, prevY, prevZ);
-//        }
-        if (scale != lastScale) {
-            resetParts(this.getRenderSize() / 3);
-        }
-        lastScale = scale;
-    }
-
     @Override
     public float getStepHeight() {
         return Math.max(1.2F, 1.2F + (Math.min(this.getAgeInDays(), 125) - 25) * 1.8F / 100F);
@@ -1644,7 +1328,7 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
     public void tick() {
         super.tick();
         refreshDimensions();
-        updateParts();
+        //updateParts();
         this.prevDragonPitch = getDragonPitch();
         level.getProfiler().push("dragonLogic");
         this.maxUpStep = getStepHeight();
@@ -1678,11 +1362,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
             this.flightManager.update();
         }
         level.getProfiler().pop();
-
-        if (!level.isClientSide() && IafConfig.dragonDigWhenStuck && isStuck()) {
-            breakBlocks(true);
-            resetStuck();
-        }
     }
 
     private void resetStuck() {
@@ -1860,13 +1539,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
             return this.isMale() && !dragon.isMale() || !this.isMale() && dragon.isMale();
         }
         return false;
-    }
-
-    public EntityDragonEgg createEgg(EntityDragonBase ageable) { // FIXME :: Unused parameter
-        EntityDragonEgg dragon = new EntityDragonEgg(IafEntityRegistry.DRAGON_EGG.get(), this.level);
-        dragon.setEggType(EnumDragonEgg.byMetadata(new Random().nextInt(4) + getStartMetaForType()));
-        dragon.setPos(Mth.floor(this.getX()) + 0.5, Mth.floor(this.getY()) + 1, Mth.floor(this.getZ()) + 0.5);
-        return dragon;
     }
 
     public int getStartMetaForType() {
@@ -2251,10 +1923,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
                 if (target != null && !DragonUtils.hasSameOwner(this, target)) {
                     int damage = (int) this.getAttribute(Attributes.ATTACK_DAMAGE).getValue();
                     boolean didDamage = logic.attackTarget(target, rider, damage);
-
-                    if (didDamage && IafConfig.canDragonsHealFromBiting) {
-                        heal(damage * 0.1f);
-                    }
                 }
             }
             // Shift key to dismount
@@ -2594,10 +2262,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
 
     }
 
-    @Override
-    public boolean shouldBlockExplode(@NotNull Explosion explosionIn, @NotNull BlockGetter worldIn, @NotNull BlockPos pos, BlockState blockStateIn, float explosionPower) {
-        return !(blockStateIn.getBlock() instanceof IDragonProof) && DragonUtils.canDragonBreak(blockStateIn, this);
-    }
 
     public void tryScorchTarget() {
         LivingEntity entity = this.getTarget();
@@ -2640,14 +2304,6 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
         return super.canAttack(target) && DragonUtils.isAlive(target);
     }
 
-    public boolean isPart(Entity entityHit) {
-        return headPart != null && headPart.is(entityHit) || neckPart != null && neckPart.is(entityHit) ||
-                leftWingLowerPart != null && leftWingLowerPart.is(entityHit) || rightWingLowerPart != null && rightWingLowerPart.is(entityHit) ||
-                leftWingUpperPart != null && leftWingUpperPart.is(entityHit) || rightWingUpperPart != null && rightWingUpperPart.is(entityHit) ||
-                tail1Part != null && tail1Part.is(entityHit) || tail2Part != null && tail2Part.is(entityHit) ||
-                tail3Part != null && tail3Part.is(entityHit) || tail4Part != null && tail4Part.is(entityHit);
-    }
-
     @Override
     public double getFlightSpeedModifier() {
         return IafConfig.dragonFlightSpeedMod;
@@ -2676,13 +2332,7 @@ public abstract class EntityDragonBase extends TamableAnimal implements IPassabi
 
     @Override
     public void playSound(@NotNull SoundEvent soundIn, float volume, float pitch) {
-        if (soundIn == SoundEvents.GENERIC_EAT || soundIn == this.getAmbientSound() || soundIn == this.getHurtSound(DamageSource.GENERIC) || soundIn == this.getDeathSound() || soundIn == this.getRoarSound()) {
-            if (!this.isSilent() && this.headPart != null) {
-                this.level.playSound(null, this.headPart.getX(), this.headPart.getY(), this.headPart.getZ(), soundIn, this.getSoundSource(), volume, pitch);
-            }
-        } else {
-            super.playSound(soundIn, volume, pitch);
-        }
+        super.playSound(soundIn, volume, pitch);
     }
 
     @Override

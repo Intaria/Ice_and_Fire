@@ -50,13 +50,6 @@ public class IafDragonFlightManager {
     public void update() {
 
         if (dragon.getTarget() != null && dragon.getTarget().isAlive()) {
-            if (dragon instanceof EntityIceDragon && dragon.isInWater()) {
-                if (dragon.getTarget() == null) {
-                    dragon.airAttack = IafDragonAttacks.Air.SCORCH_STREAM;
-                } else {
-                    dragon.airAttack = IafDragonAttacks.Air.TACKLE;
-                }
-            }
             LivingEntity entity = dragon.getTarget();
             if (dragon.airAttack == IafDragonAttacks.Air.TACKLE) {
                 target = new Vec3(entity.getX(), entity.getY() + entity.getBbHeight(), entity.getZ());
@@ -87,15 +80,8 @@ public class IafDragonFlightManager {
                 || dragon.getCommand() == 2 && dragon.shouldTPtoOwner()) {
             BlockPos viewBlock = null;
 
-            if (dragon instanceof EntityIceDragon && dragon.isInWater()) {
-                viewBlock = DragonUtils.getWaterBlockInView(dragon);
-            }
             if (dragon.getCommand() == 2 && dragon.useFlyingPathFinder()) {
-                if (dragon instanceof EntityIceDragon && dragon.isInWater()) {
-                    viewBlock = DragonUtils.getWaterBlockInViewEscort(dragon);
-                } else {
-                    viewBlock = DragonUtils.getBlockInViewEscort(dragon);
-                }
+                viewBlock = DragonUtils.getBlockInViewEscort(dragon);
             } else if (dragon.lookingForRoostAIFlag) {
                 // FIXME :: Unused
 //                double xDist = Math.abs(dragon.getX() - dragon.getRestrictCenter().getX() - 0.5F);

@@ -180,37 +180,6 @@ public class ServerEvents {
         }
     }
 
-
-    @SubscribeEvent
-    public void onEntityDamage(LivingHurtEvent event) {
-        String damageType = event.getSource().getMsgId();
-        if (IafDamageRegistry.DRAGON_FIRE_TYPE.equals(damageType) || IafDamageRegistry.DRAGON_ICE_TYPE.equals(damageType) ||
-            IafDamageRegistry.DRAGON_LIGHTNING_TYPE.equals(damageType)) {
-            float multi = 1;
-            if (event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() instanceof ItemScaleArmor) {
-                multi -= 0.1f;
-            }
-            if (event.getEntity().getItemBySlot(EquipmentSlot.CHEST).getItem() instanceof ItemScaleArmor) {
-                multi -= 0.3f;
-            }
-            if (event.getEntity().getItemBySlot(EquipmentSlot.LEGS).getItem() instanceof ItemScaleArmor) {
-                multi -= 0.2f;
-            }
-            if (event.getEntity().getItemBySlot(EquipmentSlot.FEET).getItem() instanceof ItemScaleArmor) {
-                multi -= 0.1f;
-            }
-            event.setAmount(event.getAmount() * multi);
-        }
-    }
-
-    @SubscribeEvent
-    public void onEntityDrop(LivingDropsEvent event) {
-        if (event.getEntity() instanceof WitherSkeleton) {
-            event.getDrops().add(new ItemEntity(event.getEntity().level, event.getEntity().getX(), event.getEntity().getY(), event.getEntity().getZ(),
-                new ItemStack(IafItemRegistry.WITHERBONE.get(), event.getEntity().getRandom().nextInt(2))));
-        }
-    }
-
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void makeItemDropsFireImmune(final LivingDropsEvent event) {
         boolean makeFireImmune = false;
@@ -283,18 +252,6 @@ public class ServerEvents {
 
     @SubscribeEvent
     public void onEntityUpdate(LivingEvent.LivingTickEvent event) {
-        if (FrozenProperties.isFrozen(event.getEntity())) {
-            FrozenProperties.tickFrozenEntity(event.getEntity());
-
-            if (!(event.getEntity() instanceof Player && ((Player) event.getEntity()).isCreative())) {
-                event.getEntity().setDeltaMovement(event.getEntity().getDeltaMovement().multiply(0.25F, 1, 0.25F));
-                if (!(event.getEntity() instanceof EnderDragon) && !event.getEntity().isOnGround()) {
-                    event.getEntity().setDeltaMovement(event.getEntity().getDeltaMovement().add(0, -0.2, 0));
-                }
-
-            }
-        }
-
         if (event.getEntity() instanceof Player || event.getEntity() instanceof AbstractVillager || event.getEntity() instanceof IHearsSiren) {
             SirenProperties.tickCharmedEntity(event.getEntity());
         }
@@ -323,45 +280,8 @@ public class ServerEvents {
     public static void onLeftClick(final Player playerEntity, final ItemStack stack) {
     }
 
-    @SubscribeEvent
-    public void onPlayerRightClick(PlayerInteractEvent.RightClickBlock event) {
-        if (event.getEntity() != null && (event.getLevel().getBlockState(event.getPos()).getBlock() instanceof AbstractChestBlock) && !event.getEntity().isCreative()) {
-            float dist = IafConfig.dragonGoldSearchLength;
-            final List<Entity> list = event.getLevel().getEntities(event.getEntity(), event.getEntity().getBoundingBox().inflate(dist, dist, dist));
-            if (!list.isEmpty()) {
-                for (final Entity entity : list) {
-                    if (entity instanceof EntityDragonBase dragon) {
-                        if (!dragon.isTame() && !dragon.isModelDead() && !dragon.isOwnedBy(event.getEntity())) {
-                            dragon.setInSittingPose(false);
-                            dragon.setOrderedToSit(false);
-                            dragon.setTarget(event.getEntity());
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    @SubscribeEvent
-    public void onBreakBlock(BlockEvent.BreakEvent event) {
-        if (event.getPlayer() != null && (event.getState().getBlock() instanceof AbstractChestBlock || event.getState().getBlock() == IafBlockRegistry.GOLD_PILE.get() || event.getState().getBlock() == IafBlockRegistry.SILVER_PILE.get() || event.getState().getBlock() == IafBlockRegistry.COPPER_PILE.get())) {
-            final float dist = IafConfig.dragonGoldSearchLength;
-            List<Entity> list = event.getLevel().getEntities(event.getPlayer(), event.getPlayer().getBoundingBox().inflate(dist, dist, dist));
-            if (list.isEmpty()) return;
-
-            for (Entity entity : list) {
-                if (entity instanceof EntityDragonBase dragon) {
-                    if (!dragon.isTame() && !dragon.isModelDead() && !dragon.isOwnedBy(event.getPlayer()) && !event.getPlayer().isCreative()) {
-                        dragon.setInSittingPose(false);
-                        dragon.setOrderedToSit(false);
-                        dragon.setTarget(event.getPlayer());
-                    }
-                }
-            }
-        }
-    }
-
     //@SubscribeEvent // FIXME :: Unused
+    /*
     public static void onChestGenerated(LootTableLoadEvent event) {
         final ResourceLocation eventName = event.getName();
         final boolean condition1 = eventName.equals(BuiltInLootTables.SIMPLE_DUNGEON)
@@ -371,6 +291,7 @@ public class ServerEvents {
             || eventName.equals(BuiltInLootTables.STRONGHOLD_CORRIDOR)
             || eventName.equals(BuiltInLootTables.STRONGHOLD_CROSSING);
     }
+    */
 
     @SubscribeEvent
     public void onPlayerLeaveEvent(PlayerEvent.PlayerLoggedOutEvent event) {
@@ -386,29 +307,10 @@ public class ServerEvents {
         if (event.getTarget() instanceof LivingEntity target) {
             // Make sure that when a player starts tracking an entity that has additional data
             // it gets relayed from the server to the client
-            if (FrozenProperties.isFrozen(target))
-                FrozenProperties.updateData(target);
             if (MiscProperties.getLoveTicks(target) > 0)
                 MiscProperties.updateData(target);
             if (SirenProperties.isCharmed(target))
                 SirenProperties.updateData(target);
-        }
-    }
-
-    @SubscribeEvent
-    public void onEntityJoinWorld(final EntityJoinLevelEvent event) {
-        // Note: Avoid world (chunk) interaction with not-fully-loaded chunks
-        if (event.getEntity() instanceof Mob mob) {
-            try {
-                if (event.getEntity() != null && isVillager(event.getEntity()) && event.getEntity() != null && IafConfig.villagersFearDragons) {
-                    mob.goalSelector.addGoal(1, new VillagerAIFearUntamed((PathfinderMob) mob, LivingEntity.class, 8.0F, 0.8D, 0.8D, VILLAGER_FEAR));
-                }
-                if (event.getEntity() != null && isLivestock(event.getEntity()) && event.getEntity() != null && IafConfig.animalsFearDragons) {
-                    mob.goalSelector.addGoal(1, new VillagerAIFearUntamed((PathfinderMob) mob, LivingEntity.class, 30, 1.0D, 0.5D, entity -> entity instanceof IAnimalFear iAnimalFear && iAnimalFear.shouldAnimalsFear(mob)));
-                }
-            } catch (Exception e) {
-                IceAndFire.LOGGER.warn("Tried to add unique behaviors to vanilla mobs and encountered an error");
-            }
         }
     }
 
